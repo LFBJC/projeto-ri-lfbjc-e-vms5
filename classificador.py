@@ -2,6 +2,7 @@ import requests
 from selectolax.parser import HTMLParser
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
+import re
 
 def get_text(soup):
     #kill all script and style elements
@@ -18,9 +19,21 @@ def get_text(soup):
     text = '\n'.join(chunk for chunk in chunks if chunk)
     return text
 
-url = 'https://www.zapimoveis.com.br/informacao?opcao=termouso'
+url = 'https://revista.zapimoveis.com.br/?utm_source=zapimoveis&utm_medium=link-header&utm_campaign=btn-zapemcasa'
 req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 webpage = urlopen(req).read()
+print(webpage)
 sopa = BeautifulSoup(webpage, 'html.parser')
+texto = get_text(sopa)
+#string_nova = re.sub(u'[^a-zA-Z0-9áéíóúÁÉÍÓÚâêîôÂÊÎÔãõÃÕçÇ ]', '', texto)
+texto = re.sub(r'((?<=[a-z])[A-Z]|(?<!\A)[A-Z](?=[a-z]))', r' \1', texto)
 
-print(get_text(sopa))
+print(texto)
+lista = texto.split()
+#lista = texto.split('[A-Z][^A-Z]*')
+print(lista)
+
+lista = re.findall('[A-ZÁÉÍÓÚÂÊÎÔÃÕÇ]+[a-záéíóúâêîôãõç]*|[A-ZÁÉÍÓÚÂÊÎÔÃÕÇ]*[a-záéíóúâêîôãõç]+', texto)
+
+print(lista)
+#print(listanova)

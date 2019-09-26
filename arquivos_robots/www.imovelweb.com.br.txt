@@ -1,0 +1,9 @@
+User-agent: * 
+Disallow: /develop/ 
+Disallow: /mails/ 
+Disallow: /errores/ 
+Disallow: /bloques/ 
+Disallow: /bumex/ 
+Disallow: /homeSinPublicidad.bum 
+Disallow: /cms/
+Sitemap: https://www.imovelweb.com.br/sitemaps_https.xml

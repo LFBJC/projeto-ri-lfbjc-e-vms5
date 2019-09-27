@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 """TODO
-ALGO ERRADO NAS REQUISIÇÕES (NÃO QUER NEM PRINTAR O CÓDIGO DE STATUS, Nem mesmo try except)
-TRATAR CASO DE HAVEREM OUTROS AGENTES DEPOIS D *"""
+Tratar problemas no robots (aparentemente não são apenas strings que completam a url e sim expressões regulares)"""
 ###########################################################################################################
 #  Imports
 import requests
@@ -8,45 +8,47 @@ import re
 from bs4 import BeautifulSoup
 from threading import Thread
 ############################################################################################################
-#  Função visit
-def visit(url,visited_URLs,to_be_visited,contents,forbidden):
+#  Função que pega o url puro do site
+def pure_site_url(url):
   protocol, url_wout_protocol = url.split('://')
-  pure_site_url=''
+  ans=url
   if(url_wout_protocol.find('/')!=-1):
-    pure_site_url = protocol+'://'+url_wout_protocol[0:url_wout_protocol.find('/')+1]
-  else:
-    pure_site_url = protocol+'://'+url_wout_protocol+'/'
-  URL_robots = pure_site_url + "robots.txt"
-  URL_node = url
-  visited_URLs.append(URL_node);
-  filter(lambda a: a != URL_node, to_be_visited)
-  try:
-    req_robots = requests.get(url = URL_robots)
-  except name_error:
-    print('houve um erro '+name_error)
-  print(URL_robots)
-  robots = req_robots.content.decode('utf-8')
-  print(URL_robots)
+    ans = protocol+'://'+url_wout_protocol[0:url_wout_protocol.find('/')]
+  return ans
+############################################################################################################
+#  Função que identifica as áreas cujo acesso não é permitido
+def identify_forbidden_areas(url):
+  pure = pure_site_url(url)
+  _, file_name = pure.split('://')
+  robots=open('arquivos_robots/'+file_name+'.txt','r').read()
   matchRobots = re.search('User-agent: \*.*',robots)
-  if(matchRobots == None):
-    print('o site ' + URL_robots + ' deu erro!!!!!!!!!!!!!')
-    return (visited_URLs,to_be_visited,contents,forbidden)
-  locally_forbidden = [s[re.search('Disallow: ',s).end():] for s in re.findall('Disallow: .*',robots[matchRobots.start():])]
-  locally_forbidden = map(lambda s: pure_site_url[:-1]+s, locally_forbidden)
-  forbidden.extend(locally_forbidden)
-  node_content = requests.get(url = URL_node).content
-  f = open('sites baixados/' + URL_node + '.html','w+')
+  region_of_interest_for_the_agent = robots[matchRobots.start():]
+  other_agents = re.search('User-agent: [^\*]',region_of_interest_for_the_agent)
+  if(other_agents):
+    region_of_interest_for_the_agent = region_of_interest_for_the_agent[:other_agents.start()]
+  forbidden = [s[re.search('Disallow: ',s).end():] for s in re.findall('Disallow: .*',region_of_interest_for_the_agent)]
+  forbidden = map(lambda s: pure[:-1]+s, forbidden)
+  return forbidden
+############################################################################################################
+#  Função visit
+def visit(url,visited_URLs,to_be_visited,contents):
+  visited_URLs.append(url);
+  filter(lambda a: a != url, to_be_visited)
+  node_content = requests.get(url = url).content
+  _, url_wout_protocol = url.split('://')
+  f = open('sites_baixados/' + url_wout_protocol.replace('/',' ') + '.html','w+')
   contents.append(node_content)
-  return (visited_URLs,to_be_visited,contents,forbidden)
+  return (visited_URLs,to_be_visited,contents)
 ############################################################################################################
 #  Função que acha a vizinhança
-def find_neibourhood(url,to_be_visited,contents,forbidden):
+def find_neibourhood(url,visited_URLs,to_be_visited,contents,forbidden):
   print('encontrando vizinhança de '+ url)
+  on_this_site = pure_site_url(url)
   soup = BeautifulSoup(contents[-1])
   for anchor in soup.findAll('a'):
     if('href' in anchor.attrs): #checa se realmente é um link pq algumas ancoras estao sem links ou chamam scripts
       href = anchor.attrs['href']
-      if((href[:href.find(':')]=='http') or (href[:href.find(':')]=='https')):
+      if(re.search(on_this_site,href)):
          to_be_visited.append(href)
     filter(lambda l: all(l!=href for href in visited_URLs), to_be_visited);#retira endereços visitados
     filter(lambda href: all(href!=s for s in forbidden),to_be_visited);#retira endereços proibidos
@@ -54,21 +56,21 @@ def find_neibourhood(url,to_be_visited,contents,forbidden):
 ############################################################################################################
 #  Função de entrada do baseline
 def baseline(url,visited_URLs,to_be_visited,contents,forbidden):
-  visited_URLs,to_be_visited,contents,forbidden = visit(url,visited_URLs,to_be_visited,contents,forbidden);
-  to_be_visited,contents,forbidden = find_neibourhood(url,to_be_visited,contents,forbidden)
+  visited_URLs,to_be_visited,contents= visit(url,visited_URLs,to_be_visited,contents);
+  to_be_visited,contents,forbidden = find_neibourhood(url,visited_URLs,to_be_visited,contents,forbidden)
   for ref in to_be_visited:
-    visited_URLs,to_be_visited,contents,forbidden = visit(ref,visited_URLs,to_be_visited,contents,forbidden);
-    to_be_visited,contents,forbidden = find_neibourhood(ref,to_be_visited,contents,forbidden)
+    visited_URLs,to_be_visited,contents = visit(ref,visited_URLs,to_be_visited,contents);
+    to_be_visited,contents,forbidden = find_neibourhood(ref,visited_URLs,to_be_visited,contents,forbidden)
     print(to_be_visited)
     time.sleep(10)
 ############################################################################################################
-#  Definição das threads
+#  Definição do funcionamento das threads
 class Th(Thread):
   def __init__ (self, url):
                       Thread.__init__(self)
                       self.url = url
   def run(self):
-    baseline(url=self.url,visited_URLs=[],to_be_visited = [],contents = [],forbidden = [])
+    baseline(url=self.url,visited_URLs=[],to_be_visited = [],contents = [],forbidden = identify_forbidden_areas(url))
 ############################################################################################################
 #  Parte principal do programa
 URLs = ["https://pe.olx.com.br/imoveis","http://www.expoimovel.com/recife/", "https://www.vivareal.com.br/",

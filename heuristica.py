@@ -17,6 +17,20 @@ def pure_site_url(url):
     ans = protocol+'://'+url_wout_protocol[0:url_wout_protocol.find('/')]
   return ans
 ############################################################################################################
+# Checa se qualquer string contém uma das substrings
+def any_of_those_substrings(str_list,sub_str_list):
+    resp = False
+    for str in str_list:
+       resp=resp or any(str.find(s)!=-1 for s in sub_str_list)
+    return resp
+############################################################################################################
+#  Heuristica
+def heuristica(url,anchor_contents):
+	str_list=[url]
+	if(anchor_contents):
+		str_list.extend([str(c) for c in anchor_contents])
+	return any_of_those_substrings(str_list ,['imov','imob','casa','apartamento','quartos','suíte'])
+############################################################################################################
 #  Função que identifica as áreas cujo acesso não é permitido
 def identify_forbidden_areas(url):
   pure = pure_site_url(url)
@@ -37,7 +51,7 @@ def visit(url,visited_URLs,to_be_visited,contents):
   filter(lambda a: a != url, to_be_visited)
   node_content = requests.get(url = url).content
   _, url_wout_protocol = url.split('://')
-  f = open('sites_baixados/' + url_wout_protocol.replace('/',' ') + '.html','w+')
+  f = open('sites_com_heuristica/' + url_wout_protocol.replace('/',' ') + '.html','w+')
   contents.append(node_content)
   return (visited_URLs,to_be_visited,contents)
 ############################################################################################################
@@ -49,7 +63,7 @@ def find_neibourhood(url,visited_URLs,to_be_visited,contents,forbidden):
   for anchor in soup.findAll('a'):
     if('href' in anchor.attrs): #checa se realmente é um link pq algumas ancoras estao sem links ou chamam scripts
       href = anchor.attrs['href']
-      if(re.search(on_this_site,href)):
+      if(re.search(on_this_site,href) and heuristica(href,anchor.contents)):
          to_be_visited.append(href)
     filter(lambda l: all(l!=href for href in visited_URLs), to_be_visited);#retira endereços visitados
     filter(lambda href: all(href!=s for s in forbidden),to_be_visited);#retira endereços proibidos

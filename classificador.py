@@ -109,7 +109,7 @@ print(len(X_new[13]))
 print(len(X_new[22]))
 
 #usando o metodo para faer uma unica divisao dos dados
-X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size = 0.25, random_state = 10)
+X_train, X_test, Y_train, Y_test = train_test_split(X_new, y, test_size = 0.25, random_state = 10)
 
 #criando arvore de decisao
 clf = tree.DecisionTreeClassifier(criterion='entropy', random_state=1)

@@ -57,13 +57,13 @@ def find_neibourhood(url,visited_URLs,to_be_visited,contents,forbidden):
          to_be_visited.append(href)
   to_be_visited = filter(lambda l: all(l!=v for v in visited_URLs), to_be_visited);#retira endereços visitados
   to_be_visited = filter(lambda href: all(href!=s for s in forbidden),to_be_visited);#retira endereços proibidos
-  #print('sites já visitados: ',visited_URLs)
-  #print('sites na fronteira: ',to_be_visited)
+  print('sites já visitados: ',visited_URLs)
+  print('sites na fronteira: ',to_be_visited)
   return (to_be_visited,contents,forbidden)
 ############################################################################################################
 #  Função de entrada do baseline
 def baseline(url,visited_URLs,to_be_visited,contents,forbidden):
-  print('áreas proibidas: ', forbidden)
+  #print('áreas proibidas: ', forbidden)
   visited_URLs,to_be_visited,contents= visit(url,visited_URLs,to_be_visited,contents);
   to_be_visited,contents,forbidden = find_neibourhood(url,visited_URLs,to_be_visited,contents,forbidden)
   for ref in to_be_visited:

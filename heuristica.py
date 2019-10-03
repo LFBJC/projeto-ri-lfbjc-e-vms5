@@ -10,6 +10,12 @@ import re
 from bs4 import BeautifulSoup
 from threading import Thread
 ############################################################################################################
+#Setando codificação utf-8
+import sys  
+
+reload(sys)  
+sys.setdefaultencoding('utf8')
+############################################################################################################
 #  Função que pega o url puro do site
 def pure_site_url(url):
   protocol, url_wout_protocol = url.split('://')
@@ -23,6 +29,8 @@ def any_of_those_substrings(str_list,sub_str_list):
     resp = False
     for stri in str_list:
        resp=resp or any(stri.find(s)!=-1 for s in sub_str_list)
+    if(resp == True):
+    	print(str_list[0] + " satisfaz a heuristica")
     return resp
 ############################################################################################################
 #  Heuristica
@@ -30,7 +38,7 @@ def heuristica(url,anchor_contents):
 	str_list=[url]
 	if(anchor_contents):
 		str_list.extend(anchor_contents)
-	return any_of_those_substrings(str_list ,['imov','imob','casa','apartamento','quartos','suíte'])
+	return any_of_those_substrings(str_list ,['imov','imob','apartamento','quartos','suíte'])
 ############################################################################################################
 #  Função que identifica as áreas cujo acesso não é permitido
 def identify_forbidden_areas(url):
@@ -56,7 +64,7 @@ def visit(url,visited_URLs,to_be_visited,contents):
     node_content = requests.get(url = url, verify = False).content
   else:
     node_content = requests.get(url = url).content
-  f = open('sites_baixados/' + url_wout_protocol.replace('/',' ') + '.html','w+')
+  f = open('sites_com_heuristica/' + url_wout_protocol.replace('/',' ') + '.html','w+')
   contents.append(node_content)
   return (visited_URLs,to_be_visited,contents)
 ############################################################################################################

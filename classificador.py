@@ -1,3 +1,5 @@
+from time import time
+
 import matplotlib
 import nltk
 import numpy
@@ -113,7 +115,10 @@ X_train, X_test, Y_train, Y_test = train_test_split(X_new, y, test_size = 0.25, 
 
 #criando e treinando naive bayes
 gnb = GaussianNB()
+t_gnb = time()
 gnb = gnb.fit(X_train, Y_train)
+tf_gnb= round(time()-t_gnb, 3)
+print("Training time Naive bayes:", tf_gnb, "s")
 #acuracia treino e test
 t1 = round(gnb.score(X_train, Y_train), 3)
 te1 = round(gnb.score(X_test, Y_test), 3)
@@ -121,15 +126,18 @@ print("Acuracia de treinamento NAIVE BAYES: %0.3f" % t1)
 print("Acuracia de teste NAIVE BAYES: %0.3f" % te1)
 #precision NAIVE BAYES
 y_pred1 = gnb.predict(X_test)
-micro_precision1 = precision_score(Y_test, y_pred1, average='weighted')
+micro_precision1 = precision_score(Y_test, y_pred1, average='macro')
 print("Precision NAIVE BAYES: %0.3f" % micro_precision1)
 #recall NAIVE BAYES
-recall1 = recall_score(Y_test, y_pred1, average='weighted')
+recall1 = recall_score(Y_test, y_pred1, average='macro')
 print("Recall NAIVE BAYES: %0.3f" % recall1)
 
 #criando e treinando arvore de decisao
 tree = tree.DecisionTreeClassifier(criterion='entropy', random_state=1)
+t_tree = time()
 tree = tree.fit(X_train, Y_train)
+tf_tree = round(time()-t_tree, 3)
+print("Training time Arvore de Decisao:", tf_tree, "s")
 t2 = round(tree.score(X_train, Y_train), 3)
 te2 = round(tree.score(X_test, Y_test), 3)
 #acuracia treino e test
@@ -137,15 +145,18 @@ print("Acuracia de treinamento ARVORE DE DECISAO: %0.3f" % t2)
 print("Acuracia de teste ARVORE DE DECISAO: %0.3f" % te2)
 #precision arvore de decisao
 y_pred2 = tree.predict(X_test)
-micro_precision2 = precision_score(Y_test, y_pred2, average='weighted')
+micro_precision2 = precision_score(Y_test, y_pred2, average='macro')
 print("Precision ARVORE DE DECISAO: %0.3f" % micro_precision2)
 #recall ARVORE DE DECISAO
-recall2 = recall_score(Y_test, y_pred2, average='weighted')
+recall2 = recall_score(Y_test, y_pred2, average='macro')
 print("Recall ARVORE DE DECISAO: %0.3f" % recall2)
 
 #criando e treinando logistic regression
 lr = LogisticRegression(random_state=1)
+t_lr = time()
 lr = lr.fit(X_train, Y_train)
+tf_lr = round(time()-t_lr, 3)
+print("Training time LOGISTIC REGRESSION:", tf_lr, "s")
 #acuracia treino e test
 t3 = round(lr.score(X_train, Y_train), 3)
 te3 = round(lr.score(X_test, Y_test), 3)
@@ -153,15 +164,18 @@ print("Acuracia de treinamento LOGISTIC REGRESSION: %0.3f" % t3)
 print("Acuracia de teste LOGISTIC REGRESSION: %0.3f" % te3)
 #precision LOGISTIC REGRESSION
 y_pred3 = lr.predict(X_test)
-micro_precision3 = precision_score(Y_test, y_pred3, average='weighted')
+micro_precision3 = precision_score(Y_test, y_pred3, average='macro')
 print("Precision LOGISTIC REGRESSION: %0.3f" % micro_precision3)
 #recall LOGISTIC REGRESSION
-recall3 = recall_score(Y_test, y_pred3, average='weighted')
+recall3 = recall_score(Y_test, y_pred3, average='macro')
 print("Recall LOGISTIC REGRESSION: %0.3f" % recall3)
 
 #criando e treinando svm
 svm = SVC(gamma='auto', random_state=1)
+t_svm = time()
 svm.fit(X_train, Y_train)
+tf_svm = round(time()-t_svm, 3)
+print("Training time SVM:", tf_svm, "s")
 #acuracia treino e test
 t4 = round(svm.score(X_train, Y_train), 3)
 te4 = round(svm.score(X_test, Y_test), 3)
@@ -169,15 +183,18 @@ print("Acuracia de treinamento SVM: %0.3f" % t4)
 print("Acuracia de teste SVM: %0.3f" % te4)
 #precision SVM
 y_pred4 = svm.predict(X_test)
-micro_precision4 = precision_score(Y_test, y_pred4, average='weighted')
+micro_precision4 = precision_score(Y_test, y_pred4, average='macro')
 print("Precision SVM: %0.3f" % micro_precision4)
 #recall SVM
-recall4 = recall_score(Y_test, y_pred4, average='weighted')
+recall4 = recall_score(Y_test, y_pred4, average='macro')
 print("Recall SVM: %0.3f" % recall4)
 
 #criando e treinando mlp
 mlp = MLPClassifier(hidden_layer_sizes=(15, 15, 15), max_iter=450, random_state=1)
+t_mlp = time()
 mlp = mlp.fit(X_train, Y_train)
+tf_mlp = round(time()-t_mlp, 3)
+print("Training time MLP:", tf_mlp, "s")
 #acuracia treino e test
 t5 = round(mlp.score(X_train, Y_train), 3)
 te5 = round(mlp.score(X_test, Y_test), 3)
@@ -185,14 +202,19 @@ print("Acuracia de treinamento MLP: %0.3f" % t5)
 print("Acuracia de teste MLP: %0.3f" % te5)
 #precision MLP
 y_pred5 = mlp.predict(X_test)
-micro_precision5 = precision_score(Y_test, y_pred5, average='weighted')
+micro_precision5 = precision_score(Y_test, y_pred5, average='macro')
 print("Precision MLP: %0.3f" % micro_precision5)
 #recall NAIVE BAYES
-recall5 = recall_score(Y_test, y_pred5, average='weighted')
+recall5 = recall_score(Y_test, y_pred5, average='macro')
 print("Recall MLP: %0.3f" % recall5)
+
+training_time = [tf_gnb, tf_tree, tf_lr, tf_svm, tf_mlp]
 
 recall_list = [recall1, recall2, recall3, recall4, recall5]
 precision_list = [micro_precision1, micro_precision2, micro_precision3, micro_precision4, micro_precision5]
+
+
+
 
 tituloArray = ["NAIVE BAYES", "TREE DECISION", "LOGISTIC", "SVM", "MLP"]
 desempenhoTreinoArray = [t1, t2, t3, t4, t5]
@@ -212,4 +234,8 @@ matplotlib.pyplot.show()
 
 matplotlib.pyplot.plot(tituloArray, recall_list)
 matplotlib.pyplot.title('Recall teste')
+matplotlib.pyplot.show()
+
+matplotlib.pyplot.plot(tituloArray, training_time)
+matplotlib.pyplot.title('Training time')
 matplotlib.pyplot.show()

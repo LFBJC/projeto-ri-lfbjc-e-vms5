@@ -1,0 +1,208 @@
+User-agent: *
+Disallow: /util/
+Disallow: /contacto/
+Disallow: /solicitacao-credito-hipotecario/
+Disallow: /notificacoes-novos-imoveis/
+Disallow: /inmueble/
+Disallow: /preview/
+Disallow: /parceiros/
+Disallow: /empresa/na-midia/
+Disallow: /venda/puerto-rico/
+Disallow: /aluguel/puerto-rico/
+Disallow: /projects/
+Disallow: /ajax/pageserver/
+Disallow: /feed/
+Disallow: /imoveis-em-miami/
+Disallow: /buy/
+Disallow: /rent/
+Disallow: /ajuda/
+Disallow: /temporada/
+Disallow: /*apartamento_comercial/*
+Disallow: /*flat_comercial/*
+Disallow: /*casa_comercial/*
+Disallow: /*edificio-resiencial_comercial/*
+Disallow: /*edificio-residencial_comercial/*
+Disallow: /*sobrado_comercial/*
+Disallow: /*quarto_comercial/*
+Disallow: /*chacara_comercial/*
+Disallow: /*escritorio_comercial/*
+Disallow: /*escritorio_residencial/*
+Disallow: /*condominio_comercial/*
+Disallow: /*casa-reposeida_residencial/*
+Disallow: /*imovel-comercial_residencial/*
+Disallow: /*_para-ferias/*
+Disallow: /*loja_residencial/*
+Disallow: /*fazenda_para-ferias/*
+Disallow: /*granja_residencial/*
+Disallow: /*consultorio_residencial/*
+Disallow: /*consultorio_comercial/*
+Disallow: /*triplex_residencial/*
+Disallow: /*loft_residencial/*
+Disallow: /*casa-da-vila_residencial/*
+Disallow: /*casa-de-vila_residencial/*
+Disallow: /*studio_comercial/*
+Disallow: /*studio_residencial/*
+Disallow: /*industria_comercial/*
+Disallow: /*duplex_residencial/*
+Disallow: /*hara_residencial/*
+Disallow: /*hotel_comercial/*
+Disallow: /*lote-terreno_comercial/*
+Disallow: /*pousada_comercial/*
+Disallow: /*predio_comercial/*
+Disallow: /*sitio_residencial/*
+Disallow: /*placeId=*
+Disallow: /*placeLabel=*
+Disallow: /*listingUse=*
+Disallow: /*listingType=*
+Disallow: /*listingCategory=*
+Disallow: /*serverRendered=*
+Disallow: /*vr-source=*
+Disallow: /*com-aquecimento/*
+Disallow: /*com-ar-condicionado/*
+Disallow: /*com-cinema/*
+Disallow: /*com-circuito-de-seguranca/*
+Disallow: /*com-conexao-a-internet/*
+Disallow: /*com-deposito/*
+Disallow: /*com-elevador/*
+Disallow: /*com-escritorio/*
+Disallow: /*com-espaco-verde-parque/*
+Disallow: /*com-gerador-eletrico/*
+Disallow: /*com-gramado/*
+Disallow: /*com-interfone/*
+Disallow: /*com-massagem/*
+Disallow: /*com-pista-de-cooper/*
+Disallow: /*com-recepcao/*
+Disallow: /*com-salao-de-jogos/*
+Disallow: /*com-seguranca-24h/*
+Disallow: /*com-sistema-de-alarme/*
+Disallow: /*com-tv-a-cabo/*
+Disallow: /*com-vigia/*
+Disallow: /*__vt=*
+Disallow: /apps_download/
+Disallow: /favorites*
+Disallow: /user/*
+Disallow: /novo-minha-conta/*
+Disallow: /*preview=*
+
+User-agent: sitebot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: CazoodleBot
+Disallow: /
+
+User-agent: Cazoodlebot
+Disallow: /
+
+User-agent: sistrix
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: UbiCrawler
+Disallow: /
+
+User-agent: DOC
+Disallow: /
+
+User-agent: Zao
+Disallow: /
+
+User-agent: sitecheck.internetseer.com
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Fetch
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: linko
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Microsoft.URL.Control
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+User-agent: larbin
+Disallow: /
+
+User-agent: libwww
+Disallow: /
+
+User-agent: ZyBORG
+Disallow: /
+
+User-agent: Download Ninja
+Disallow: /
+
+User-agent: wget
+Disallow: /
+
+User-agent: grub-client
+Disallow: /
+
+User-agent: k2spider
+Disallow: /
+
+User-agent: NPBot
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: psbot
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+User-agent: Speedy
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: Bloglines/3.1
+Disallow: /
+
+User-agent: Jyxobot/1
+Disallow: /
+
+User-agent: cityreview
+Disallow: /
+
+User-agent: WijuBot
+Disallow: /

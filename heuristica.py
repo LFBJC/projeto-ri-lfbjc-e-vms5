@@ -65,6 +65,8 @@ def visit(url,visited_URLs,to_be_visited,contents):
   else:
     node_content = requests.get(url = url).content
   f = open('sites_com_heuristica/' + url_wout_protocol.replace('/',' ') + '.html','w+')
+  f.write(node_content)
+  f.close()
   contents.append(node_content)
   return (visited_URLs,to_be_visited,contents)
 ############################################################################################################

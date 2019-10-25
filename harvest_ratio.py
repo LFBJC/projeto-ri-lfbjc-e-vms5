@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import codecs
 import glob
 from time import time
@@ -76,12 +77,15 @@ tabela = 'Rotulos_sites.csv'
 dataset = pandas.read_csv(tabela)
 allsentences = []
 for url in dataset['Página']:
+ try:
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     webpage = urlopen(req).read()
     print('Funcionou: ', url)
     sopa = BeautifulSoup(webpage, 'html.parser')
     texto = get_text(sopa)
     allsentences.append(texto)
+ except:
+    print(url)
 print("____________________________________saiu___________________________________")
 
 #tokenizacao e remocao de stopwords

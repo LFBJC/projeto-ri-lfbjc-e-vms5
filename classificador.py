@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pickle
 from time import time
 import os
@@ -6,7 +7,10 @@ import nltk
 import numpy
 import requests
 from selectolax.parser import HTMLParser
-from urllib.request import Request, urlopen
+try: #python3
+    from urllib.request import urlopen, Request
+except: #python2
+    from urllib2 import urlopen, Request
 from bs4 import BeautifulSoup
 import re
 from nltk.tokenize import sent_tokenize, word_tokenize

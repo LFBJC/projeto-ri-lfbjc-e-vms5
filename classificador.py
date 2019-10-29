@@ -1,5 +1,6 @@
+import pickle
 from time import time
-
+import os
 import matplotlib
 import nltk
 import numpy
@@ -62,7 +63,10 @@ def word_extraction(sentence):
 #pegas as urls da tabela e transformas os htmls em strings
 tabela = 'Rotulos_sites.csv'
 dataset = pandas.read_csv(tabela)
+'''
 allsentences = []
+#arquivo = open('arq.txt', 'w', encoding='utf-8')
+
 for url in dataset['Página']:
     req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     webpage = urlopen(req).read()
@@ -70,16 +74,31 @@ for url in dataset['Página']:
     sopa = BeautifulSoup(webpage, 'html.parser')
     texto = get_text(sopa)
     allsentences.append(texto)
+    #arquivo.write(texto)
+    #with open('utf8.txt', 'w', encoding='utf-8') as file:
+        #file.write(texto + '\n')
 print("____________________________________saiu___________________________________")
 
-#tokenizacao e remocao de stopwords
-vocab = tokenize(allsentences)
-print("Word List for Document \n{0} \n".format(vocab))
+with open('listfile.txt', 'w') as filehandle:
+    for listitem in allsentences:
+        filehandle.write('%s\n' % listitem.encode('utf-8'))
+'''
 
-#vectorizer = CountVectorizer()
-#bag_of_words = vectorizer.fit(allsentences)
-#bag_of_words = vectorizer.transform(allsentences)
-#print(bag_of_words)
+#leitura do arquivo
+allsentences = []
+with open('listfile.txt', 'r') as filedandle:
+    for line in filedandle:
+        currentPlace = line[:-1]
+        allsentences.append(currentPlace)
+
+#tokenizacao e remocao de stopwords
+#vocab = tokenize(allsentences)
+#print("Word List for Document \n{0} \n".format(vocab))
+
+vectorizer = CountVectorizer(max_features=10000, stop_words='english', max_df=0.95, min_df=2)
+Z = vectorizer.fit_transform(allsentences)
+vocab = vectorizer.get_feature_names()
+print(vocab)
 
 
 bag_of_words = []
@@ -103,11 +122,11 @@ y=y.astype('int')
 X = bag_of_words
 #X = X.astype('int')
 #print(X)
-print("NÚMERO DE FEATURES PRÉ SELEÇÃO DE FEATURES:", len(X[0]))
+#print("NÚMERO DE FEATURES PRÉ SELEÇÃO DE FEATURES:", len(X[0]))
 
 
 X_new = SelectKBest(chi2, k=15).fit_transform(X, y)
-print("NÚMERO DE FEATURES PÓS SELEÇÃO DE FEATURES:", len(X_new[0]))
+#print("NÚMERO DE FEATURES PÓS SELEÇÃO DE FEATURES:", len(X_new[0]))
 
 
 #usando o metodo para faer uma unica divisao dos dados
@@ -239,3 +258,4 @@ matplotlib.pyplot.show()
 matplotlib.pyplot.plot(tituloArray, training_time)
 matplotlib.pyplot.title('Training time')
 matplotlib.pyplot.show()
+

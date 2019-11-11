@@ -1,0 +1,875 @@
+
+  function mascara_data(campo,data){ 
+      var mydata = ''; 
+      mydata = mydata + data; 
+      if (mydata.length == 2){ 
+          mydata = mydata + '/'; 
+          campo.value = mydata; 
+      } 
+      if (mydata.length == 5){ 
+          mydata = mydata + '/'; 
+          campo.value = mydata; 
+      } 
+      if (mydata.length == 10){ 
+          verifica_data(campo); 
+      } 
+  } 
+   
+  function verifica_data (campo) { 
+
+    dia = (campo.value.substring(0,2)); 
+    mes = (campo.value.substring(3,5)); 
+    ano = (campo.value.substring(6,10)); 
+
+    situacao = "";
+    
+    if (!VerificaNumero(dia) || !VerificaNumero(mes) || !VerificaNumero(ano)) {
+        situacao = "falsa"; 
+    }
+    
+    // verifica o dia valido para cada mes 
+    if ((dia < 01)||(dia < 01 || dia > 30) && (  mes == 04 || mes == 06 || mes == 09 || mes == 11 ) || dia > 31) { 
+        situacao = "falsa";
+    } 
+
+    // verifica se o mes e valido 
+    if (mes < 01 || mes > 12 ) { 
+        situacao = "falsa"; 
+    } 
+
+    // verifica se e ano bissexto
+    if (mes == 2 && ( dia < 01 || dia > 29 || ( dia > 28 && (parseInt(ano / 4) != ano / 4)))) { 
+        situacao = "falsa"; 
+    } 
+
+    if (campo.value == "") { 
+        situacao = "falsa"; 
+    } 
+
+    if (situacao == "falsa") { 
+        alert("Data inv·lida!"); 
+        campo.focus(); 
+    } 
+  } 
+
+  function mascara_hora(hora){ 
+      var myhora = ''; 
+      myhora = myhora + hora; 
+      if (myhora.length == 2){ 
+          myhora = myhora + ':'; 
+          document.forms[0].hora.value = myhora; 
+      } 
+      if (myhora.length == 5){ 
+          verifica_hora(); 
+      } 
+  } 
+   
+  function verifica_hora(){ 
+      hrs = (document.forms[0].hora.value.substring(0,2)); 
+      min = (document.forms[0].hora.value.substring(3,5)); 
+       
+      alert('hrs '+ hrs);
+      alert('min '+ min); 
+       
+      situacao = ""; 
+      // verifica data e hora 
+      if ((hrs < 00 ) || (hrs > 23) || ( min < 00) ||( min > 59)){ 
+          situacao = "falsa"; 
+      } 
+
+      if (document.forms[0].hora.value == "") {
+          situacao = "falsa"; 
+      } 
+
+      if (situacao == "falsa") { 
+          alert("Hora inv·lida!"); 
+          document.forms[0].hora.focus(); 
+      } 
+  } 
+
+function fnValidaCPF(strCpf)
+{
+
+var varFirstChr = strCpf.charAt(0);
+var vaCharCPF = false;
+for(var i=0;i<=10;i++){
+var c = strCpf.charAt(i);
+if(!(c>='0')&&(c<='9')){
+return false;
+}
+if(c!=varFirstChr)
+vaCharCPF = true;
+}
+if(!vaCharCPF){
+return false;
+}
+soma=0;
+for(i=0;i<9; i++){
+soma += (10-i) * ( eval(strCpf.charAt(i)) );
+}
+digito_verificador = 11-(soma % 11);
+if((soma % 11) < 2)
+digito_verificador = 0;
+if (eval(strCpf.charAt(9)) != digito_verificador){
+return false;
+}
+soma=0;
+for(i=0;i<9; i++){
+soma += (11-i)*(eval(strCpf.charAt(i)));
+}
+soma += 2*(eval(strCpf.charAt(9)));
+digito_verificador = 11-(soma % 11);
+if((soma % 11)<2)
+digito_verificador = 0;
+if(eval(strCpf.charAt(10)) != digito_verificador){
+return false;
+}
+return true;
+}
+
+
+// ARQUIVO COM FU«’ES JS DE UTILIDADES GERAL
+
+//Bloco de cÛdigo para esconder e mostra form
+var Ver4 = parseInt(navigator.appVersion) >= 4
+var IE4 = ((navigator.userAgent.indexOf("MSIE") != -1) && Ver4)
+var block = "formulario";
+function esconde() {	document.form.style.visibility = "hidden" }
+function mostra() { document.form.style.visibility = "visible" }
+//Fim Bloco de cÛdigo para esconder e mostra form
+
+
+//-----------------------------------------------------------------------------
+//- Monta uma message com text parametrizado
+//
+//- par‚metro message  A mensagem
+//- par‚metro embeddedText  O conte˙do da message
+//
+//- Retorna A mensagem montada
+//-----------------------------------------------------------------------------
+function buildMessage(message,embeddedText) {
+    var position = message.indexOf("#");
+    if (position == -1)
+        return (message)
+    if (position == 0)
+        return (embeddedText + message)
+    else
+        return (message.substring(0,position)
+        + embeddedText
+        + message.substring(position+1));
+}
+
+
+// INICIO: MÈtodos para validaÁ„o de email
+
+var messageEmailDomain = 'Os caracteres v·lidos s„o: a - z, A - Z, 0 - 9, -_@.';
+var msg_validation_invalid_format = 'O campo # est· inv·lido.';
+
+
+function validateMandatoryEmail(field, fieldName) {
+
+    if (field.value.length > 0){
+    return isEmail(field, fieldName);
+    } else {
+    var completeMessage = buildMessage(msg_validation_invalid_format,fieldName)
+    alert(completeMessage);
+    field.focus();
+    field.select();
+    return false;
+    }
+}
+
+function validateEmail(field, fieldName) {
+
+    return isEmail(field, fieldName);
+}
+
+//------------------------------------------------------------------------------
+//- Verifica se o input text que contÈm e-mail È v·lido
+//
+//- par‚metro field   O campo que contÈm o e-mail
+//- par‚metro message  A mensagem referente ao e-mail inv·lido
+//
+//- Retorna <true>  Se a o e-mail informado for v·lido e
+//-     <false> caso contr·rio
+//------------------------------------------------------------------------------
+function isEmail (field, fieldName) {
+    var s = field.value;
+    var validFormat = true;
+
+    if (s.length > 0) {
+
+        // Devem existir >= 1 caracteres antes da @.
+        var i = 1;
+        var sLength = s.length;
+
+        // procurando a @.
+        while ((i < sLength) && (s.charAt(i) != "@")) {
+		  if ((s.charAt(i) == " ") && (i>1 || i<sLength)) {
+            validFormat = false;		  	
+		  }       	
+          i++;
+        }
+
+        if ((i >= sLength) || (s.charAt(i) != "@"))
+            validFormat = false;
+        else
+            i += 2;
+
+        // procurando pelo .
+        while ((i < sLength) && (s.charAt(i) != ".")) {
+		  if ((s.charAt(i) == " ") && (i>1 || i<sLength)) {
+            validFormat = false;		  	
+		  }       	
+          i++;
+        }
+
+        // Deve existir pelo menos um character antes do "."
+        if ((i >= sLength - 1) || (s.charAt(i) != "."))
+            validFormat = false;
+            
+            
+    }
+
+    if (!validFormat) {
+        var completeMessage = buildMessage(msg_validation_invalid_format,fieldName)
+        alert(completeMessage);
+
+        field.focus();
+        field.select();
+    }
+
+  return validFormat;
+}
+
+//FIM: MÈtodos para validaÁ„o de email
+
+
+// Contador para objeto TextArea.
+function limita(campo){
+	var tamanho = document.form[campo].value.length;
+	var tex=document.form[campo].value;
+	if (tamanho>=1199) {
+		document.form[campo].value=tex.substring(0,1199); 
+	}
+	return true;
+}
+
+function contacampo(campo, tamtxt) {
+	document.form[tamtxt].value =  1200-document.form[campo].value.length;
+}
+
+
+function SetHelp(txt) { 
+	
+	//window.rodape.help.value=txt
+	parent.rodape.help.innerText = txt ;
+ }
+
+function main(campofoco) { 
+	var i;
+	if (campofoco == '') 
+		return false;
+	if (document.form.elements.length != 0)
+		for (i = 0; i < document.form.elements.length; i++){
+		   	if (campofoco == document.form[i].name)
+				document.form[campofoco].focus();  }
+}
+
+function Apaga(){
+	if (document.form.elements.length != 0)
+	   for (i = 0; i < document.form.elements.length; i++){
+			document.form[i].value="";  }
+}
+
+
+var da = (document.all) ? 1 : 0;
+var pr = (window.print) ? 1 : 0;
+var mac = (navigator.userAgent.indexOf("Mac") != -1); 
+
+function printPage()
+{
+  if (pr) // NS4, IE5
+    window.print()
+  else if (da && !mac) // IE4 (Windows)
+    vbPrintPage()
+  else // other browsers
+    alert("Desculpe seu browser n„o suporta esta funÁ„o. Por favor utilize a barra de trabalho para imprimir a p·gina.");
+  return false;
+}
+
+if (da && !pr && !mac) with (document) {
+  writeln('<OBJECT ID="WB" WIDTH="0" HEIGHT="0" CLASSID="clsid:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>');
+  writeln('<' + 'SCRIPT LANGUAGE="VBScript">');
+  writeln('Sub window_onunload');
+  writeln('  On Error Resume Next');
+  writeln('  Set WB = nothing');
+  writeln('End Sub');
+  writeln('Sub vbPrintPage');
+  writeln('  OLECMDID_PRINT = 6');
+  writeln('  OLECMDEXECOPT_DONTPROMPTUSER = 2');
+  writeln('  OLECMDEXECOPT_PROMPTUSER = 1');
+  writeln('  On Error Resume Next');
+  writeln('  WB.ExecWB OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER');
+  writeln('End Sub');
+  writeln('<' + '/SCRIPT>');
+}
+
+function FormataDado(campo,tammax,pos,teclapres){
+	var tecla = teclapres.keyCode;
+	vr = document.form[campo].value;
+	vr = vr.replace( "-", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( "/", "" );
+	tam = vr.length ;
+
+	if (tam < tammax && tecla != 8){ tam = vr.length + 1 ; }
+
+	if (tecla == 8 ){ tam = tam - 1 ; }
+
+	if ( tecla == 8 || tecla == 88 || tecla >= 48 && tecla <= 57 || tecla >= 96 && tecla <= 105 ){
+		if ( tam <= 2 ){
+	 		document.form[campo].value = vr ;}
+		if ( tam > pos && tam <= tammax ){
+			document.form[campo].value = vr.substr( 0, tam - pos ) + '-' + vr.substr( tam - pos, tam );}
+	}
+}
+
+function SaltaCampo (campo,prox,tammax,teclapres){
+	var tecla = teclapres.keyCode;
+	vr = document.form[campo].value;
+	if( tecla == 109 || tecla == 188 || tecla == 110 || tecla == 111 || tecla == 223 || tecla == 108 ){
+		document.form[campo].value = vr.substr( 0, vr.length - 1 ); }
+	else{
+	 	vr = vr.replace( "-", "" );
+	 	vr = vr.replace( "/", "" );
+	 	vr = vr.replace( "/", "" );
+	 	vr = vr.replace( ",", "" );
+	 	vr = vr.replace( ".", "" );
+	 	vr = vr.replace( ".", "" );
+	 	vr = vr.replace( ".", "" );
+	 	vr = vr.replace( ".", "" );
+	 	tam = vr.length;	
+
+
+		
+	 	if (tecla != 0 && tecla != 9 && tecla != 16 )
+			if ( tam == tammax )	
+				document.form[prox].focus() ;	}
+}
+
+function FormataData(Campo,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.formCadastro[Campo].value;
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( "/", "" );
+	tam = vr.length + 1;
+
+	if ( tecla != 9 && tecla != 8 ){
+		if ( tam > 2 && tam < 5 )
+			document.formCadastro[Campo].value = vr.substr( 0, tam - 2  ) + '/' + vr.substr( tam - 2, tam );
+		if ( tam >= 5 && tam <= 10 )
+			document.formCadastro[Campo].value = vr.substr( 0, 2 ) + '/' + vr.substr( 2, 2 ) + '/' + vr.substr( 4, 4 ); }
+}
+
+function FormataCampoData(Campo,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.form[Campo].value;
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( "/", "" );
+	tam = vr.length + 1;
+
+	if ( tecla != 9 && tecla != 8 ){
+		if ( tam > 2 && tam < 5 )
+			document.form[Campo].value = vr.substr( 0, tam - 2  ) + '/' + vr.substr( tam - 2, tam );
+		if ( tam >= 5 && tam <= 10 )
+			document.form[Campo].value = vr.substr( 0, 2 ) + '/' + vr.substr( 2, 2 ) + '/' + vr.substr( 4, 4 ); }
+}
+
+ function VerificaJava()
+ 	{
+	if (navigator.javaEnabled())
+		document.form.javas.value="sim"
+	}
+	
+// RelÛgio do CabeÁalho
+										
+var dayarray=new Array("Domingo","Segunda","TerÁa","Quarta","Quinta","Sexta","S·bado");
+var montharray=new Array("de Janeiro de","de Fevereiro de","de MarÁo de","de Abril de","de Maio de","de Junho de","de Julho de","de Agosto de","de Setembro de","de Outubro de","de Novembro de","de Dezembro de");
+
+function getthedate() {
+
+	var mydate=new Date();
+	var year=mydate.getYear();
+	if (year < 1000) {
+		year+=1900;
+	}
+
+	var day=mydate.getDay();
+	var month=mydate.getMonth();
+	var daym=mydate.getDate();
+	
+	if (daym<10) {
+		daym="0"+daym;
+	}
+	
+	var hours=mydate.getHours();
+	var minutes=mydate.getMinutes();
+	var seconds=mydate.getSeconds();
+	var dn="AM";
+
+	if (hours>=12) {
+		dn="PM";
+	}
+	
+	if (hours>12) {
+		hours=hours-12;
+	}
+
+	if (hours==0) {
+		hours=12;
+	}
+
+	if (minutes<=9) {
+		minutes="0"+minutes;
+	}
+	
+	if (seconds<=9) {
+		seconds="0"+seconds;
+	}
+	
+	//change font size here
+	var cdate="<font color='FFFFFF' face='Arial' size='1'><b>"+dayarray[day]+", "+daym+" "+montharray[month]+" "+year+"</b></font>";
+	
+	if (document.all) {
+		document.all.relogio.innerHTML=cdate;
+	} else if (document.getElementById) {
+		document.getElementById("relogio").innerHTML=cdate;
+	} else {
+		document.write(cdate);
+	}
+
+}
+
+if (!document.all&&!document.getElementById) {
+	getthedate()
+}
+
+function relogio() {
+	if (document.all||document.getElementById) {
+		setInterval("getthedate()",1000);
+	}
+}
+
+// FIM DO RelÛgio do CabeÁalho
+
+//ExpoImovel
+//Funcoes criadas para a validacao de uma data.
+//Testa se a data eh maior que a de hoje, se a data eh valida.
+//Caso o usuario nao preencha o dia e o mes com a quantidade de 
+//algarismos corretos, esses campos sao completados.
+
+function focusOnError( campo, msg ) {
+                        alert( msg );
+                        campo.focus();
+                        campo.select();
+                        return false;
+}
+
+function testaCampo( field, texto ) {
+            if( naoBrancos( field ) )
+                return true;
+            alert("Erro: Preencha o campo <" + texto + ">.");
+            field.focus();
+            field.select();
+            return false;
+}
+
+function validaData(data) {
+
+	if (validaDia(data.substring(0,2), data.substring(3,5)) && validaMes(data.substring(3,5)) && validaAno(data.substring(6,10))) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function validaDia( fieldDia, fieldMes ) {
+            var dia = fieldDia;
+            var mes = fieldMes;
+            var erro = false;
+            if( dia.length > 0 ) {
+                if( EhNumero( dia ) == false ) {
+		    window.alert("Erro: Dia inv·lido.");
+                    return false;
+                }
+                if((mes == 1) || (mes == 3) || (mes == 5) || (mes == 7) || (mes == 8) || (mes == 10) || (mes == 12)) {
+                    erro = ((dia < 1) || (dia > 31));
+                } else if((mes == 4) || (mes == 6) || (mes == 9) || (mes == 11) ) {
+                    erro = ((dia < 1) || (dia > 30));
+                } else if ( mes ==2) {
+                    erro = ( ( dia < 1 ) || ( dia > 29 ) );    // Fevereiro
+                }
+                if( erro ) {
+                    window.alert("Erro: Dia inexistente no mÍs.");
+                    return false;
+                } else if ( dia.length == 1) {
+                    fieldDia.value = "0" + dia;
+                    return true;
+                }
+            }
+            return true;
+}
+
+
+function validaMes( mes ) {
+            var valor = mes;
+            if( valor.length > 0 ) {
+                if( EhNumero( valor ) == false ) {
+		    window.alert("Erro: MÍs inv·lido.");
+                    return false;
+                }
+                if( valor < 1 || valor > 12 ) {
+                    window.alert("Erro: MÍs inv·lido.");
+                    return false;
+                } else if ( valor.length == 1) {
+                    valor.value = "0" + valor;
+                    return true;
+                }
+            }
+            return true;
+}
+
+function validaAno( field ) {
+            var valor = field;
+            if( valor.length > 0 ) {
+                if( EhNumero( valor ) == false ) {
+		    alert("Erro: Ano inv·lido.");
+                    return false;
+                }
+                if( valor < 1900 ) {
+                    alert("Erro: Ano inv·lido.");
+                    //alert("Erro: Ano inv·lido. O ano deve estar na forma AAAA, com 4 algarismos. ");
+                    return false;
+                }
+            }
+            return true;
+}
+
+function validaDataNaoObrigatoria( fieldDia, fieldMes, fieldAno ) {
+            if((fieldDia.value != "dd" && naoBrancos(fieldDia)) ||
+                (fieldMes.value != "mm" && naoBrancos(fieldMes)) ||
+                (fieldAno.value != "aaaa" && naoBrancos(fieldAno))
+            ) {
+                return (
+                    testaCampo(fieldDia, "dia") && testaCampo(fieldMes, "mÍs") && testaCampo(fieldAno, "ano")
+                    && validaDia(fieldDia, fieldMes) && validaMes(fieldMes) && validaAno(fieldAno)
+                );
+            }
+            fieldDia.value = "dd";
+            fieldMes.value = "mm";
+            fieldAno.value = "aaaa";
+            return true;
+}
+
+function diaMesAnoMenorQueHoje( dia, mes, ano ) {
+			var d1 = new Date( ano, mes-1, dia );
+			var d2 = new Date();
+			if( d1.getYear() > d2.getYear() ) return false;
+			if( d1.getYear() == d2.getYear() ) {
+				if( d1.getMonth() < d2.getMonth() ) return true;
+				return( (d1.getMonth() == d2.getMonth()) && (d1.getDate() <= d2.getDate()) );
+			}
+			return true;
+}
+
+
+
+function diaMesAnoMenor(dia1, mes1, ano1, dia2, mes2, ano2 ) {
+
+                   if( ano1 < ano2 ) return true;
+                   if( (ano1 == ano2) && (mes1 < mes2) ) return true;
+		   return ((ano1 == ano2) && (mes1 == mes2) && (dia1 <= dia2));
+}
+
+function validaDatas( ) {
+            var f = document.formDados;
+            if(!(validaDataNaoObrigatoria(f.dia1,f.mes1,f.ano1) &&
+                validaDataNaoObrigatoria(f.dia2,f.mes2, f.ano2)))
+                 return false;
+
+             var diaI = (f.dia1.value == "dd");
+             var diaT = (f.dia2.value == "dd");
+             var mesI = (f.mes1.value == "mm");
+             var mesT = (f.mes2.value == "mm");
+             var anoI = (f.ano1.value == "aaaa");
+             var anoT = (f.ano2.value == "aaaa");
+
+                if( (!diaI && !mesI && !anoI) && (diaT || mesT || anoT) )
+                   return focusOnError( f.dia2, "Data final para o intervalo n„o foi preenchida.");
+
+                if( (!diaT && !mesT && !anoT) && (diaI || mesI || anoI) )
+                    return focusOnError( f.dia1, "Data inicial para o intervalo n„o foi preenchida.");
+
+                if( (!diaI && !mesI && !anoI) && (!diaMesAnoMenorQueHoje(f.dia1.value,f.mes1.value,f.ano1.value) ) )
+                    return focusOnError( f.dia1, "Data inicial do intervalo maior que a data atual.");
+
+                if( (!diaT && !mesT && !anoT) && (!diaMesAnoMenorQueHoje(f.dia2.value,f.mes2.value,f.ano2.value) ) )
+                    return focusOnError( f.dia2, "Data final do intervalo maior que a data atual.");
+
+//                if((!diaI && !mesI && !anoI) && (!diaT && !mesT && !anoT) &&
+//                   (f.dia1.value==f.dia2.value) && (f.mes1.value==f.mes2.value) && (f.ano1.value==f.ano2.value ))
+//                   return focusOnError( f.dia2, "Data final do intervalo igual a data de inÌcio.");
+
+                if( (!diaI && !mesI && !anoI) && (!diaT && !mesT && !anoT) &&
+                    (!diaMesAnoMenor(f.dia1.value,f.mes1.value,f.ano1.value,f.dia2.value,f.mes2.value,f.ano2.value ) ) )
+                    return focusOnError( f.dia2, "Data final do intervalo menor que a data de inÌcio.");
+
+                return true;
+
+}
+
+function FormataValorSolicita(campo,tammax,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.formSolicita[campo].value;
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( ",", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	tam = vr.length;
+
+	if (tam < tammax && tecla != 8){ tam = vr.length + 1 ; }
+
+	if (tecla == 8 ){	tam = tam - 1 ; }
+
+	if ( tecla == 8 || tecla >= 48 && tecla <= 57 || tecla >= 96 && tecla <= 105 ){
+		if ( tam <= 2 ){
+	 		document.formSolicita[campo].value = vr ; }
+	 	if ( (tam > 2) && (tam <= 5) ){
+	 		document.formSolicita[campo].value = vr.substr( 0, tam - 2 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 6) && (tam <= 8) ){
+	 		document.formSolicita[campo].value = vr.substr( 0, tam - 5 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 9) && (tam <= 11) ){
+	 		document.formSolicita[campo].value = vr.substr( 0, tam - 8 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 12) && (tam <= 14) ){
+	 		document.formSolicita[campo].value = vr.substr( 0, tam - 11 ) + '.' + vr.substr( tam - 11, 3 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 15) && (tam <= 17) ){
+	 		document.formSolicita[campo].value = vr.substr( 0, tam - 14 ) + '.' + vr.substr( tam - 14, 3 ) + '.' + vr.substr( tam - 11, 3 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ;}
+	}
+
+}
+
+function FormataValor(campo,tammax,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.form[campo].value;
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( "/", "" );
+	vr = vr.replace( ",", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	vr = vr.replace( ".", "" );
+	tam = vr.length;
+
+	if (tam < tammax && tecla != 8){ tam = vr.length + 1 ; }
+
+	if (tecla == 8 ){	tam = tam - 1 ; }
+
+	if ( tecla == 8 || tecla >= 48 && tecla <= 57 || tecla >= 96 && tecla <= 105 ){
+		if ( tam <= 2 ){
+	 		document.form[campo].value = vr ; }
+	 	if ( (tam > 2) && (tam <= 5) ){
+	 		document.form[campo].value = vr.substr( 0, tam - 2 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 6) && (tam <= 8) ){
+	 		document.form[campo].value = vr.substr( 0, tam - 5 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 9) && (tam <= 11) ){
+	 		document.form[campo].value = vr.substr( 0, tam - 8 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 12) && (tam <= 14) ){
+	 		document.form[campo].value = vr.substr( 0, tam - 11 ) + '.' + vr.substr( tam - 11, 3 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ; }
+	 	if ( (tam >= 15) && (tam <= 17) ){
+	 		document.form[campo].value = vr.substr( 0, tam - 14 ) + '.' + vr.substr( tam - 14, 3 ) + '.' + vr.substr( tam - 11, 3 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + ',' + vr.substr( tam - 2, tam ) ;}
+	}
+
+}
+
+function FormataCEP(campo,tammax,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.form[campo].value;
+	tam = vr.length;
+	if (tam < tammax && tecla != 8){ tam = vr.length + 1 ; }
+	if (tecla == 8 ){	tam = tam - 1 ; }
+	if ( (tecla == 8) || (tecla == 9) || (tecla == 16) || (tecla >= 48 && tecla <= 57) || (tecla >= 96 && tecla <= 105) ){
+		if ( tam == 6 && tecla != 8){
+	 		document.form[campo].value = vr + "-";
+	 	}
+	} else {
+		event.returnValue = false;
+	}
+}
+
+function FormataCEPBusca(campo,tammax,teclapres) {
+	var tecla = teclapres.keyCode;
+	vr = document.formBusca[campo].value;
+	tam = vr.length;
+	if (tam < tammax && tecla != 8){ tam = vr.length + 1 ; }
+	if (tecla == 8 ){	tam = tam - 1 ; }
+	if ( (tecla == 8) || (tecla == 9) || (tecla == 16) || (tecla >= 48 && tecla <= 57) || (tecla >= 96 && tecla <= 105) ){
+		if ( tam == 6 && tecla != 8){
+	 		document.formBusca[campo].value = vr + "-";
+	 	}
+	} else {
+		event.returnValue = false;
+	}
+}
+
+// COOKIES
+// name - name of the cookie
+// value - value of the cookie
+// [expires] - expiration date of the cookie (defaults to end of current session)
+// [path] - path for which the cookie is valid (defaults to path of calling document)
+// [domain] - domain for which the cookie is valid (defaults to domain of calling document)
+// [secure] - Boolean value indicating if the cookie transmission requires a secure transmission
+// * an argument defaults when it is assigned null as a placeholder
+// * a null placeholder is not required for trailing omitted arguments
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+// name - name of the desired cookie
+// * return string containing value of specified cookie or null if cookie does not exist
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+// name - name of the cookie
+// [path] - path of the cookie (must be same as path used to create cookie)
+// [domain] - domain of the cookie (must be same as domain used to create cookie)
+// * path and domain default if assigned null or omitted if no explicit argument proceeds
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" + 
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+// date - any instance of the Date object
+// * hand all instances of the Date object to this function for "repairs"
+function fixDate(date) {
+  var base = new Date(0);
+  var skew = base.getTime();
+  if (skew > 0)
+    date.setTime(date.getTime() - skew);
+}
+
+// VERIFICA SE NO CAMPO, DOM CAMINHO DO ARQUIVO, EXISTE ALGUM DOS SEGUINTES CARACTERES: " ·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«"
+function checkFacNr(field) {
+	// Check if the input contains numbers, space, . or -
+    var valid = " #%·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«";
+    return checkFacNrValid(field, valid);
+}
+// VERIFICA SE NO CAMPO, DOM CAMINHO DO ARQUIVO, EXISTE ALGUM DOS SEGUINTES CARACTERES: " ·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«"
+function checkFacNrValid(field, valid) {
+
+	// Check if the input contains numbers, space, . or -
+    var ok = "yes";
+	var ch = "";
+
+	var newField = "";
+	var tam = field.value.length;
+	var caminho = field.value;
+	var a = 0;
+
+   while (ch != "\\"){
+		ch = caminho.substring((tam - 1) - a ,tam - a);
+        if (ch != "\\") {
+			newField = "" + ch + newField;
+	   	}
+	   	a++;
+	   	if (tam < a) {
+	   		break;
+	   	}
+	}
+	for (var i=0; i < newField.length; i++) {
+        temp = "" + newField.substring(i, i+1);
+        if ( !(valid.indexOf(temp) == "-1")  ) {
+        	ok = "no";
+        }
+    }
+    if (ok == "no") {
+        return false;
+    } else {
+    	return true;
+	}
+}
+
+// VERIFICA SE NO CAMPO, DOM CAMINHO DO ARQUIVO, EXISTE ALGUM DOS SEGUINTES CARACTERES: " ·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«"
+function checkCampoCaracteres(field) {
+	// Check if the input contains numbers, space, . or -
+    var valid = " #%·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«";
+    return checkCampoCaracteresValidos(field, valid);
+}
+
+// VERIFICA SE NO CAMPO EXISTE ALGUM DOS SEGUINTES CARACTERES: " ·„‡‚¡√¿¬ÈËÍ…» ÌÏÓÕÃŒÛÚÙı”“‘’˙˘˚⁄Ÿ€Á«"
+function checkCampoCaracteresValidos(field, valid) {
+
+	// Check if the input contains numbers, space, . or -
+    var ok = "yes";
+	var ch = "";
+
+	var tam = field.value.length;
+	var campo = field.value;
+	var a = 0;
+
+	for (var i=0; i < campo.length; i++) {
+        temp = "" + campo.substring(i, i+1);
+        if ( !(valid.indexOf(temp) == "-1")  ) {
+        	ok = "no";
+        }
+    }
+    if (ok == "no") {
+        return false;
+    } else {
+    	return true;
+	}
+}
+
+
+// Limita o tamanho do An˙ncio
+function limitar(tamanhoMaximo, campo) {
+	var tamanho = campo.value.length;
+	var tex = campo.value;
+	if (tamanho >= (tamanhoMaximo - 1)) {
+		campo.value = tex.substring(0,tamanhoMaximo);
+	}
+	return true;
+}
+
+// Conta os campos do An˙ncio
+function countChars(tamanho, campoCaracteres, campoTexto) {
+	campoCaracteres.value = tamanho - campoTexto.value.length;
+}
+
+// -->

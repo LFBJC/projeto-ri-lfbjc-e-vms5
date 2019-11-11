@@ -1,0 +1,91 @@
+function openAjax(){
+	var ajax;
+	try{
+		ajax = new XMLHttpRequest();
+	}catch(e){
+		try{
+			ajax = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(ee){
+			try{
+				ajax = new ActiveObject("Microsoft.XMLHTTP");
+			}catch(eee){
+				ajax = false;
+			}
+		}
+	}
+	return ajax;
+}
+
+
+
+function ajaxOpen(div, loadHtml, action, method){
+	var ajax = openAjax();
+	if(ajax){
+		  document.getElementById(div).innerHTML = loadHtml;
+          ajax.open(method, action, true);
+          ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+		  ajax.onreadystatechange=function() {
+		  
+		  if (ajax.readyState==4){
+				document.getElementById(div).innerHTML = ajax.responseText;
+				var html = ajax.responseText;
+				extraiScript(html);	
+		  }
+		}; 
+		 ajax.send(null);
+	}
+}
+
+//injeção de javascript requisição ajax
+function extraiScript(texto){
+	 var ini = 0; 
+        while (ini!=-1){
+                ini = texto.indexOf('<script', ini);
+                if (ini >=0){     
+                        ini = texto.indexOf('>', ini) + 1;
+                        var fim = texto.indexOf('</\script>', ini);    
+                        codigo = texto.substring(ini,fim); 
+                        novo = document.createElement("script");
+                        novo.text = codigo;
+                        document.body.appendChild(novo);
+   			}
+        }
+} 
+
+function requisicaoBaseAjaxCustom(div, load, action){ 
+	var loadAjax ='<div  style="width: 30px; text-align: center; margin: auto; margin-top: 10%;"><img alt="load" src="' + load + '"></div>';
+	ajaxOpen(div, loadAjax, action, "GET");
+}
+
+function requisicaoBaseAjax(div, load, action, values, baseUrl){
+	//window.alert('ajaxGeneric.js - requisicaoBaseAjax');
+	var loadAjax ='<div  style="width: 30px; text-align: center; margin: auto; margin-top: 10%;"><img alt="load" src="' + load + '"></div>';
+	var actionAjax = baseUrl + '/' + action + '?' + values;
+	//window.alert('ajaxGeneric.js - requisicaoBaseAjax -> actionAjax:'+ actionAjax);
+	ajaxOpen(div, loadAjax, actionAjax, "GET"); 
+}
+
+function requisicaoBasePostAjax(div, load, action, values, baseUrl){
+	var loadAjax ='<div style="width: 30px; text-align: center; margin: auto; margin-top: 10%;"><img alt="load" src="' + load + '"></div>';
+	var actionAjax = baseUrl + '/' + action + '?' + values;	
+	ajaxOpen(div, loadAjax, actionAjax, "POST");
+}
+
+function requisicaoElementCustomAjax(div, elements, action, values, baseUrl){
+	var loadAjax = elements;
+	var actionAjax = baseUrl + '/' + action + '?' + values;
+	
+	ajaxOpen(div, loadAjax, actionAjax, "GET");
+}
+
+function requisicaoDivCustomAjax(div, divStyle, load, action, values, baseUrl){
+	var loadAjax ='<div style="' + divStyle + '"><img alt="" src="' + load + '"></div>';
+	var actionAjax = baseUrl + '/' + action + '?' + values;
+	ajaxOpen(div, loadAjax, actionAjax, "GET");
+}
+
+function requisicaoBasePostAjaxCustom(div, load, action, values){
+	var loadAjax ='<div style="width: 30px; text-align: center; margin: auto; margin-top: 10%;"><img alt="" src="'+ load +'" /></div>';
+	var actionAjax = action + '?' + values;	
+	ajaxOpen(div, loadAjax, actionAjax, "POST"); 
+}

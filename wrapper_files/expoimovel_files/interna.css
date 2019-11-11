@@ -1,0 +1,124 @@
+/* =========== CSS Para Conteúdos  =========== */
+#conteudo-interno {
+	width: 720px;
+	*margin-top: 30px;
+	*margin-left: 10px;
+	margin-top: 0px;
+	margin-left: 10px;
+	background-color: #FFFFFF;
+}
+
+#dicas-compra {
+	margin-top: 10px;
+	display: none;
+}
+
+#dicas-locacao {
+	margin-top: 10px;
+	display: none;
+}
+
+/*FORMULARIO contato*/
+#formulario-contato{ width:520px; float:left; border:0px solid #000000; font-size:14px; color:#333333}
+#formulario-contato fieldset{ border:0px solid #000000; width: 520px; padding: 5px 0 0 0;}
+.estilo-input-text-form-contato {width: 470px; padding: 0px; height: 30px; background-color:#f2f2f2; border:1px solid #ccc; }
+.estilo-input-text-form-contato:hover {background-color: #ccc; border: 1px solid #ccc;}
+.estilo-input-text-form-contato:focus {background-color: #ccc; border:1px solid #ccc;}
+.estilo-textarea-form-contato { width: 460px; height: 100px; padding: 5px; background-color:#f2f2f2; border:1px solid #ccc; }
+.estilo-textarea-form-contato:hover {background-color: #ccc; border:1px solid #ccc;}
+.estilo-textarea-form-contato:focus {background-color: #ccc; border:1px solid #ccc;}
+#box-form-contato fieldset { width: 470px; padding-left:0; margin-top: 10px; float:left; }
+#box-form-contato fieldset label {float:left; width: 400px; margin: 10px 0 10px 0; height: 40px;}
+#box-form-contato fieldset .error {font-family: verdana; font-size:11px; color: #9B0404; float: left; }
+#box-email-enviado{font-family: verdana; font-size:11px; color: red;}
+label.error { color: red;  font-size: 10px;  margin: 0 !important; display: none !important;}
+#box-email-enviado { background-color: #F3F3F3; line-height: 125%; padding: 10px; width: 520px; color:#FF0000; }
+#formulario-contato .bt{width:130px; height: 40px; float:left; margin:0 15px 0 0; border:0;  background-color:#276131; color:#FFFFFF; cursor:pointer; font-size: 22px;  font-family: 'newsgoth_xcn_btregular';}
+/*END FORMULARIO*/
+
+
+/* =========== CSS Para TEXTOS  =========== */
+.texto-rodape {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+}
+
+.texto_old {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+}
+
+.texto-laranja-negrito {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF6600;
+	font-weight: bold;
+}
+
+.texto-laranja {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF6600;
+}
+
+.texto-branco-14 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+.texto-branco-12 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+}
+
+.texto11 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+}
+/* =========== CSS Para links  =========== */
+.texto-laranja a:link {
+	color: #FF6600;
+	text-decoration: none;
+}
+
+.texto-laranja a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+
+.texto-laranja a:visited {
+	color: #FF6600;
+	text-decoration: none;
+}
+
+.texto-laranja active {
+	color: #FF6600;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.texto_old a:link {
+	color: #FF6600;;
+	text-decoration: none;
+}
+
+.texto_old a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+
+.texto_old a:visited {
+	color: #FF6600;
+	text-decoration: none;
+}
+
+.texto_old active {
+	color: #FF6600;
+	font-weight: bold;
+	text-decoration: none;
+}

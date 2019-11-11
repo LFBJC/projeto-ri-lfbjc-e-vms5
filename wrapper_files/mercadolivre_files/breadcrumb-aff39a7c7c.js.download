@@ -1,0 +1,2 @@
+!function(e,t){"use strict";function n(){for(var e=r.querySelectorAll(".shortened"),t=0,n=e.length;n>t;t+=1)e[t].innerHTML=e[t].title,e[t].title="",tiny.removeClass(e[t],"shortened");for(var l=0,s=i.length;s>l&&i[s-1].offsetTop!==o;l+=1){var a=i[l].querySelector("a");a.title=a.innerHTML.trim(),a.innerHTML="...",tiny.addClass(a,"shortened")}}var r=e.querySelector(".vip-navigation-breadcrumb-list"),i=r.children,o=i.length>0&&i[0].offsetTop;o&&(tiny.on(t,"resize",n),n())}(document,window);
+//# sourceMappingURL=../js/breadcrumb-aff39a7c7c.js.map

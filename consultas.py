@@ -40,5 +40,6 @@ for name in filenames:
 			if((elem_features['Quartos']>qtos_de)&(elem_features['Quartos']<qtos_ate)&(elem_features['Banheiros']>banheiros_de)&(elem_features['Banheiros']<banheiros_ate)&(elem_features['Preco']>preco_de)&(elem_features['Preco']<preco_ate)):
 				elements[document]=(elem_features)
 #rankeamento
-
+vsm = vector_space_model(elements.keys())
+rank1 = vsm.search([query])
 #exibição da busca

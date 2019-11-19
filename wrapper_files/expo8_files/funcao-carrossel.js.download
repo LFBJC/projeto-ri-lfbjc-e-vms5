@@ -1,0 +1,95 @@
+// REDIMENCIONA IMAGEM
+$(document).ready(function() {
+	if(jQuery().thumbs) {
+		$(".thumb").thumbs();
+	}
+});
+//END REDIMENCIONA IMAGEM
+
+ // CARROSSEL DE IMAGEM	
+ $(document).ready( function(){	
+			 
+		var buttons = { previous:$('#jslidernews1 .button-previous') ,
+						next:$('#jslidernews1 .button-next') };	
+	if(jQuery().lofJSidernews) {					
+		 $('#jslidernews1').lofJSidernews( { interval : 4000,
+											direction		: 'opacitys',	
+											easing			: 'easeInOutExpo',
+											duration		: 1200,
+											auto		 	: false,
+											maxItemDisplay  : 4,
+											navPosition     : 'horizontal', // horizontal
+											navigatorHeight : 91,
+											navigatorWidth  : 80,
+											mainWidth		: 205,
+											buttons			: buttons } );	
+	}
+});
+ // END CARROSSEL DE IMAGEM	
+ 
+ 
+ // CARROSSEL DE IMAGEM	
+ $(document).ready( function(){	
+			 
+		var buttons = { previous:$('#jslidernews2 .button-previous') ,
+						next:$('#jslidernews2 .button-next') };		
+	if(jQuery().lofJSidernews) {					
+		 $('#jslidernews2').lofJSidernews( { interval : 4000,
+											direction		: 'opacitys',	
+											easing			: 'easeInOutExpo',
+											duration		: 1200,
+											auto		 	: false,
+											maxItemDisplay  : 4,
+											navPosition     : 'horizontal', // horizontal
+											navigatorHeight : 91,
+											navigatorWidth  : 80,
+											mainWidth		: 205,
+											buttons			: buttons } );	
+	}
+});
+ // END CARROSSEL DE IMAGEM	
+ 
+ 
+ 
+
+	// CARROSSEL DE VIDEOS		
+ $(document).ready( function(){	
+				 
+		var buttons = { previous:$('#video .button-previous') ,
+						next:$('#video .button-next') };
+	if(jQuery().lofJSidernews) {					
+		 $('#video').lofJSidernews( { interval : 4000,
+											direction		: 'opacitys',	
+											easing			: 'easeInOutExpo',
+											duration		: 1200,
+											auto		 	: false,
+											maxItemDisplay  : 3,
+											navPosition     : 'vertical', // horizontal
+											navigatorHeight : 122,
+											navigatorWidth  : 162,
+											mainWidth		: 729,
+											buttons			: buttons } );	
+	}
+});
+ 	// END CARROSSEL DE VIDEOS	
+ 
+ 
+	
+	
+	
+ // lightbox
+  jQuery(document).ready(function($) {
+	  if(jQuery().smoothScroll) {
+		  $('a').smoothScroll({
+			speed: 1000,
+			easing: 'easeInOutCubic'
+		  });
+	  }
+
+      $('.showOlderChanges').on('click', function(e){
+        $('.changelog .old').slideDown('slow');
+        $(this).fadeOut();
+        e.preventDefault();
+      })
+  });  
+ // end lightbox

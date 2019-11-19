@@ -1,0 +1,1108 @@
+body{background-color: #f6f6f6;}
+
+#boxTopDetExpo{margin: 0 auto; }
+#geralGaleria{margin: 0 auto; overflow: hidden; }
+.ocultAba{display: none;}
+#geralDetalheExp{margin: 0 auto; max-width: 1230px; width: 100%;}
+#blocoInforDetExpo{float: left; width: 100%;}
+#geralInfToDetExpo{float: left; width: 65%;}
+#geralBotoes{float: left; width: 100%; margin: 2% 0 0 0;}
+.botaoTop{float: left; width: 17%; margin: 0 3% 0 0; border: 1px solid #cccccc; border-radius: 5px; padding: 2%; cursor: pointer;}
+.botaoTop img{float: left; margin: 0 3% 0 0 ;}
+.botaoTop a{color: #5d5d5d;}
+
+.iconBotTop{float: left; margin: 0 0 0 7%;}
+.textBtTop{float: left; margin: 0 0 0 5%;font-size: 17px;}
+.abaAtiva{background: #eaeaea;}   
+
+#geralTitDet{float: left; width: 100%;}
+#titDetSit{float: left; width: 70%; margin: 3% 0 0 0;}
+#precoDetSit{float: right; width: 25%; margin: 3% 0 0 0;}
+.textAptDetExp{float: left; width: 100%; font-style: italic;}
+.precAptDetExp{float: left; width: 100%; font-weight: 800; font-size: 24px;}
+#titDetSit h1{float: left; width: 100%; font-size: 22px; margin: 0;}
+#titDetSit h2{float: left; width: 100%; font-size: 16px; font-weight: 300; margin: 0.5% 0 0 0; color: #8a8a8a;}
+.pretensaoDetExpo {
+    font-size: 16px;
+    color: #da8000;
+    font-weight: 500;
+}
+/*formulario*/
+
+.formEnviado{
+    position: relative !important; 
+    z-index: 10 !important;
+}
+
+#btZapForm {
+    width: 100%;
+    float: left;
+    padding: 2.2% 0 2.8% 0;
+    text-align: center;
+    color: #41a44c;
+    font-weight: 400;
+    font-size: 18px;
+    border-radius: 0;
+    margin: 1% 0 0 0;
+    font-family: 'Open Sans';
+    background-color: #ffffff;
+    border: 0;
+    border-bottom: 5px solid #41a44c;
+}
+.subTextForm {
+    float: left;
+    width: 100%;
+    padding: 0 3% 2% 3%;
+    font-size: 14px;
+    text-align: center;
+}
+#blocoForm {
+    float: right;
+    width: 35%;
+    background: #f7f7f7;
+    padding: 2%;
+    box-shadow: 0px 1px 16px #b7b7b7;
+    margin: -416px 0 0 0;
+    z-index: 100;
+    position: relative;
+}
+#titFor {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #1d1d1d;
+    font-weight: 600;
+}
+#geralFormularioContato{float: left; width: 100%; margin: 2% 0 0 0;}
+
+.campDetbox {
+    float: left;
+    margin: 15px 0 0 0;
+    width: 99.5%;
+}
+
+#contato-formulario-detalhe .nome {  
+    border: 1px solid rgba(216, 216, 216, 0.89);
+    width: 100%;
+    height: 52px;
+    margin: 0 0 4px 0;
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+    border-radius: 3px !important;
+    font-size: 14px;
+    font-weight: 300;
+}
+#contato-formulario-detalhe .textArea {
+    float: left;
+    border: 1px solid #CCCCCC;
+    width: 100%;
+    height: 80px;
+    margin: 0 0 1.5% 0;
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+    border-radius: 3px !important;
+    font-size: 14px;
+    font-weight: 300;
+}
+#contato-formulario-detalhe .botao {
+    border: 0;
+    float: left;
+    width: 100%;
+    /* margin: 0 0 0 0; */
+    background-color: #e48600;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    padding: 2% 0 2% 0;
+    border-radius: 3px;
+    margin: 0 0 2% 0;
+}
+/*formulario*/
+
+.bloco-conteudo .box-conteudo-detalhe-tabela {
+    width: 100%;
+    float: left;
+    border: 0px solid #000000;
+    margin: 0 0 0 0;
+}
+.tabela-detalhe {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+.color-detalhe-white {
+    color: #FFFFFF;
+}
+.tabela-detalhe td {
+    border-bottom: 2px solid #ffffff;
+    height: 35px;
+}
+.td-color2 {
+    background-color: #005598;
+}
+.janelaModal {
+    display: none;
+    top: 20%;
+    position: fixed;
+    margin: 0 0 0 -258px !important;
+    z-index: 1000;
+    background: #ffffff;
+    width: 100%;
+}
+#geralJanelasDetExpo{margin: 0 auto; width: 400px;}
+
+.bloco-conteudo {
+    float: left;
+    width: 100%;
+    margin: 2% 0px 0px;
+    color: rgb(100, 100, 100);
+}
+
+.box-texto-preco {
+    float: left;
+    width: 98%;
+    font-size: 12px;
+    color: #666666;
+    margin: 0 0 0 0;
+    padding: 7px 7px 7px 0;
+    background-color: #fafafa;
+}
+.titBoxContatDetExpo {
+    float: left;
+    width: 100%;
+    margin: 0 0 1% 0;
+}
+.titBoxContatDetExpo h2 {
+    font-size: 21px;
+    color: #2f2f2f;
+    font-weight: 400;
+    text-transform: inherit;
+}
+
+#gInforBoxDet{float: left; width: 100%; margin: 0 0 0 0;}
+.detInfBox{float: left; width: 16%; border: 0 solid; font-family: 'Roboto'; margin: 0 1% 0 0; }
+.detInfBoxR{float: right; width: 13.4%; border: 0 solid; font-family: 'Roboto'; margin: 9px 20px 0 0 ; }
+.detInfBoxT{float: right; width: 34%; border: 0 solid; font-family: 'Roboto'; margin: 8px 0px 0 0; }
+.detTitBox{float: left; width: 99%; margin: 3px 0 0 0; font-size: 14px; text-align: center;}
+.boxInforDetTopInt {
+    float: left;
+    width: 99%;
+    margin: 3% 0 0 0;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 2% 0 2% 0;
+}
+.iconCarac{float: left; width: 100%; text-align: center;}
+
+.blocoDetExpo{float: left; width: 100%; margin: 1% 0 0 0;}
+.boxTitDetExpo{float: left; width: 100%;}
+.boxTitDetExpo h2 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: 1% 0 0 0;
+}
+
+.boxTipoTitDetExpo {
+    float: left;
+    width: 20.5%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin: 1.5% 1.5% 0 0;
+}
+
+.boxTipoTitDetExpo h2 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0 0 0 0;
+}
+
+.listaDetExpo{float: left; width: 100%; margin: 0 0 0 2%;}
+.listaDetExpo li{float: left;  width: 20%; margin: 0 0 0.8% 0; text-align: left;list-style-type: circle;}
+
+.listaTipoDetExpo{float: left; width: 100%; margin: 0 0 0 2%;}
+.listaTipoDetExpo li{float: left;  width: 16%; margin: 0 0 0.8% 0; text-align: left;list-style-type: circle;}
+
+.tiposDetExpo{float: left; margin: 1% 0 0 0; width: 100%;}
+.textDetExpo{float: left; width: 100%; text-align: left; margin: 1% 0 0 0; color: #808080; font-size: 16px; font-weight: 300;} 
+
+#boxContDetExpo {
+    float: left;
+    width: 96%;
+    margin: 2% 0 1% 0;
+    background: #fafafa;
+    padding: 2%;
+}
+
+.contatoEmpDetExpo {
+    float: left;
+    width: 32%;
+    border-right: 1px solid #ccc;
+    margin: 0 3% 0 0;
+    height: 120px;
+    padding: 0 2% 0 0px;
+}
+.tablePrecoDetExpo{float: left; width: 30%;}
+.redesSociaisExpoDet {
+    float: right;
+    width: 27%;
+    border-left: 1px solid #ccc;
+    height: 120px;
+    padding: 0 0 0 4%;
+}
+.logoEmpDetExpo {
+    float: left;
+    width: 42%;
+    margin: 2% 4% 2% 2%;
+    text-align: center;
+}
+.logoEmpDetExpo img{width: auto !important; max-height: 105px;}
+.texContDetExpo {
+    float: left;
+    width: 50%;
+}
+.boxIconeRedDetExpo{float: left; width: 100%; margin: 4% 0 0 0;}
+.iconeDetExpo{float: left; margin: 0 6% 0 0;}
+.nomeAnunDetExpo{float: left; width: 100%; font-size: 16px;}
+.inforAnunDetExpo{font-size: 14px; float: left; /*width: 100%;*/ width: 100%; margin: 2px 0 0 0;position: relative;}
+.inforAnunCrec{font-size: 14px; float: left; width: 100%; margin: 2px 0 0 0;}
+.textAnunB {
+    float: left;
+    width: 75%;
+    margin: 0 0 0 1.5%;
+}
+
+#verMapa {
+    max-width: 280px;
+    position: absolute;
+    margin-top: 7%;
+    left: 41%;
+    border-color: #FF6600;
+}
+
+.iconCarac {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.f-14 {
+    font-size: 13px;
+}
+.detTitBox {
+    float: left;
+    width: 99%;
+    margin: 3px 0 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+.f-bold {
+    font-weight: bold;
+    font-size: 15px !important;
+    color: #2f2f2f;
+}
+
+
+#btnVerFoneDetExpo {
+    position: absolute !important;
+    height: 100% !important;
+    top: 0 !important;
+    margin-left: 0;
+    cursor: pointer !important;
+    padding: 5px 39px 0 8px !important;
+    text-align: right !important;
+    font-size: 12px !important;
+    width: 65% !important;
+    left: 0 !important;
+    background: #000000;
+    /* text-align: center; */
+}
+
+#btnVerFone2DetExpo {
+    position: absolute !important;
+    /* height: 100% !important; */
+    top: 0 !important;
+    margin-left: 0;
+    cursor: pointer !important;
+    padding: 5px 0px 5px 3px !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    left: 0 !important;
+    background: #737373;
+    /* height: 51px; */
+}
+
+
+#mensagemEnviada {
+    position: absolute;
+    width: 100%;
+    max-width: 870px;
+    padding: 0;
+    background: #ffffff;
+    display: block;
+    top: 35%;
+    left: 0;
+    z-index: 100;
+}
+#boxTitMen {
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    color: #FF6600;
+    background: #eeeeee;
+    padding: 1.2% 0 1.2% 0;
+}
+#iconMensEnviList {
+    float: left;
+    width: 11%;
+    margin: 1.5% 1% 1.5% 5%;
+}
+#boxTitMen h2 {
+    float: left;
+    /* width: 79%; */
+    text-align: right;
+    font-weight: 300;
+    color: #FF6600;
+    padding: 1.5% 0px 0.5% 0;
+    font-size: 18px;
+    margin: 0 0 0 3%;
+}
+#textMensagemEnviada h3 {
+    float: left;
+    width: 72%;
+    text-align: left;
+    font-weight: 400;
+    margin: 0% 0 0px 3%;
+    color: #000000;
+    font-size: 16px;
+}
+#closeAjnF {
+    float: right;
+    margin: 1.8% 2% 0 0;
+}
+
+.geralBlocoMens {
+    float: left;
+    width: 40%;
+    margin: 1.8% 0 1.8% 15%;
+}
+
+#textMensagemEnviadaB {
+    float: left;
+    width: 100%;
+}
+
+#textMensagemEnviadaB p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#geralIconesList {
+    float: left;
+    width: 80%;
+    margin: 2% 0 2% 14%;
+}
+.iconRedeList {
+    float: left;
+    margin: 0 5% 0 0;
+    width: 16%;
+}
+.ocultDivL {
+    display: none;
+}
+.geralBlocoMensR {
+    float: right;
+    width: 40%;
+    margin: 1.5% 3% 0 0;
+}
+#textMensagemEnviadaB {
+    float: left;
+    width: 100%;
+}
+#textMensagemEnviadaB p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+}
+#btAmunMensa {
+    float: left;
+    background-color: #ff6600;
+    padding: 2.5% 6% 2.5% 6%;
+    margin: 2% 0 0 16%;
+    font-family: 'roboto';
+    font-weight: 300;
+}
+
+.janelaBoxBros {
+    position: fixed;
+    width: 47%;
+    top: 3%;
+    left: 24%;
+    height: 440px;
+    background: #ffffff;
+    box-shadow: 0px 1px 5px #000;
+    z-index: 11;
+    overflow: hidden;
+    display: none;
+}
+#boxInforBros {
+    float: left;
+    width: 97%;
+    background-color: #f7f7f7;
+    padding: 2%;
+}
+#boxInforBros p {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'roboto';
+    float: left;
+    margin: 0 0 0 1%;
+}
+
+#closeAjn {
+    float: right;
+    margin: 0 2% 0 0;
+}
+#formIndique {
+    float: left;
+    width: 100%;
+    margin: 1% 0 0 1%;
+}
+.bloco-conteudo-s {
+    float: left;
+    width: 100%;
+    margin: 0 0px 3% 0;
+    color: rgb(100, 100, 100);
+    height: 555px;
+}
+
+#tudo-plugin {
+    float: left;
+    border: 0px solid #000000;
+    width: 30.6% !important;
+    margin: 15px 2.5% 0 0 !important;
+}
+
+.my-sticky-element.stuck {
+    position: fixed;
+    top: 0;
+    width: 31%;
+}
+
+#carregarRua {
+    float: left;
+    height: 450px;
+    width: 100%;
+}
+
+.color-detalhe-gray{color: #505050;}
+
+#verMapa {
+    max-width: 480px;
+    position: absolute;
+    margin-top: 6%;
+    left: 32%;
+    border-color: #a2a2a2;
+    font-size: 16px;
+}
+
+#verMapa p {
+    font-size: 16px;
+    color: #6b6b6b;
+}
+
+.fade.in {
+    opacity: 1;
+}
+.alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.alert, .alert h4 {
+    color: #c09853;
+}
+.alert {
+    padding: 2%;
+    margin-bottom: 22px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px #a0a0a0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#geralLeadDet {
+    position: fixed;
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    border-radius: 5px;
+    margin: 0 0 0 30%;
+    background: #ffffff;
+    z-index: 10001;
+    top: 21%;
+}
+
+#textPopLead1 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 1% 0 0 0;
+    color: rgb(29, 29, 29);
+    font-size: 25px;
+}
+
+#textPopLead2 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 2% 0 0 0;
+    color: #666666;
+}
+
+#contato-formulario-detalhe > div {
+    /* border: 2px #e3e3e3 solid; */
+    float: left;
+    margin: 5px 0 0 0;
+}
+.campDetboxMaior {
+    float: left;
+    width: 62%;
+    margin: 5px 1.5% 0 0 !important;
+}
+
+#contato-formulario-detalhe .nome {
+    border: 1px solid rgba(216, 216, 216, 0.89);
+    width: 100%;
+    height: 52px;
+    margin: 0 0 4px 0;
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+    border-radius: 3px !important;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.campDetboxLead {
+    float: left;
+    width: 34%;
+    margin: 5px 1.5% 0 0 !important;
+}
+}
+.campDetboxM {
+    float: left;
+    width: 34%;
+}
+
+.my-sticky-element.stuck {
+    position: fixed;
+    top: 0;
+    width: 31%;
+}
+
+#carregarRua {
+    float: left;
+    height: 450px;
+    width: 100%;
+}
+
+
+.owl-next {
+    position: absolute;
+    right: 0 !important;
+    background: rgba(0,0,0,0.7)!important;
+    color: #fff !important;
+    padding: 0.4% 1% 0.5% 1% !important;
+    top: 39%;
+    font-size: 40px !important;
+    width: 50px;
+    height: 80px;
+}
+ 
+.owl-prev {
+    position: absolute;
+    left: 0 !important;
+    background: rgba(0,0,0,0.7)!important;
+    color: #fff !important;
+    padding: 0.4% 1% 0.5% 1% !important;
+    top: 39%;
+    font-size: 40px !important;
+    width: 50px;
+    height: 80px;
+}
+
+#geralFoneMob{display: none;}
+
+#backModal {
+    background: #000000;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    display: none;
+}
+
+#backModalEnviado {
+    background: #000000;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    display: none;
+}
+
+
+.list_carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+
+.list_carousel li {
+    font-size: 40px;
+    color: #999;
+    text-align: center;
+    width: 91px;
+    height: 89px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: left;
+    border: 0px solid #000;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+
+
+#iframeMaps {
+    position: relative;
+    padding-bottom: 26.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+#iframeMaps iframe,
+#iframeMaps object,
+#iframeMaps embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#backLead {
+    background: #000000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0.6;
+}
+
+.marcTitTipo{background: #eaeaea;}
+.ocultTextTipo{display: none;}
+.marcTextTipo{display: block !important;}
+
+@media (max-width: 700px){
+
+.janelaBoxBros {
+    position: fixed;
+    width: 95% !important;
+    top: 3%;
+    left: 3% !important;
+    height: 440px;
+    background: #ffffff;
+    box-shadow: 0px 1px 5px #000;
+    z-index: 11;
+    overflow: hidden;
+    display: none;
+}
+
+#mensagemEnviada {
+    position: absolute;
+    width: 100%;
+    max-width: 870px;
+    padding: 0;
+    background: #ffffff;
+    display: block;
+    top: 35%;
+    left: 9%;
+    z-index: 100;
+}
+
+.owl-carousel .owl-item {
+    height: 325px !important;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-touch-callout: none;
+}
+
+.owl-carousel .owl-item img {
+    display: block;
+    min-height: 325px !important;
+    bottom: 0;
+    position: absolute;
+}
+
+.boxTipoTitDetExpo {
+    float: left;
+    width: 44%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin: 1.5% 1.5% 0 0;
+}
+
+#verMapa p {
+    font-size: 13px;
+    color: #6b6b6b;
+}
+
+.campDetboxMaior {
+    float: left;
+    width: 100%;
+    margin: 5px 1.5% 0 0 !important;
+}
+
+#textPopLead1 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin: 1% 0 0 0;
+    color: rgb(29, 29, 29);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#contato-formulario-detalhe > div {
+    /* border: 2px #e3e3e3 solid; */
+    float: left;
+    margin: 5px 0 0 0;
+    width: 100%;
+}
+
+.campDetboxLead {
+    float: left;
+    width: 100%;
+    margin: 5px 1.5% 0 0 !important;
+}
+
+#geralLeadDet {
+    display: block;
+    width: 89%;
+    max-width: 700px;
+    height: auto !important;
+    border-radius: 5px;
+    background: #ffffff;
+    z-index: 10001;
+    padding: 0 1% 4% 0;
+    top: 15%;
+    left: 6%;
+    justify-content: center;
+    margin: 0;
+}
+
+#geralFormularioContato {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+#geralFoneMob {
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    box-shadow: 2px 1px 5px #000000;
+    padding: 2%;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    display: block;
+}
+
+#callMobBot {
+    float: right;
+    margin: 0 16px 0 0;
+    width: 14%;
+    background-color: #0b60b3;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #064a8c;
+}
+
+#callWhaMobBot {
+    float: right;
+    margin: 0 16px 0 0;
+    width: 14%;
+    background-color: #2aa216;
+    text-align: center;
+    padding: 6px 10px 6px 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #228b11;
+}
+
+#contatoMobBot {
+    float: left;
+    margin: 0 0 0 5px;
+    width: 68%;
+    background-color: #d96617;
+    text-align: center;
+    padding: 10px 5px 10px 3px;
+    border-radius: 4px;
+    border-bottom: 4px solid #ca5708;
+    color: white;
+}
+
+
+#verMapa {
+    max-width: 80%;
+    position: absolute;
+    margin-top: 7%;
+    left: 10%;
+    border-color: #a2a2a2;
+    font-size: 16px;
+}
+
+.textBtTop {
+    float: left;
+    margin: 0 0 0 5%;
+    font-size: 15px;
+}
+#titDetSit {
+    float: left;
+    width: 100%;
+    margin: 3% 0 0 0;
+}
+
+.subTextForm {
+    float: left;
+    width: 95%;
+    padding: 0 3% 2% 3%;
+    font-size: 14px;
+    text-align: center;
+}
+
+#geralDetalheExp {
+    margin: 0 auto;
+    max-width: 1230px;
+    width: 90%;
+}
+
+#geralInfToDetExpo {
+    float: left;
+    width: 100%;
+}
+#precoDetSit {
+    float: right;
+    width: 100%;
+    margin: 5% 0 0 0;
+}
+
+#blocoForm {
+    float: left;
+    width: 85%;
+    background: #f3f3f3;
+    padding: 7%;
+    box-shadow: 0px 0 0 #b7b7b7;
+    margin: 0 0 0 0;
+    z-index: 100;
+    position: relative;
+}
+
+.detInfBox {
+    float: left;
+    width: 24%;
+    border: 0 solid;
+    font-family: 'Roboto';
+    margin: 6% 1% 5% 0;
+}
+
+#geralBotoes {
+    float: left;
+    width: 100%;
+    margin: 3% 0 3% 0;
+}
+
+#titDetSit h1 {
+    float: left;
+    width: 100%;
+    font-size: 22px;
+    margin: 0;
+    margin: 0 0 3% 0;
+}
+
+.botaoTop {
+    float: left;
+    width: 23.5%;
+    margin: 0 2% 0 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 3% 1% 3% 1%;
+    cursor: pointer;
+}
+
+.listaDetExpo li {
+    float: left;
+    width: 50%;
+    margin: 2% 0 0.8% 0;
+    text-align: left;
+    list-style-type: circle;
+}
+
+.textDetExpo {
+    float: left;
+    width: 96%;
+    text-align: left;
+    margin: 1% 0 0 3%;
+    color: #808080;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.listaTipoDetExpo li {
+    float: left;
+    width: 50%;
+    margin: 2% 0 0.8% 0;
+    text-align: left;
+    list-style-type: circle;
+}
+
+.contatoEmpDetExpo {
+    float: left;
+    width: 100%;
+    border-right: 0 solid #ccc;
+    margin: 0 3% 0 0;
+    height: auto;
+    padding: 6% 2% 5% 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tablePrecoDetExpo {
+    float: left;
+    width: 100%;
+    margin: 4% 0 6% 0;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 5%;
+}
+
+.redesSociaisExpoDet {
+    float: right;
+    width: 100%;
+    border-left: 0 solid #ccc;
+    height: auto;
+    padding: 0 0 6% 4%;
+}
+#boxContDetExpo {
+    float: left;
+    width: 91%;
+    margin: 2% 2% 1% 0;
+    background: #fafafa;
+    padding: 5%;
+}
+.blocoDetExpo {
+    float: left;
+    width: 100%;
+    margin: 5% 0 8% 0;
+}
+
+.bloco-conteudo {
+    float: left;
+    width: 100%;
+    margin: 4% 0px 0px;
+    color: rgb(100, 100, 100);
+}
+
+#boxTitMen h2 {
+    float: left;
+    width: 60%;
+    text-align: left;
+    font-weight: 300;
+    color: #FF6600;
+    padding: 1.5% 0px 0.5% 0;
+    font-size: 18px;
+    margin: 0 0 0 3%;
+}
+#textMensagemEnviada h3 {
+    float: left;
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    margin: 1% 0 0 0;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+}
+.geralBlocoMensR {
+    float: right;
+    width: 40%;
+    margin: 1.5% 3% 0 0;
+    display: none;
+}
+.janelaModal {
+    display: none;
+    top: 20%;
+    position: fixed;
+    margin: 0 0 0 0 !important;
+    z-index: 1000;
+    background: #ffffff;
+    width: 84%;
+}
+
+.geralBlocoMens {
+    float: left;
+    width: 100%;
+    margin: 1.8% 0 1.8% 0%;
+    display: none;
+}
+
+#btnVerFoneDetExpo {
+    position: absolute !important;
+    height: 100% !important;
+    top: 0 !important;
+    margin-left: 0;
+    cursor: pointer !important;
+    padding: 5px 0px 0px 2px !important;
+    text-align: center!important;
+    font-size: 13px !important;
+    width: 100% !important;
+    left: 0 !important;
+    background: #565555;
+}
+
+#iframeMaps {
+    position: relative;
+    padding-bottom: 110.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+}

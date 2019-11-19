@@ -1,0 +1,405 @@
+function changeImg(elemento, path, img1, img2, img3){
+	var img = new Array(3);
+	img[0] = img1;
+	img[1] = img2;
+	img[2] = img3;
+	
+	var id = elemento.id;
+	var imagem = document.getElementById('img' + id);
+	var imgName = imagem.name;
+	var indice = 0;
+	for(var i = 0; i < img.length; i++){
+	    if(imgName == img[i] && i < (img.length - 1)){
+	    	if(img[i + 1] != ''){ 
+	         indice = i + 1;  
+	         break;
+	        }
+	    }else if(i == (img.length - 1)){
+	        indice = 0;
+	        break;
+	    }  
+	} 
+ 	if(img[indice] != ''){ 
+		imagem.src = path + img[indice];
+		imagem.name = img[indice];
+	}
+}
+		
+function elementoVisivel(id){
+    document.getElementById(id).style.display="block";
+}
+
+function elementoInvisivel(id){
+    document.getElementById(id).style.display="none";
+}
+
+function openAjax(){
+	var ajax;
+	try{
+		ajax = new XMLHttpRequest();
+	}catch(e){
+		try{
+			ajax = new ActiveXObject("Msxml2.XMLHTTP");
+		}catch(ee){
+			try{
+				ajax = new ActiveObject("Microsoft.XMLHTTP");
+			}catch(eee){
+				ajax = false;
+			}
+		}
+	}
+	return ajax;
+}
+
+function acaoAjax(div, action, load){
+	var ajax = openAjax();
+	if(ajax){
+	     document.getElementById(div).innerHTML = 
+	     "<div style='float: left; margin-left: 215px;'>"+ 
+             "<table align='center' valign='center'>"+
+          	"<tr>"+
+           		"<td align='center'>"+
+               		"<br /><br /><br />"+
+               		"<img src='" + load + "' /><br />"+
+                 	"<font color='#333333' size='2' face='Verdana, Arial, Helvetica, sans-serif'>Carregando...</font>"+
+                    	"<br/><br/><br/><br/><br/><br/><br/>"+
+                       	"</td>"+
+              "</tr>"+
+             "</table>"+
+            "</div>";
+ 
+          ajax.open("GET", action, true);
+		  ajax.onreadystatechange=function() {
+		  
+		  if (ajax.readyState==4){
+				document.getElementById(div).innerHTML = ajax.responseText;
+		  }
+		}
+		
+		 ajax.send(null);
+	}
+}
+
+function acaoAjaxCustomLoad(div, action, load){
+
+	var ajax = openAjax();
+	if(ajax){
+	     document.getElementById(div).innerHTML = load;
+	      
+          ajax.open("GET", action, true);
+		  ajax.onreadystatechange=function() {
+		  
+		  if (ajax.readyState==4){
+		  	if(ajax.status == 200){
+				document.getElementById(div).innerHTML = ajax.responseText;
+				var html = ajax.responseText;
+				extraiScript(html);
+			}
+		  }
+		}
+		 ajax.send(null);
+	} 
+}
+
+//injeção de javascript requisição ajax
+function extraiScript(texto){
+	 var ini = 0; 
+        while (ini!=-1){
+                ini = texto.indexOf('<script', ini);
+                if (ini >=0){     
+                        ini = texto.indexOf('>', ini) + 1;
+                        var fim = texto.indexOf('</\script>', ini);    
+                        codigo = texto.substring(ini,fim); 
+                        novo = document.createElement("script");
+                        novo.text = codigo;
+                        document.body.appendChild(novo);
+   			}
+        }
+} 
+ 
+function obterCidades(urlBase, origem, cidadeDiv, bairroDiv){
+
+	
+	
+	var idEstado = document.getElementById('estado').value;
+
+	var cidadeUrlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=2&origem=" + origem + "&estado=" + idEstado + "&personalizada=sim&nomeTemplate=localizacao.jsp";
+	var bairroUrlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=3&origem=" + origem + "&cidade=NR&personalizada=sim&nomeTemplate=localizacao.jsp";
+
+	var pathLoad = "<div style='text-align: center;'><img src='" + urlBase + "/gui/plugin/template/imagens/busca/loader.gif' /></div>";
+	
+	acaoAjaxCustomLoad(cidadeDiv, cidadeUrlAction, pathLoad);
+	acaoAjaxCustomLoad(bairroDiv, bairroUrlAction, pathLoad);
+	inserirBairrosSelectImg();
+
+}
+
+function obterCidadesHorizontal(urlBase, origem, cidadeDiv, bairroDiv){
+	var idEstado = document.getElementById('estado').value;
+	var cidadeUrlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=2&origem=" + origem + "&estado=" + idEstado + "&personalizada=sim&nomeTemplate=localizacao-horizontal.jsp";
+	var bairroUrlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=3&origem=" + origem + "&cidade=NR&personalizada=sim&nomeTemplate=localizacao-horizontal.jsp";
+
+	var pathLoad = "<div style='width: 150px; text-align: center;'><img src='" + urlBase + "/gui/plugin/template/imagens/busca/loader.gif' /></div>";
+	
+	acaoAjaxCustomLoad(cidadeDiv, cidadeUrlAction, pathLoad);
+	acaoAjaxCustomLoad(bairroDiv, bairroUrlAction, pathLoad);
+	inserirBairrosSelectImg();
+}
+
+function obterBairros(urlBase, origem, div){
+	
+	var idsCidade = document.getElementsByName('cidadesSelecionadas');
+	var valoresCidades = "";
+	for(var i = 0; i < idsCidade.length; i++){
+        valoresCidades += "&cidadesSelecionadas=" + idsCidade[i].value;
+	 }  
+	
+	if(valoresCidades != ""){
+		var urlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=3&origem=" + origem + "&personalizada=sim&multiSeletor=true&nomeTemplate=localizacao.jsp" + valoresCidades;
+		var pathLoad = "<div style='margin: 50px;'><table align='center' valign='center'><tr><td align='center'><img src='" + urlBase + "/gui/plugin/template/imagens/busca/loader.gif' /></td></tr><tr><td><font color='#333333' size='2' face='Verdana, Arial, Helvetica, sans-serif'>Carregando...</font></td></tr></table></div>";
+		acaoAjaxCustomLoad(div, urlAction, pathLoad);
+	}
+	// inserirBairrosSelectImg();
+}
+
+function obterBairrosHorizontal(urlBase, origem, div){	
+	var idsCidade = document.getElementsByName('cidadesSelecionadas');
+	var valoresCidades = "";
+	for(var i = 0; i < idsCidade.length; i++){
+        valoresCidades += "&cidadesSelecionadas=" + idsCidade[i].value;
+	 }   
+	
+	if(valoresCidades != ""){
+		var urlAction = urlBase + "/Localizacao.do?method=obterLocalizacaoImoveisAnunciante&tipoLocalizacao=3&origem=" + origem + "&personalizada=sim&multiSeletor=true&nomeTemplate=localizacao-horizontal.jsp" + valoresCidades;
+		var pathLoad = "<div style='width: 210px; text-align: center;'><img src='" + urlBase + "/gui/plugin/template/imagens/busca/loader.gif' /></div>";
+		acaoAjaxCustomLoad(div, urlAction, pathLoad);
+	}
+}
+
+function showDiv(div, tipoLocalizacao){
+	var validacao = true;
+	var msg = "";
+	if(tipoLocalizacao == "cidade"){
+		var idEstado = document.getElementById('estado').value;
+		if(idEstado == "NR"){
+			validacao = false;
+			msg = "Escolha o estado do imóvel desejado!";
+		}
+	}else if(tipoLocalizacao == "bairro"){
+		var idsCidade = document.getElementsByName('cidadesSelecionadas');
+		var valoresCidades = "";
+		for(var i = 0; i < idsCidade.length; i++){
+      		if(idsCidade[i].value != 0){
+      			valoresCidades += "&cidadesSelecionadas=" + idsCidade[i].value; 
+      		}	
+	 	}
+	 	if(valoresCidades == ""){
+	 		validacao = false;
+			msg = "Escolha a cidade do imóvel desejado!";
+	 	}
+	 }	  
+	
+	if(validacao){
+		document.getElementById(div).style.display = "block";
+		document.getElementById('mask').style.display = "block";
+		
+	}else{
+		alert(msg);
+	}	
+}
+
+function selecionarBairroDiv(div){	
+
+
+	inserirBairrosSelectImg();
+	document.getElementById('bairroNav').style.display = "none";
+	document.getElementById('mask').style.display = "none";
+
+	document.resultadoBuscaExpo.cidade.value = document.resultadoBuscaExpo.cidadesSelecionadas.value;		
+	document.resultadoBuscaExpo.bairro.value = multiplosValoresCheck('bairrosSelecionadas');
+
+	// document.resultadoBuscaExpo.submit(); 
+}
+
+function closeDiv(div){	
+
+	document.getElementById('bairroNav').style.display = "none";
+	document.getElementById('mask').style.display = "none";
+
+}
+
+
+
+
+function loadFiltro(){
+
+	$("#tabela input").keyup(function(){		
+
+		var index = $(this).parent().index();
+		var nth = "#tabela td:nth-child("+(index+1).toString()+")";
+		var valor = $(this).val().toUpperCase();
+		$("#tabela tbody tr").show();
+		$(nth).each(function(){
+			if($(this).text().toUpperCase().indexOf(valor) < 0){
+				$(this).parent().hide();
+			}
+		});
+	});
+
+}
+
+function getElementByIdValue(id){
+	return document.getElementById(id).value;
+}
+
+function multiplosValores(name){
+	var valores = '';
+	var valoresForm = document.getElementsByName(name);
+	for(var i=0; i < valoresForm.length; i++){
+		if(valoresForm[i].checked){
+			valores += '&' + name + '=' + valoresForm[i].value;
+		}
+	}
+	return valores;
+}
+
+function multiplosValoresCheck(name){
+	var valores = '';
+	var valoresForm = document.getElementsByName(name);
+	for(var i=0; i < valoresForm.length; i++){
+		if(valoresForm[i].checked){
+			valores += valoresForm[i].value + ';';
+		}
+	}
+	return valores; 
+}
+
+function multiplosValoresRadio(name){
+	var valores = '';
+	var valoresForm = document.getElementsByName(name);
+	for(var i=0; i < valoresForm.length; i++){
+		if(valoresForm[i].checked){
+			valores = valoresForm[i].value;
+			break;
+		}
+	}
+	return valores; 
+}
+
+function multiplosNomesCheck(name){
+	var valores = '';
+	var valoresForm = document.getElementsByName(name);
+	for(var i=0; i < valoresForm.length; i++){
+		if(valoresForm[i].checked){
+
+			var nomeCidade = "'"+valoresForm[i].value+"'"; 
+
+			valores += '<div style="float: left; width: 100%; margin: 4px 0 0 3px; font-size: 14px; font-family: Roboto;" id="cont'+i+'">'+valoresForm[i].title+'<a href="javascript:void(0);" style="margin: -1px 9px 0 0; float: right;" onclick="removeCidade('+nomeCidade+', '+i+')" ><img  src="https://www.expoimovel.com/gui/plugin/expoimovel/imagens/busca/closeBairros.png" /></a></div>';
+		}
+	}
+	
+	var valoresBairro = retiraUltimoCaractere(valores);
+	
+	
+	if(valoresBairro == ""){
+		valoresBairro = "";
+	}
+	
+	return valoresBairro; 
+}
+
+
+function removeCidade(nomeCidade, idCidade){
+
+
+document.getElementById('cont'+idCidade).style.display = "none";
+document.getElementById(nomeCidade).checked=false;
+
+document.resultadoBuscaExpo.cidade.value = document.resultadoBuscaExpo.cidadesSelecionadas.value;		
+document.resultadoBuscaExpo.bairro.value = multiplosValoresCheck('bairrosSelecionadas');
+
+// setInterval(function(){document.resultadoBuscaExpo.submit();}, 2000);
+
+}
+
+function resetarForms(){
+	document.getElementById("seletor-bairro-div").innerHTML = "";
+	//document.getElementById("cidadeDiv").innerHTML = "<select><option>Cidade</option></select>";
+    document.resultadoBuscaExpo.cidadesSelecionadas.value = 0;
+	document.resultadoBuscaExpo.reset();
+}
+
+function resetarFormBusca(){
+	document.getElementById("seletor-bairro-div").innerHTML = "";
+	document.getElementById("cidadeDiv").innerHTML = "<select><option>Cidade</option></select>";
+	document.resultadoBuscaExpo.reset();
+}
+
+function obterValorTagName(name){
+	return document.getElementsByName(name)[0].value;
+}
+
+function inserirBairrosSelectImg(){
+	document.getElementById("seletor-bairro-div").innerHTML = multiplosNomesCheck('bairrosSelecionadas');
+}
+
+function retiraUltimoCaractere(str){
+   var str = new String(str);
+   return str.substring(0,(str.length - 1));
+}
+
+function abrirPopups(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=930,height=650,top=50,left=50');
+}
+
+function abrirListaInteresse(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=650,height=200,top=100,left=150');
+}
+
+function listaInteresse(url) {
+	var lista;
+	lista = window.open(url,'listaInteresse','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=700,height=400,top=100,left=50');
+	lista.focus();
+}
+
+function abrirDetalhe(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=950,height=650,top=10,left=10');
+}
+
+function verificarLocalizacao(estado, cidade){
+	var retorno = true;
+	if(estado == "" || estado == "0"){
+		alert("Escolha o estado do imóvel desejado!");
+		retorno = false;
+	}
+	return retorno;
+}
+
+function paginarBusca(inicio, template){ 
+	if (template == "") {
+		document.resultado.inicio.value = inicio;	
+	} else {
+		document.resultado.nomeTemplate.value = template;		
+	}	
+	document.resultado.submit();
+}
+
+function paginarBusca(inicio, template, qtdPorPagina){
+	if (template == "") {
+		document.resultado.inicio.value = inicio;	
+	} else {
+		document.resultado.nomeTemplate.value = template;		
+	}
+	document.resultado.quantidadeImoveis.value = qtdPorPagina;
+	document.resultado.submit();
+}
+
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+String.prototype.ltrim = function() {
+	return this.replace(/^\s+/,"");
+}
+String.prototype.rtrim = function() {
+	return this.replace(/\s+$/,"");
+}

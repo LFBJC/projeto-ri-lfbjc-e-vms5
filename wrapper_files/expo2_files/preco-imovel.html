@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0146)https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&pretensao=4&origem=expoimovel&tipoImovel=1&bairro=263&preco=355000.0&area=58.87 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>expoimovel.com | Classificados de Imóveis, Corretores e Imobiliárias | ANUNCIE SEU IMÓVEL</title>
+
+<link rel="stylesheet" type="text/css" href="./template-expoimovel.css">
+<style type="text/css">
+	.caixa-graficos-expo { width: 100%; height: 350px; }
+	.caixa-grafico-box-expo { }
+</style>
+<script type="text/javascript" src="./jquery.min.js.download"></script>
+<script type="text/javascript">
+$(function () {
+    var chart;
+    //margin topo, direita, baixo, esquerda
+        
+		// Create the chart
+		$(document).ready(function() {
+			chart = new Highcharts.StockChart({
+			chart : {
+				renderTo : 'containerMes'
+			},
+			rangeSelector : {
+				buttonTheme: { // styles for the buttons	                
+	                width: null,
+	                padding: 2
+	            },
+				buttons: [{
+	                   type: 'month',
+	                   count: 1,
+	                   text: '1 Mês'
+	                }, {
+	                   type: 'month',
+	                   count: 3,
+	                   text: '3 Meses'
+	                }, {
+	                   type: 'month',
+	                    count: 6,
+	                    text: '6 Meses'
+	                }, {
+	                    type: 'year',
+	                    count: 1,
+	                    text: '1 ano'
+	                }, {
+	                    type: 'all',
+	                    text: 'Tudo'
+	                }],
+                buttonSpacing: 12,
+                inputEnabled: false,
+				selected : 3				
+			},
+
+			title : {
+				text : ''
+			},
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%b',
+                    year: '%Y'
+                }			
+            },
+            yAxis: {
+                title: {
+                    text: 'Preço médio / m²'
+                },
+                min: 0,
+                labels: {
+                    formatter : function() { return formataMoeda(this.value,0,',','.',''); },
+                    style: {
+                        fontSize: '10px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+                
+				,
+                plotLines : [{
+					value : 6030.236113470359,
+					color : 'red',
+					dashStyle : 'dash',
+					width : 1,
+					label : {
+						text : 'R$/m² desse Imóvel: R$ 6.030,24'
+					}
+				}]
+				
+            },	
+            navigator: {
+                top: 250,
+                height: 30
+            },
+            legend: {
+                enabled: true,
+                y: -10
+            },
+            tooltip : {
+            	formatter: function() {					
+	                var s = '<b>'+ Highcharts.dateFormat('%b/%Y', this.x) +'</b>';
+
+	                $.each(this.points, function(i, point) {
+	                	s += '<br/><span style="color:'+point.series.color+'">'+point.series.name+'</span>: ';
+	                    s += '<b>'+ formataMoeda(point.y,2,',','.','R$') + ' / m² </b>';
+	                });
+	            
+	                return s;
+	            }
+			},
+			series : [{
+				name : 'Casa Amarela',
+				color: '#2a6ebb',
+				data : [
+				
+	                    [Date.UTC(2015, 0, 1), 5643.115245636965],
+	            
+	                    [Date.UTC(2015, 1, 1), 6738.888888888889],
+	            
+	                    [Date.UTC(2015, 2, 1), 5587.548638132295],
+	            
+	                    [Date.UTC(2015, 8, 1), 6644.622513998842],
+	            
+	                    [Date.UTC(2015, 9, 1), 6935.8490566037735],
+	            
+	                    [Date.UTC(2016, 3, 1), 6613.247481108313],
+	            
+	                    [Date.UTC(2016, 5, 1), 6339.446266856309],
+	            
+	                    [Date.UTC(2016, 6, 1), 6203.369434416366],
+	            
+	                    [Date.UTC(2016, 7, 1), 4903.225806451613],
+	            
+	                    [Date.UTC(2016, 8, 1), 4901.599756097561],
+	            
+	                    [Date.UTC(2016, 10, 1), 5916.5663858804655],
+	            
+	                    [Date.UTC(2017, 2, 1), 5456.4817001180645],
+	            
+	                    [Date.UTC(2017, 3, 1), 6440.232706117627],
+	            
+	                    [Date.UTC(2017, 5, 1), 5477.707006369426],
+	            
+	                    [Date.UTC(2017, 6, 1), 5862.975778546713],
+	            
+	                    [Date.UTC(2017, 7, 1), 6706.201949539248],
+	            
+	                    [Date.UTC(2017, 9, 1), 5587.94133623031],
+	            
+	                    [Date.UTC(2017, 10, 1), 6466.774716369529],
+	            
+	                    [Date.UTC(2017, 11, 1), 7668.401272043942],
+	            
+	                    [Date.UTC(2018, 0, 1), 6242.281050295462],
+	            
+	                    [Date.UTC(2018, 4, 1), 5490.483162518302],
+	            
+	                    [Date.UTC(2018, 7, 1), 6277.559354838709],
+	            
+	                    [Date.UTC(2018, 8, 1), 7550.182140361388],
+	            
+	                    [Date.UTC(2018, 9, 1), 7912.675022676672],
+	            
+	                    [Date.UTC(2018, 10, 1), 5566.218809980806],
+	            
+	                    [Date.UTC(2018, 11, 1), 8081.063587702442],
+	            
+	                    [Date.UTC(2019, 3, 1), 6155.108740254411],
+	            
+	                    [Date.UTC(2019, 4, 1), 5812.449474535166],
+	            
+	                    [Date.UTC(2019, 5, 1), 6247.337782195087],
+	            
+	                    [Date.UTC(2019, 6, 1), 5889.685104410616],
+	            
+	                    [Date.UTC(2019, 7, 1), 5283.018867924528],
+	            
+	                    [Date.UTC(2019, 8, 1), 6868.518222079932],
+	            
+	                    [Date.UTC(2019, 9, 1), 6309.342877935456],
+	            
+	                    [Date.UTC(2019, 10, 1), 5630.249428696455]
+	            
+	                ],
+				marker : {
+					enabled : true,
+					radius : 3
+				},
+				shadow : true		
+			}, {
+				name : 'Recife',
+				color: '#ff6b01',
+				data : [
+				
+	                    [Date.UTC(2014, 11, 1), 6785.186350023273],
+	            
+	                    [Date.UTC(2015, 0, 1), 6582.038074322656],
+	            
+	                    [Date.UTC(2015, 1, 1), 7317.190171084281],
+	            
+	                    [Date.UTC(2015, 2, 1), 6839.544549580407],
+	            
+	                    [Date.UTC(2015, 3, 1), 6817.759316681722],
+	            
+	                    [Date.UTC(2015, 4, 1), 7447.560344827586],
+	            
+	                    [Date.UTC(2015, 5, 1), 7082.418199015663],
+	            
+	                    [Date.UTC(2015, 6, 1), 6924.406741573033],
+	            
+	                    [Date.UTC(2015, 7, 1), 6932.3472031284655],
+	            
+	                    [Date.UTC(2015, 8, 1), 7117.356324900835],
+	            
+	                    [Date.UTC(2015, 9, 1), 6533.505722937456],
+	            
+	                    [Date.UTC(2015, 10, 1), 6891.539966568134],
+	            
+	                    [Date.UTC(2015, 11, 1), 6077.909887359199],
+	            
+	                    [Date.UTC(2016, 0, 1), 5825.983458967866],
+	            
+	                    [Date.UTC(2016, 1, 1), 3415.977961432507],
+	            
+	                    [Date.UTC(2016, 2, 1), 6960.865246960961],
+	            
+	                    [Date.UTC(2016, 3, 1), 6794.854271573299],
+	            
+	                    [Date.UTC(2016, 4, 1), 7220.520653351717],
+	            
+	                    [Date.UTC(2016, 5, 1), 7188.864851206758],
+	            
+	                    [Date.UTC(2016, 6, 1), 7239.438587455134],
+	            
+	                    [Date.UTC(2016, 7, 1), 5945.7549943460235],
+	            
+	                    [Date.UTC(2016, 8, 1), 5000.642070849198],
+	            
+	                    [Date.UTC(2016, 9, 1), 5669.775328529038],
+	            
+	                    [Date.UTC(2016, 10, 1), 6532.697776430521],
+	            
+	                    [Date.UTC(2016, 11, 1), 7581.552533045519],
+	            
+	                    [Date.UTC(2017, 0, 1), 3758.8652482269504],
+	            
+	                    [Date.UTC(2017, 1, 1), 7849.753002854589],
+	            
+	                    [Date.UTC(2017, 2, 1), 7461.404929244267],
+	            
+	                    [Date.UTC(2017, 3, 1), 6575.96034244518],
+	            
+	                    [Date.UTC(2017, 4, 1), 7194.822297525172],
+	            
+	                    [Date.UTC(2017, 5, 1), 7174.015359210838],
+	            
+	                    [Date.UTC(2017, 6, 1), 6514.556830745251],
+	            
+	                    [Date.UTC(2017, 7, 1), 6630.626673178496],
+	            
+	                    [Date.UTC(2017, 8, 1), 7036.737458775366],
+	            
+	                    [Date.UTC(2017, 9, 1), 6829.807438910245],
+	            
+	                    [Date.UTC(2017, 10, 1), 8385.854605075136],
+	            
+	                    [Date.UTC(2017, 11, 1), 7626.997605488545],
+	            
+	                    [Date.UTC(2018, 0, 1), 7083.3303616094145],
+	            
+	                    [Date.UTC(2018, 1, 1), 7096.522355415744],
+	            
+	                    [Date.UTC(2018, 2, 1), 7542.799440870968],
+	            
+	                    [Date.UTC(2018, 3, 1), 8703.707916629459],
+	            
+	                    [Date.UTC(2018, 4, 1), 7262.533725207109],
+	            
+	                    [Date.UTC(2018, 5, 1), 7359.456714228616],
+	            
+	                    [Date.UTC(2018, 6, 1), 5905.037637521715],
+	            
+	                    [Date.UTC(2018, 7, 1), 6684.126630838543],
+	            
+	                    [Date.UTC(2018, 8, 1), 6865.830020505982],
+	            
+	                    [Date.UTC(2018, 9, 1), 7209.957995394013],
+	            
+	                    [Date.UTC(2018, 10, 1), 7058.8878089926075],
+	            
+	                    [Date.UTC(2018, 11, 1), 8319.247037618308],
+	            
+	                    [Date.UTC(2019, 0, 1), 6238.072255535926],
+	            
+	                    [Date.UTC(2019, 1, 1), 6585.879289139997],
+	            
+	                    [Date.UTC(2019, 2, 1), 6613.242318480068],
+	            
+	                    [Date.UTC(2019, 3, 1), 6964.1390470471215],
+	            
+	                    [Date.UTC(2019, 4, 1), 6763.220792066543],
+	            
+	                    [Date.UTC(2019, 5, 1), 6792.938884874526],
+	            
+	                    [Date.UTC(2019, 6, 1), 7219.0917270804175],
+	            
+	                    [Date.UTC(2019, 7, 1), 7020.962272761846],
+	            
+	                    [Date.UTC(2019, 8, 1), 7159.017443237553],
+	            
+	                    [Date.UTC(2019, 9, 1), 6264.161136433287],
+	            
+	                    [Date.UTC(2019, 10, 1), 6762.259620084502]
+	            
+	                ],
+				marker : {
+					enabled : true,
+					radius : 3
+				},
+				shadow : true			
+			}]
+		});
+	});
+});
+
+ 
+function formataMoeda(numero, casasDecimais, separadorDecimal, separadorMilhar, unidadeMoeda){
+	casasDecimais = isNaN(casasDecimais = Math.abs(casasDecimais)) ? 2 : casasDecimais;
+	separadorDecimal = separadorDecimal == undefined ? "," : separadorDecimal;
+	separadorMilhar = separadorMilhar == undefined ? "." : separadorMilhar;
+	unidadeMoeda = unidadeMoeda == undefined ? "" : unidadeMoeda + " ";
+	var sinal = numero < 0 ? "-" : "";
+	var parteInteira = parseInt(numero = Math.abs(+numero || 0).toFixed(casasDecimais)) + "";
+
+	var j = (j = parteInteira.length) > 3 ? j % 3 : 0;
+	return unidadeMoeda + sinal + (j ? parteInteira.substr(0, j) + separadorMilhar : "") + parteInteira.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + separadorMilhar) + (casasDecimais ? separadorDecimal + Math.abs(numero - parteInteira).toFixed(casasDecimais).slice(2) : "");
+ }
+</script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+<div>
+   	<div class="caixa-grafico-box-expo">
+   		<table border="0" cellpadding="3" cellspacing="2" width="100%" class="texto-expo-padrao" style="text-align: center;">
+   			<tbody><tr>
+				<td rowspan="2" align="center" style="background-color: #e1e1e1;  border-bottom: 1px solid #CCCCCC; font-weight: bold; color: #000000;">Preço Médio Estimado</td>
+				
+				<td style="background-color: #e1e1e1;  border-bottom: 1px solid #CCCCCC; font-weight: bold; color: #000000;">R$/m² desse Imóvel</td>
+				
+				
+				<td style="background-color: #2a6ebb; color: #FFFFFF; font-weight: bold; border-bottom: 1px solid #CCCCCC; ">R$/m² em Casa Amarela</td>
+				
+				
+				<td style="background-color: #ff6b01; color: #FFFFFF; font-weight: bold; border-bottom: 1px solid #CCCCCC; ">R$/m² em Recife</td>
+				
+				
+				<td style="background-color: #e1e1e1;  border-bottom: 1px solid #CCCCCC; font-weight: bold; color: #000000;">Estimativa Aluguel Casa Amarela</td>
+				
+				
+				
+			</tr> 
+			<tr>
+				
+				<td style="border-bottom: 1px solid #e4e4e4; border-right:1px solid #E4E4E4;">R$ 6.030,24</td>
+				
+				
+				<td style="border-bottom: 1px solid #e4e4e4; border-right:1px solid #E4E4E4;">R$ 5.630,25</td>
+				
+				
+				<td style="border-bottom: 1px solid #e4e4e4; border-right:1px solid #E4E4E4;">R$ 6.762,26</td>
+				
+				
+				<td style="border-bottom: 1px solid #e4e4e4; border-right:1px solid #E4E4E4;">R$ 1.932,82</td>
+				
+				
+			</tr>
+   			<tr>
+   				<td colspan="5"><div id="containerMes" class="caixa-graficos-expo"><div class="highcharts-container" id="highcharts-0" style="position: relative; overflow: hidden; width: 1220px; height: 350px; text-align: left; line-height: normal; font-family: &quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1220" height="350"><defs><clippath id="highcharts-1"><rect rx="0" ry="0" fill="none" x="0" y="0" width="1172" height="182" stroke-width="0.000001"></rect></clippath><lineargradient id="highcharts-2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEE" stop-opacity="1"></stop><stop offset="1" stop-color="#FFF" stop-opacity="1"></stop></lineargradient><lineargradient id="highcharts-3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF" stop-opacity="1"></stop><stop offset="1" stop-color="#CCC" stop-opacity="1"></stop></lineargradient><lineargradient id="highcharts-4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF" stop-opacity="1"></stop><stop offset="1" stop-color="#DDD" stop-opacity="1"></stop></lineargradient><lineargradient id="highcharts-5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD" stop-opacity="1"></stop><stop offset="1" stop-color="#CDF" stop-opacity="1"></stop></lineargradient><lineargradient id="highcharts-6" x1="0" y1="0" x2="0" y2="20" gradientUnits="userSpaceOnUse"><stop offset="0.4" stop-color="#F7F7F7" stop-opacity="1"></stop><stop offset="0.6" stop-color="#E3E3E3" stop-opacity="1"></stop></lineargradient></defs><rect rx="5" ry="5" fill="#FFFFFF" x="0" y="0" width="1220" height="350" stroke-width="0.000001" stroke="#4572A7"></rect><path d="M 38 107.5 L 1210 107.5" fill="none" stroke="red" stroke-width="1" stroke-dasharray="4,3"></path><text x="48" y="104" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;" visibility="visible"><tspan x="48">R$/m² desse Imóvel: R$ 6.030,24</tspan></text><g transform="translate(38,281)"><rect fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-2)" x="0" y="-0.5" width="1172" height="14" stroke-width="1" stroke="#CCC" rx="0" ry="0"></rect><rect fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-3)" x="855.5" y="-0.5" width="302" height="14" stroke-width="1" stroke="#666" rx="2" ry="2"></rect><path fill="none" stroke="#666" stroke-width="1" d="M 1003 3.5 L 1003 9.333333333333334 M 1006 3.5 L 1006 9.333333333333334 M 1009 3.5 L 1009 9.333333333333334" visibility="visible"></path><g><rect rx="2" ry="2" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-3)" x="-0.5" y="-0.5" width="14" height="14" stroke-width="1" stroke="#666"></rect><path d="M 8 4 L 8 10 5 7" fill="#666"></path></g><g transform="translate(1158,0)"><rect rx="2" ry="2" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-3)" x="-0.5" y="-0.5" width="14" height="14" stroke-width="1" stroke="#666"></rect><path d="M 6 4 L 6 10 9 7" fill="#666"></path></g></g><text x="38" y="25" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;"><tspan x="38">Zoom</tspan></text><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-grid" zIndex="1"><path d="M 38 171.5 L 1210 171.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 126.5 L 1210 126.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 80.5 L 1210 80.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 35.5 L 1210 35.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 38 216.5 L 1210 216.5" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path></g><g class="highcharts-grid" zIndex="1"><path d="M 321.5 250 L 321.5 280" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 557.5 250 L 557.5 280" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 781.5 250 L 781.5 280" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 1061.5 250 L 1061.5 280" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path><path d="M 175.5 250 L 175.5 280" fill="none" stroke="#C0C0C0" stroke-width="1" zIndex="1"></path></g><g class="highcharts-grid" zIndex="1"></g><g class="highcharts-series-group" zIndex="3"><g class="highcharts-series" visibility="visible" transform="translate(38,35)" clip-path="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-1)"><path d="M -97.7 37.8 L 0 80.3 L 97.7 34.7 L 488.3 69.6 L 586 75.8 L 683.7 67.9 L 781.3 74.4 L 879 85.4 L 976.7 56.7 L 1074.3 66.8 L 1172 79.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></path><path d="M -97.7 37.8 L 0 80.3 L 97.7 34.7 L 488.3 69.6 L 586 75.8 L 683.7 67.9 L 781.3 74.4 L 879 85.4 L 976.7 56.7 L 1074.3 66.8 L 1172 79.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></path><path d="M -97.7 37.8 L 0 80.3 L 97.7 34.7 L 488.3 69.6 L 586 75.8 L 683.7 67.9 L 781.3 74.4 L 879 85.4 L 976.7 56.7 L 1074.3 66.8 L 1172 79.1" fill="none" stroke="rgb(0, 0, 0)" stroke-width="1" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path><path d="M -97.7 37.8 L 0 80.3 L 97.7 34.7 L 488.3 69.6 L 586 75.8 L 683.7 67.9 L 781.3 74.4 L 879 85.4 L 976.7 56.7 L 1074.3 66.8 L 1172 79.1" fill="none" stroke="#2a6ebb" stroke-width="2"></path><path d="M 1172 76.1 C 1175.996 76.1 1175.996 82.1 1172 82.1 C 1168.004 82.1 1168.004 76.1 1172 76.1 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 1074.3 63.8 C 1078.296 63.8 1078.296 69.8 1074.3 69.8 C 1070.3039999999999 69.8 1070.3039999999999 63.8 1074.3 63.8 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 976.7 53.7 C 980.696 53.7 980.696 59.7 976.7 59.7 C 972.7040000000001 59.7 972.7040000000001 53.7 976.7 53.7 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 879 82.4 C 882.996 82.4 882.996 88.4 879 88.4 C 875.004 88.4 875.004 82.4 879 82.4 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 781.3 71.4 C 785.2959999999999 71.4 785.2959999999999 77.4 781.3 77.4 C 777.304 77.4 777.304 71.4 781.3 71.4 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 683.7 64.9 C 687.696 64.9 687.696 70.9 683.7 70.9 C 679.7040000000001 70.9 679.7040000000001 64.9 683.7 64.9 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 586 72.8 C 589.996 72.8 589.996 78.8 586 78.8 C 582.004 78.8 582.004 72.8 586 72.8 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 488.3 66.6 C 492.296 66.6 492.296 72.6 488.3 72.6 C 484.30400000000003 72.6 484.30400000000003 66.6 488.3 66.6 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 97.7 31.700000000000003 C 101.696 31.700000000000003 101.696 37.7 97.7 37.7 C 93.70400000000001 37.7 93.70400000000001 31.700000000000003 97.7 31.700000000000003 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 0 77.3 C 3.996 77.3 3.996 83.3 0 83.3 C -3.996 83.3 -3.996 77.3 0 77.3 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M -97.7 34.8 C -93.70400000000001 34.8 -93.70400000000001 40.8 -97.7 40.8 C -101.696 40.8 -101.696 34.8 -97.7 34.8 Z" fill="#2a6ebb" stroke="#FFFFFF" stroke-width="0.000001"></path></g><g class="highcharts-series" visibility="visible" transform="translate(38,35)" clip-path="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-1)"><path d="M -97.7 50.5 L 0 53.2 L 97.7 30.4 L 195.3 68.1 L 293 61.8 L 390.7 61.3 L 488.3 54.9 L 586 58.6 L 683.7 58 L 781.3 50.3 L 879 53.9 L 976.7 51.4 L 1074.3 67.6 L 1172 58.6" fill="none" stroke="rgb(0, 0, 0)" stroke-width="5" isShadow="true" stroke-opacity="0.05" transform="translate(1,1)"></path><path d="M -97.7 50.5 L 0 53.2 L 97.7 30.4 L 195.3 68.1 L 293 61.8 L 390.7 61.3 L 488.3 54.9 L 586 58.6 L 683.7 58 L 781.3 50.3 L 879 53.9 L 976.7 51.4 L 1074.3 67.6 L 1172 58.6" fill="none" stroke="rgb(0, 0, 0)" stroke-width="3" isShadow="true" stroke-opacity="0.1" transform="translate(1,1)"></path><path d="M -97.7 50.5 L 0 53.2 L 97.7 30.4 L 195.3 68.1 L 293 61.8 L 390.7 61.3 L 488.3 54.9 L 586 58.6 L 683.7 58 L 781.3 50.3 L 879 53.9 L 976.7 51.4 L 1074.3 67.6 L 1172 58.6" fill="none" stroke="rgb(0, 0, 0)" stroke-width="1" isShadow="true" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path><path d="M -97.7 50.5 L 0 53.2 L 97.7 30.4 L 195.3 68.1 L 293 61.8 L 390.7 61.3 L 488.3 54.9 L 586 58.6 L 683.7 58 L 781.3 50.3 L 879 53.9 L 976.7 51.4 L 1074.3 67.6 L 1172 58.6" fill="none" stroke="#ff6b01" stroke-width="2"></path><path d="M 1172 55.6 L 1175 58.6 1172 61.6 1169 58.6 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 1074.3 64.6 L 1077.3 67.6 1074.3 70.6 1071.3 67.6 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 976.7 48.4 L 979.7 51.4 976.7 54.4 973.7 51.4 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 879 50.9 L 882 53.9 879 56.9 876 53.9 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 781.3 47.3 L 784.3 50.3 781.3 53.3 778.3 50.3 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 683.7 55 L 686.7 58 683.7 61 680.7 58 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 586 55.6 L 589 58.6 586 61.6 583 58.6 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 488.3 51.9 L 491.3 54.9 488.3 57.9 485.3 54.9 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 390.7 58.3 L 393.7 61.3 390.7 64.3 387.7 61.3 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 293 58.8 L 296 61.8 293 64.8 290 61.8 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 195.3 65.1 L 198.3 68.1 195.3 71.1 192.3 68.1 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 97.7 27.4 L 100.7 30.4 97.7 33.4 94.7 30.4 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M 0 50.2 L 3 53.2 0 56.2 -3 53.2 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path><path d="M -97.7 47.5 L -94.7 50.5 -97.7 53.5 -100.7 50.5 Z" fill="#ff6b01" stroke="#FFFFFF" stroke-width="0.000001"></path></g><g class="highcharts-series" visibility="visible" transform="translate(52,250)"><path d="M 33.6 21.7 C 33.6 21.7 53.81999999999999 13.1 67.3 13.1 C 80.74 13.1 87.46000000000001 22.1 100.9 22.1 C 114.38000000000002 22.1 121.11999999999998 15.923150074294208 134.6 13.8 C 148.04 11.683150074294208 154.76 11.5 168.2 11.5 C 181.68 11.5 188.42000000000002 13.058603268945022 201.9 14 C 215.34 14.938603268945023 222.06 15.540980683506687 235.5 16.2 C 248.98000000000002 16.860980683506686 255.71999999999997 16.2 269.2 17.3 C 282.64 18.400000000000002 289.36 27.5 302.8 27.5 C 316.28000000000003 27.5 323.02 27.5 336.5 27.5 C 349.94 27.5 356.66 19.5 370.1 19.5 C 383.58000000000004 19.5 390.32000000000005 23.1 403.8 23.1 C 417.23999999999995 23.1 423.9599999999999 15.4 437.4 15.4 C 450.87999999999994 15.4 457.62000000000006 23 471.1 23 C 484.5400000000001 23 491.26000000000005 21.837117384843978 504.7 19.9 C 518.18 17.95711738484398 524.92 13.3 538.4 13.3 C 551.8399999999999 13.3 558.5600000000001 22.1 572 22.1 C 585.4399999999999 22.1 592.1600000000001 18.47512630014858 605.6 15.2 C 619.08 11.915126300148577 625.8199999999999 5.7 639.3 5.7 C 652.74 5.7 659.4599999999999 13.565111441307561 672.9 17 C 686.3799999999999 20.44511144130756 693.1200000000001 22.9 706.6 22.9 C 720.0400000000001 22.9 726.76 19.935185735512633 740.2 16.7 C 753.6800000000001 13.455185735512634 760.42 9.28383358098069 773.9 6.7 C 787.3399999999999 4.123833580980692 794.0600000000001 3.8 807.5 3.8 C 820.9799999999999 3.8 827.72 22.3 841.2 22.3 C 854.6400000000001 22.3 861.3599999999999 2.5 874.8 2.5 C 888.28 2.5 895.0200000000001 14.900000000000002 908.5 17.6 C 921.9399999999999 20.3 928.6600000000001 20.3 942.1 20.3 C 955.5799999999999 20.3 962.3199999999999 16.9 975.8 16.9 C 989.24 16.9 995.9599999999998 18.182258543833566 1009.4 19.7 C 1022.8799999999999 21.222258543833565 1029.62 24.5 1043.1 24.5 C 1056.54 24.5 1063.26 12 1076.7 12 C 1090.18 12 1096.92 14.437087667161961 1110.4 16.4 C 1123.8400000000001 18.357087667161963 1144 21.8 1144 21.8 L 1144 30 L 33.6 30" fill="rgb(69,114,167)" fill-opacity="0.4"></path><path d="M 33.6 21.7 C 33.6 21.7 53.81999999999999 13.1 67.3 13.1 C 80.74 13.1 87.46000000000001 22.1 100.9 22.1 C 114.38000000000002 22.1 121.11999999999998 15.923150074294208 134.6 13.8 C 148.04 11.683150074294208 154.76 11.5 168.2 11.5 C 181.68 11.5 188.42000000000002 13.058603268945022 201.9 14 C 215.34 14.938603268945023 222.06 15.540980683506687 235.5 16.2 C 248.98000000000002 16.860980683506686 255.71999999999997 16.2 269.2 17.3 C 282.64 18.400000000000002 289.36 27.5 302.8 27.5 C 316.28000000000003 27.5 323.02 27.5 336.5 27.5 C 349.94 27.5 356.66 19.5 370.1 19.5 C 383.58000000000004 19.5 390.32000000000005 23.1 403.8 23.1 C 417.23999999999995 23.1 423.9599999999999 15.4 437.4 15.4 C 450.87999999999994 15.4 457.62000000000006 23 471.1 23 C 484.5400000000001 23 491.26000000000005 21.837117384843978 504.7 19.9 C 518.18 17.95711738484398 524.92 13.3 538.4 13.3 C 551.8399999999999 13.3 558.5600000000001 22.1 572 22.1 C 585.4399999999999 22.1 592.1600000000001 18.47512630014858 605.6 15.2 C 619.08 11.915126300148577 625.8199999999999 5.7 639.3 5.7 C 652.74 5.7 659.4599999999999 13.565111441307561 672.9 17 C 686.3799999999999 20.44511144130756 693.1200000000001 22.9 706.6 22.9 C 720.0400000000001 22.9 726.76 19.935185735512633 740.2 16.7 C 753.6800000000001 13.455185735512634 760.42 9.28383358098069 773.9 6.7 C 787.3399999999999 4.123833580980692 794.0600000000001 3.8 807.5 3.8 C 820.9799999999999 3.8 827.72 22.3 841.2 22.3 C 854.6400000000001 22.3 861.3599999999999 2.5 874.8 2.5 C 888.28 2.5 895.0200000000001 14.900000000000002 908.5 17.6 C 921.9399999999999 20.3 928.6600000000001 20.3 942.1 20.3 C 955.5799999999999 20.3 962.3199999999999 16.9 975.8 16.9 C 989.24 16.9 995.9599999999998 18.182258543833566 1009.4 19.7 C 1022.8799999999999 21.222258543833565 1029.62 24.5 1043.1 24.5 C 1056.54 24.5 1063.26 12 1076.7 12 C 1090.18 12 1096.92 14.437087667161961 1110.4 16.4 C 1123.8400000000001 18.357087667161963 1144 21.8 1144 21.8" fill="none" stroke="#4572A7" stroke-width="1"></path></g></g><rect fill="rgb(255,255,255)" x="52" y="250" width="841" height="30" stroke-width="0.000001" fill-opacity="0.75" zIndex="3"></rect><rect fill="rgb(255,255,255)" x="1196" y="250" width="0" height="30" stroke-width="0.000001" fill-opacity="0.75" zIndex="3"></rect><path fill="none" stroke-width="1" stroke="#444" zIndex="3" d="M 38 250.5 L 893.5 250.5 893.5 280.5 M 1195.5 280.5 L 1195.5 250.5 1210 250.5"></path><g style="cursor:e-resize;" zIndex="3" transform="translate(1196,257)"><rect rx="3" ry="3" fill="#FFF" x="-4.5" y="0.5" width="8" height="15" stroke-width="1" stroke="#666"></rect><path d="M -1.5 4 L -1.5 12 M 0.5 4 L 0.5 12" fill="#FFF" stroke="#666" stroke-width="1"></path></g><g style="cursor:e-resize;" zIndex="4" transform="translate(893,257)"><rect rx="3" ry="3" fill="#FFF" x="-4.5" y="0.5" width="8" height="15" stroke-width="1" stroke="#666"></rect><path d="M -1.5 4 L -1.5 12 M 0.5 4 L 0.5 12" fill="#FFF" stroke="#666" stroke-width="1"></path></g><g class="highcharts-legend" zIndex="7" transform="translate(522,297)"><rect rx="5" ry="5" fill="none" x="0.5" y="0.5" width="175" height="27" stroke-width="1" stroke="#909090" visibility="visible"></rect><text x="30" y="18" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;cursor:pointer;color:#3E576F;fill:#3E576F;" text-anchor="start" zIndex="2"><tspan x="30">Casa Amarela</tspan></text><path d="M -21 0 L -5 0" fill="none" stroke-width="2" zIndex="2" stroke="#2a6ebb" transform="translate(30,14)"></path><text x="135.65625" y="18" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;cursor:pointer;color:#3E576F;fill:#3E576F;" text-anchor="start" zIndex="2"><tspan x="135.65625">Recife</tspan></text><path d="M -21 0 L -5 0" fill="none" stroke-width="2" zIndex="2" stroke="#ff6b01" transform="translate(135.65625,14)"></path><path d="M 17 11 C 20.996 11 20.996 17 17 17 C 13.004 17 13.004 11 17 11 Z" fill="#2a6ebb" zIndex="3" stroke="#2a6ebb"></path><path d="M 122.65625 11 L 125.65625 14 122.65625 17 119.65625 14 Z" fill="#ff6b01" zIndex="3" stroke="#ff6b01"></path></g><g class="highcharts-axis" zIndex="7"><text x="48.453125" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="48.453125">Nov</tspan></text><text x="135.66666666666669" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="135.66666666666669">Dez</tspan></text><text x="233.33333333333334" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="233.33333333333334">Jan</tspan></text><text x="331" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="331">Fev</tspan></text><text x="428.6666666666667" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="428.6666666666667">Mar</tspan></text><text x="526.3333333333333" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="526.3333333333333">Abr</tspan></text><text x="624" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="624">Mai</tspan></text><text x="721.6666666666666" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="721.6666666666666">Jun</tspan></text><text x="819.3333333333334" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="819.3333333333334">Jul</tspan></text><text x="917" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="917">Ago</tspan></text><text x="1014.6666666666666" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="1014.6666666666666">Set</tspan></text><text x="1112.3333333333333" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="1112.3333333333333">Out</tspan></text><text x="1199.546875" y="230" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="middle" visibility="visible"><tspan x="1199.546875">Nov</tspan></text><path d="M 136.5 216 L 136.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 233.5 216 L 233.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 331.5 216 L 331.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 429.5 216 L 429.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 526.5 216 L 526.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 624.5 216 L 624.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 722.5 216 L 722.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 819.5 216 L 819.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 917.5 216 L 917.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 1015.5 216 L 1015.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 1112.5 216 L 1112.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 1210.5 216 L 1210.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path><path d="M 38.5 216 L 38.5 221" fill="none" stroke="#C0D0E0" stroke-width="1"></path></g><g class="highcharts-axis" zIndex="7"><text x="40" y="214" style="font-family:Verdana, sans-serif;font-size:10px;width:566px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="40"> 0</tspan></text><text x="40" y="168.75" style="font-family:Verdana, sans-serif;font-size:10px;width:566px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="40"> 2.500</tspan></text><text x="40" y="123.5" style="font-family:Verdana, sans-serif;font-size:10px;width:566px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="40"> 5.000</tspan></text><text x="40" y="78.25" style="font-family:Verdana, sans-serif;font-size:10px;width:566px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="40"> 7.500</tspan></text><text x="0" y="0" style="font-family:Verdana, sans-serif;font-size:10px;width:566px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="hidden"><tspan x="0"> 10.000</tspan></text></g><text x="28" y="125.5" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:#6D869F;font-weight:bold;fill:#6D869F;" zIndex="7" transform="rotate(270 28 125)" text-anchor="middle" visibility="visible"><tspan x="28">Preço médio / m²</tspan></text><g class="highcharts-axis" zIndex="7"><text x="178.2506393861902" y="276" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="178.2506393861902">Jul '15</tspan></text><text x="324.17647058823604" y="276" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="324.17647058823604">Jul '16</tspan></text><text x="559.7058823529424" y="276" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="559.7058823529424">Jul '17</tspan></text><text x="783.8976982097181" y="276" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="783.8976982097181">Jul '18</tspan></text><text x="1064.411764705883" y="276" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:11px;color:#666;line-height:14px;fill:#666;" text-anchor="start" visibility="visible"><tspan x="1064.411764705883">Jul '19</tspan></text></g><g class="highcharts-axis" zIndex="7"></g><path d="M 38 216.5 L 1210 216.5" fill="none" stroke="#C0D0E0" stroke-width="1" zIndex="7" visibility="visible"></path><g zIndex="8" style="padding:0;white-space:nowrap;" visibility="hidden"><rect rx="5" ry="5" fill="none" x="0" y="0" width="10" height="10" stroke-width="5" fill-opacity="0.85" anchorX="0" anchorY="0" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="0" y="0" width="10" height="10" stroke-width="3" fill-opacity="0.85" anchorX="0" anchorY="0" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="0" y="0" width="10" height="10" stroke-width="1" fill-opacity="0.85" anchorX="0" anchorY="0" isShadow="true" stroke="rgb(0, 0, 0)" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="rgb(255,255,255)" x="0" y="0" width="10" height="10" stroke-width="2" fill-opacity="0.85" anchorX="0" anchorY="0"></rect><text x="5" y="18" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:#333333;fill:#333333;" zIndex="1"></text></g><text x="1210" y="345" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:10px;cursor:pointer;color:#909090;fill:#909090;" text-anchor="end" zIndex="8"></text><g class="highcharts-tracker" zIndex="9"><g zIndex="1" transform="translate(38,35)" clip-path="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-1)"><path d="M -107.7 37.8 L -97.7 37.8 L 0 80.3 L 97.7 34.7 L 488.3 69.6 L 586 75.8 L 683.7 67.9 L 781.3 74.4 L 879 85.4 L 976.7 56.7 L 1074.3 66.8 L 1172 79.1 L 1182 79.1" fill="none" isTracker="true" stroke-opacity="0.000001" stroke="rgb(192,192,192)" stroke-linejoin="bevel" stroke-width="22" visibility="visible" style=""></path></g><g zIndex="1" transform="translate(38,35)" clip-path="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-1)"><path d="M -107.7 50.5 L -97.7 50.5 L 0 53.2 L 97.7 30.4 L 195.3 68.1 L 293 61.8 L 390.7 61.3 L 488.3 54.9 L 586 58.6 L 683.7 58 L 781.3 50.3 L 879 53.9 L 976.7 51.4 L 1074.3 67.6 L 1172 58.6 L 1182 58.6" fill="none" isTracker="true" stroke-opacity="0.000001" stroke="rgb(192,192,192)" stroke-linejoin="bevel" stroke-width="22" visibility="visible" style=""></path></g></g><g zIndex="10" style="cursor:default;text-align:center;" transform="translate(76,10)"><rect rx="0" ry="0" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-4)" x="0.5" y="0.5" width="38" height="20" stroke-width="1" stroke="#999" anchorX="NaN" anchorY="NaN"></rect><text x="2" y="15" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zIndex="1"><tspan x="2">1 Mês</tspan></text></g><g zIndex="10" style="cursor:default;text-align:center;" transform="translate(127,10)"><rect rx="0" ry="0" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-4)" x="0.5" y="0.5" width="51" height="20" stroke-width="1" stroke="#999" anchorX="NaN" anchorY="NaN"></rect><text x="2" y="15" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zIndex="1"><tspan x="2">3 Meses</tspan></text></g><g zIndex="10" style="cursor:default;text-align:center;" transform="translate(190,10)"><rect rx="0" ry="0" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-4)" x="0.5" y="0.5" width="51" height="20" stroke-width="1" stroke="#999" anchorX="NaN" anchorY="NaN"></rect><text x="2" y="15" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zIndex="1"><tspan x="2">6 Meses</tspan></text></g><g zIndex="10" style="cursor:default;text-align:center;" transform="translate(253,10)"><rect rx="0" ry="0" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-5)" x="0.5" y="0.5" width="37" height="20" stroke-width="1" stroke="#68A" anchorX="NaN" anchorY="NaN"></rect><text x="2" y="15" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zIndex="1"><tspan x="2">1 ano</tspan></text></g><g zIndex="10" style="cursor:default;text-align:center;" transform="translate(303,10)"><rect rx="0" ry="0" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-4)" x="0.5" y="0.5" width="35" height="20" stroke-width="1" stroke="#999" anchorX="NaN" anchorY="NaN"></rect><text x="2" y="15" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;font-size:12px;color:black;fill:black;" zIndex="1"><tspan x="2">Tudo</tspan></text></g><rect rx="3" ry="3" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-6)" x="0.5" y="0.5" width="23" height="19" stroke-width="1" transform="translate(1186,10)" zIndex="19" stroke="#B0B0B0"></rect><rect rx="3" ry="3" fill="url(https://www.expoimovel.com/preco-imovel.do?method=precoMedioImovel&amp;pretensao=4&amp;origem=expoimovel&amp;tipoImovel=1&amp;bairro=263&amp;preco=355000.0&amp;area=58.87#highcharts-6)" x="0.5" y="0.5" width="23" height="19" stroke-width="1" transform="translate(1160,10)" zIndex="19" stroke="#B0B0B0"></rect><path d="M 5.5 16.5 L 17.5 16.5 17.5 14.5 5.5 14.5 Z M 11.5 14.5 L 15.5 9.5 10.5 9.5 10.5 4.5 12.5 4.5 12.5 9.5 7.5 9.5 Z" fill="#A8BF77" transform="translate(1186,10)" stroke="#A0A0A0" stroke-width="1" zIndex="20"></path><path d="M 5.5 12.5 L 17.5 12.5 17.5 9.5 5.5 9.5 Z M 7.5 9.5 L 7.5 4.5 15.5 4.5 15.5 9.5 Z M 7.5 12.5 L 5.5 16.5 17.5 16.5 15.5 12.5 Z" fill="#B5C9DF" transform="translate(1160,10)" stroke="#A0A0A0" stroke-width="1" zIndex="20"></path><rect rx="0" ry="0" fill="rgb(255,255,255)" x="1186" y="10" width="24" height="20" stroke-width="0.000001" id="exportButton" fill-opacity="0.001" title="Export to raster or vector image" zIndex="21" style="cursor:pointer;"><title>Export to raster or vector image</title></rect><rect rx="0" ry="0" fill="rgb(255,255,255)" x="1160" y="10" width="24" height="20" stroke-width="0.000001" id="printButton" fill-opacity="0.001" title="Print the chart" zIndex="21" style="cursor:pointer;"><title>Print the chart</title></rect></svg></div></div></td>                     				
+   			</tr>
+   			<tr>
+   				<td colspan="4" style="text-align: left;"><b>ATENÇÃO:</b> O preço estimado é baseado nos dados dos imóveis cadastrados no sistema e pode não corresponder ao real valor do imóvel, que depende de outras características como idade, localização, estado de conservação, etc.</td>
+   				<td align="right" valign="top">
+   					<table border="0" cellpadding="2" cellspacing="0">
+						<tbody><tr>
+							<td align="right">Fonte:</td>
+							<td><a target="_top" href="https://www.expoimovel.com/preco-imovel/venda"><img alt="expoindice" title="expoindice - preço médio de imóvel, índices, avaliação de imóveis" border="0" src="./expoindice.png" width="65"></a></td>
+						</tr>
+					</tbody></table>
+   				</td>
+   			</tr>
+   		</tbody></table>                    		      		
+   	</div>  	
+</div>                
+<script src="./highstock.js.download"></script>
+<script src="./exporting.js.download"></script>
+
+</body></html>

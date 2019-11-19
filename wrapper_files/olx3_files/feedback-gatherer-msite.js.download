@@ -1,0 +1,10 @@
+(function() {
+  if (document.cookie.includes('feedback-adviews-msite_A')) {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "https://static.olx.com.br/cd/feedback-gatherer.js";
+    s.async = 1;
+    s.charset = "UTF-8";
+    document.head.append(s);
+  }
+})()

@@ -1,0 +1,178 @@
+function obterCidadesIdEstado(cidadeNav, bairroNav,urlBase, nomeTemplate){
+   	var idEstado = document.formulario.selectEstado.value;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNav).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+  	try{document.getElementById('container-switchList-bairro').innerHTML = '<select id="switchListBairroLeft" name="switchListBairroLeft" multiple="multiple" size="8" style="width: 200px;"></select>';}catch(e){};
+	requisicaoBaseAjax(cidadeNav, load, action, values, urlBase);
+}
+
+function obterBairrosIdCidade(bairroNav, urlBase, nomeTemplate){
+	var idCidade = document.formulario.selectCidade.value;
+
+	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=3&id=" + idCidade;
+
+  	var load = urlBase + "/imagens/loader.gif";
+  	 
+  	try{requisicaoBaseAjax(bairroNav, load, action, values, urlBase);
+          }catch(e)
+          {
+            };
+
+}
+
+function obterCidadesIdEstadoDetetive(cidadeNavPF, bairroNavPF,urlBase, nomeTemplate){
+   	var idEstado = document.formulario.selectEstadoDetetive.value;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	requisicaoDivCustomAjax(cidadeNavPF, '', load, action, values, urlBase);
+}
+
+function obterBairrosIdCidadeDetetive(bairroNav, urlBase, nomeTemplate){
+	var idCidade = document.formulario.selectCidadeDetetive.value;
+	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=3&id=" + idCidade;
+  	var load = urlBase + "/imagens/loader.gif";
+  	 
+  	try{requisicaoBaseAjax(bairroNav, load, action, values, urlBase);}catch(e){};
+}
+
+function obterCidadesIdEstadoPF(cidadeNavPF, bairroNavPF,urlBase, nomeTemplate){
+   	var idEstado = document.formulario.selectEstadoPF.value;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	requisicaoDivCustomAjax(cidadeNavPF, '', load, action, values, urlBase)
+}
+
+function obterBairrosIdCidadePF(bairroNavPF, urlBase, nomeTemplate){
+	var idCidade = document.formulario.selectCidadePF.value;
+	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplate +"&tipo=3&id=" + idCidade;
+  	var load = urlBase + "/imagens/loader.gif";	
+  	try{requisicaoDivCustomAjax(bairroNavPF, '', load, action, values, urlBase)}catch(e){};
+}
+
+function obterBairrosIdCidadePF(bairroNavPF, urlBase, nomeTemplate, bairroSelect){
+	var idCidade = document.formulario.selectCidadePF.value;
+	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&bairroSelect="+bairroSelect+"&nomeTemplate="+ nomeTemplate +"&tipo=3&id=" + idCidade;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{requisicaoDivCustomAjax(bairroNavPF, '', load, action, values, urlBase)}catch(e){};
+}
+
+function obterCidadesPFELocalizacao(cidadeNavPF,cidadeNav, bairroNavPF,bairroNav,urlBase, nomeTemplatePF,nomeTempletaLocalizacao ){
+
+   	var idEstado = document.formulario.selectEstadoPF.value;
+   	var indice = document.formulario.selectEstadoPF.selectedIndex;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplatePF +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNavPF, load, action, values, urlBase);}catch(e){};
+
+
+	//document.formulario.selectEstado.value = idEstado;
+	var idEstado2 = document.formulario.selectEstadoPF.value;
+	document.formulario.selectEstado.options[indice].selected = 'true';
+  	var action2 = "pluginLocalizacao.do";
+  	var values2 = "method=obterLocalizacao&nomeTemplate="+ nomeTempletaLocalizacao +"&tipo=2&id=" + idEstado;
+  	var load2 = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNav).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNav, load2, action2, values2, urlBase);}catch(e){};
+}
+
+function obterCidadesELocalizacao(cidadeNavPF,cidadeNav, bairroNavPF,bairroNav,urlBase, nomeTemplatePF,nomeTempletaLocalizacao ){
+
+   	var idEstado = document.formulario.selectEstado.value;
+   	var indice = document.formulario.selectEstado.selectedIndex;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&nomeTemplate="+ nomeTemplatePF +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNavPF, load, action, values, urlBase);}catch(e){};
+
+
+	//document.formulario.selectEstado.value = idEstado;
+	var idEstado2 = document.formulario.selectEstado.value;
+	document.formulario.selectEstado.options[indice].selected = 'true';
+  	var action2 = "pluginLocalizacao.do";
+  	var values2 = "method=obterLocalizacao&nomeTemplate="+ nomeTempletaLocalizacao +"&tipo=2&id=" + idEstado;
+  	var load2 = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNav).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNav, load2, action2, values2, urlBase);}catch(e){};
+}
+
+function obterCidadesPFELocalizacao(cidadeNavPF,cidadeNav, bairroNavPF,bairroNav,urlBase, nomeTemplatePF,nomeTempletaLocalizacao, cidadeSelect,  bairroSelect){
+
+   	var idEstado = document.formulario.selectEstadoPF.value;
+   	var indice = document.formulario.selectEstadoPF.selectedIndex;
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&bairroSelect="+bairroSelect+"&cidadeSelect="+cidadeSelect+"&nomeTemplate="+ nomeTemplatePF +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNavPF, load, action, values, urlBase);}catch(e){};
+
+
+	//document.formulario.selectEstado.value = idEstado;
+	var idEstado2 = document.formulario.selectEstadoPF.value;
+	document.formulario.selectEstado.options[indice].selected = 'true';
+  	var action2 = "pluginLocalizacao.do";
+  	var values2 = "method=obterLocalizacao&nomeTemplate="+ nomeTempletaLocalizacao +"&tipo=2&id=" + idEstado;
+  	var load2 = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNav).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNav, load2, action2, values2, urlBase);}catch(e){};
+}
+
+function obterCidadesPFELocalizacao2(cidadeNavPF, bairroNavPF,urlBase, nomeTemplatePF, cidadeSelect,  bairroSelect){
+
+   	var idEstado = document.formulario.selectEstado.value;
+   	var indice = document.formulario.selectEstado.selectedIndex; 
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&bairroSelect="+bairroSelect+"&cidadeSelect="+cidadeSelect+"&nomeTemplate="+ nomeTemplatePF +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNavPF).innerHTML = '<select><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNavPF, load, action, values, urlBase);}catch(e){};
+}	
+
+function obterCidadesPFELocalizacaoNovo(estado, cidadeNav, bairroNav, urlBase, nomeTemplate, cidadeSelect,  bairroSelect){
+   	var idEstado = estado.value;
+   	var indice = estado.selectedIndex; 
+  	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&bairroSelect="+bairroSelect+"&cidadeSelect="+cidadeSelect+"&nomeTemplate="+ nomeTemplate +"&tipo=2&id=" + idEstado;
+  	var load = urlBase + "/imagens/loader.gif";
+  	try{document.getElementById(bairroNav).innerHTML = '<select name="selectBairro" id="selectBairro" style="width: 150px;"><option>Bairros</option></select>';}catch(e){};
+	try{requisicaoBaseAjax(cidadeNav, load, action, values, urlBase);}catch(e){};
+}
+
+function obterBairrosIdCidadeNovo(bairroNav, urlBase, nomeTemplate, bairroSelect){
+	var idCidade = document.formulario.selectCidade.value;
+	var action = "pluginLocalizacao.do";
+  	var values = "method=obterLocalizacao&bairroSelect="+bairroSelect+"&nomeTemplate="+ nomeTemplate +"&tipo=3&id=" + idCidade;
+  	var load = urlBase + "/imagens/loader.gif";	
+  	try{requisicaoDivCustomAjax(bairroNav, '', load, action, values, urlBase)}catch(e){};
+}
+
+function obterCidadesHorizontal(urlBase, origem, cidadeDiv, bairroDiv){
+	var idEstado = document.getElementById('estado').value;
+	var action = "pluginLocalizacao.do";
+	var cidadeUrlAction = "method=obterLocalizacao&nomeTemplate="+ origem +"&tipo=2&id=" + idEstado;
+	var load = "<div style='width: 150px; text-align: center;'><img src='" + urlBase + "/imagens/loader.gif' /></div>";
+	try{document.getElementById(bairroNavPF).innerHTML = '<select name="bairro" class="texto11" style="width: 210px;"><option value="0">Bairros</option></select>';}catch(e){};
+	try{requisicaoDivCustomAjax(cidadeDiv, '', load, action, cidadeUrlAction, urlBase)}catch(e){};
+}
+
+function obterBairrosHorizontal(urlBase, origem, div){	
+	var idCidade = document.getElementById('cidade').value;
+	if(idCidade != ""){
+		var action = "pluginLocalizacao.do";
+		var urlAction = "method=obterLocalizacao&nomeTemplate="+ origem +"&tipo=3&id=" + idCidade;
+		var load = "<div style='width: 210px; text-align: center;'><img src='" + urlBase + "/imagens/loader.gif' /></div>";
+		try{requisicaoDivCustomAjax(div, '', load, action, urlAction, urlBase)}catch(e){};
+	}
+}

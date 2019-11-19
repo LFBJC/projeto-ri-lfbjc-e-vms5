@@ -1,0 +1,62 @@
+.texto-expo-padrao {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+	line-height: 1.8;
+}
+
+.texto-msi-padrao {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333333;
+}
+
+.texto-expo-titulo {
+	color: #006699;
+	font-family: alleritalic;
+	font-size: 20px;	
+	font-weight: normal;
+}
+
+.texto-expo-news {
+	font-family: alleritalic;
+}
+
+.texto-expo-10 {
+	font-size: 10px;
+}
+
+.texto-expo-12 {
+	font-size: 12px;
+}
+
+.texto-expo-16 {
+	font-size: 16px;
+}
+
+.texto-expo-18 {
+	font-size: 18px;
+}
+
+.texto-expo-upper {
+	text-transform: uppercase;
+}
+
+.texto-expo-laranja {
+	color: #FF6600 !important;
+}
+
+.texto-expo-negrito {
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'NewsGothCnBTBold';
+	src: url('newgotbc-webfont-webfont.eot');
+	src: url('newgotbc-webfont-webfont.eot?#iefix')
+		format('embedded-opentype'), url('newgotbc-webfont-webfont.woff')
+		format('woff'), url('newgotbc-webfont-webfont.ttf') format('truetype'),
+		url('newgotbc-webfont-webfont.svg#NewsGothCnBTBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

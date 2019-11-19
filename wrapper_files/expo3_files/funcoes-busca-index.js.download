@@ -1,0 +1,559 @@
+	
+	var valmin = -1;
+	var valmax = 21;
+	var mult = 20000;
+	var valIni =  35000;
+	var valIniArea =  40;
+	var multArea = 50;
+	var areaIni =  40;
+	var contador = 0;
+
+	
+	var valorAntigo1 = 0;
+	var valorAntigo2 = 0;
+	
+	var valor1 = 50000; 
+	var valor2 = 70000;
+	var valor3 = 90000;
+	var valor4 = 120000;
+	var valor5 = 150000;
+	var valor6 = 180000;
+	var valor7 = 220000;
+	var valor8 = 260000;
+	var valor9 = 300000;
+	var valor10 = 350000;
+	var valor11 = 400000;
+	var valor12 = 460000;
+	var valor13 = 520000; 
+	var valor14 = 580000;
+	var valor15 = 640000;
+	var valor16 = 800000;
+	var valor17 = 1000000;
+	var valor18 = 2000000;
+	var valor19 = 3500000;
+	var valor20 = 5000000;
+	
+	var valorArea1 = 50; 
+	var valorArea2 = 70;
+	var valorArea3 = 90;
+	var valorArea4 = 120;
+	var valorArea5 = 150;
+	var valorArea6 = 180;
+	var valorArea7 = 220;
+	var valorArea8 = 260;
+	var valorArea9 = 300;
+	var valorArea10 = 350;
+	var valorArea11 = 400;
+	var valorArea12 = 460;
+	var valorArea13 = 520; 
+	var valorArea14 = 580;
+	var valorArea15 = 640;
+	var valorArea16 = 710;
+	var valorArea17 = 780;
+	var valorArea18 = 860;
+	var valorArea19 = 940;
+	var valorArea20 = 1040;
+
+
+	
+	if(jQuery().slider){
+		$(function() { 
+			$("#slider-preco").slider({
+				range: true,
+				min: valmin,
+				max: valmax,
+				values: [valmin, valmax],
+				slide: function(event, ui) {		
+					if(ui.values[0] == valmin) {
+						txtmin = "<";
+						$("#txtValMinimo").val("selecione");
+					} else {
+						var tipo = document.resultadoBuscaExpo.tipoImovel.value;
+						if(ui.values[0] == 0){
+							txtmin = formata_moeda(valIni) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valIni));
+						}else if(ui.values[0] == 1){
+							txtmin = formata_moeda(valor1) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor1));
+						}else if(ui.values[0] == 2){
+							txtmin = formata_moeda(valor2) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor2));
+						}else if(ui.values[0] == 3){
+							txtmin = formata_moeda(valor3) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor3));
+						}else if(ui.values[0] == 4){
+							txtmin = formata_moeda(valor4) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor4));
+						}else if(ui.values[0] == 5){
+							txtmin = formata_moeda(valor5) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor5));
+						}else if(ui.values[0] == 6){
+							txtmin = formata_moeda(valor6) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor6));
+						}else if(ui.values[0] == 7){
+							txtmin = formata_moeda(valor7) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor7));
+						}else if(ui.values[0] == 8){
+							txtmin = formata_moeda(valor8) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor8));
+						}else if(ui.values[0] == 9){
+							txtmin = formata_moeda(valor9) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor9));
+						}else if(ui.values[0] == 10){
+							txtmin = formata_moeda(valor10) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor10));
+						}else if(ui.values[0] == 11){
+							txtmin = formata_moeda(valor11) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor11));
+						}else if(ui.values[0] == 12){
+							txtmin = formata_moeda(valor12) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor12));
+						}else if(ui.values[0] == 13){
+							txtmin = formata_moeda(valor13) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor13));
+						}else if(ui.values[0] == 14){
+							txtmin = formata_moeda(valor14) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor14));
+						}else if(ui.values[0] == 15){
+							txtmin = formata_moeda(valor15) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor15));
+						}else if(ui.values[0] == 16){
+							txtmin = formata_moeda(valor16) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor16));
+						}else if(ui.values[0] == 17){
+							txtmin = formata_moeda(valor17) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor17));
+						}else if(ui.values[0] == 18){
+							txtmin = formata_moeda(valor18) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor18));
+						}else if(ui.values[0] == 19){
+							txtmin = formata_moeda(valor19) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor19));
+						}else if(ui.values[0] == 20){
+							txtmin = formata_moeda(valor20) + ",00";
+							$("#txtValMinimo").val(formata_moeda(valor20));
+						}
+					}
+					
+					if(ui.values[1] == valmax) {
+						txtmax = ">";
+						$("#txtValMaximo").val("selecione");
+					} else {
+						if(ui.values[1] == 0){
+							txtmax = formata_moeda(valIni) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valIni));
+						}else if(ui.values[1] == 1){
+							txtmax = formata_moeda(valor1) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor1));
+						}else if(ui.values[1] == 2){
+							txtmax = formata_moeda(valor2) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor2));
+						}else if(ui.values[1] == 3){
+							txtmax = formata_moeda(valor3) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor3));
+						}else if(ui.values[1] == 4){
+							txtmax = formata_moeda(valor4) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor4));
+						}else if(ui.values[1] == 5){
+							txtmax = formata_moeda(valor5) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor5));
+						}else if(ui.values[1] == 6){
+							txtmax = formata_moeda(valor6) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor6));
+						}else if(ui.values[1] == 7){
+							txtmax = formata_moeda(valor7) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor7));
+						}else if(ui.values[1] == 8){
+							txtmax = formata_moeda(valor8) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor8));
+						}else if(ui.values[1] == 9){
+							txtmax = formata_moeda(valor9) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor9));
+						}else if(ui.values[1] == 10){
+							txtmax = formata_moeda(valor10) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor10));
+						}else if(ui.values[1] == 11){
+							txtmax = formata_moeda(valor11) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor11));
+						}else if(ui.values[1] == 12){
+							txtmax = formata_moeda(valor12) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor12));
+						}else if(ui.values[1] == 13){
+							txtmax = formata_moeda(valor13) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor13));
+						}else if(ui.values[1] == 14){
+							txtmax = formata_moeda(valor14) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor14));
+						}else if(ui.values[1] == 15){
+							txtmax = formata_moeda(valor15) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor15));
+						}else if(ui.values[1] == 16){
+							txtmax = formata_moeda(valor16) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor16));
+						}else if(ui.values[1] == 17){
+							txtmax = formata_moeda(valor17) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor17));
+						}else if(ui.values[1] == 18){
+							txtmax = formata_moeda(valor18) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor18));
+						}else if(ui.values[1] == 19){
+							txtmax = formata_moeda(valor19) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor19));
+						}else if(ui.values[1] == 20){
+							txtmax = formata_moeda(valor20) + ",00";
+							$("#txtValMaximo").val(formata_moeda(valor20));
+						}
+					}
+					$("#amount1").html(txtmin);
+					$("#amount2").html(txtmax);
+				}
+			});
+			$("#amount1").html("<");
+			$("#amount2").html(">");
+		});
+		
+		$(function() { 
+			$("#slider-area-util").slider({
+				range: true,
+				min: valmin,
+				max: valmax,
+				values: [valmin, valmax],
+				slide: function(event, ui) {		
+					if(ui.values[0] == valmin) {
+						txtmin = "<";
+						$("#txtAreaMinimo").val("selecione");
+					} else {
+						var tipo = document.resultadoBuscaExpo.tipoImovel.value;
+						if(ui.values[0] == 0){
+							txtmin = formata_moeda(valIniArea) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valIniArea));
+						}else if(ui.values[0] == 1){
+							txtmin = formata_moeda(valorArea1) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea1));
+						}else if(ui.values[0] == 2){
+							txtmin = formata_moeda(valorArea2) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea2));
+						}else if(ui.values[0] == 3){
+							txtmin = formata_moeda(valorArea3) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea3));
+						}else if(ui.values[0] == 4){
+							txtmin = formata_moeda(valorArea4) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea4));
+						}else if(ui.values[0] == 5){
+							txtmin = formata_moeda(valorArea5) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea5));
+						}else if(ui.values[0] == 6){
+							txtmin = formata_moeda(valorArea6) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea6));
+						}else if(ui.values[0] == 7){
+							txtmin = formata_moeda(valorArea7) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea7));
+						}else if(ui.values[0] == 8){
+							txtmin = formata_moeda(valorArea8) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea8));
+						}else if(ui.values[0] == 9){
+							txtmin = formata_moeda(valorArea9) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea9));
+						}else if(ui.values[0] == 10){
+							txtmin = formata_moeda(valorArea10) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea10));
+						}else if(ui.values[0] == 11){
+							txtmin = formata_moeda(valorArea11) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea11));
+						}else if(ui.values[0] == 12){
+							txtmin = formata_moeda(valorArea12) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea12));
+						}else if(ui.values[0] == 13){
+							txtmin = formata_moeda(valorArea13) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea13));
+						}else if(ui.values[0] == 14){
+							txtmin = formata_moeda(valorArea14) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea14));
+						}else if(ui.values[0] == 15){
+							txtmin = formata_moeda(valorArea15) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea15));
+						}else if(ui.values[0] == 16){
+							txtmin = formata_moeda(valorArea16) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea16));
+						}else if(ui.values[0] == 17){
+							txtmin = formata_moeda(valorArea17) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea17));
+						}else if(ui.values[0] == 18){
+							txtmin = formata_moeda(valorArea18) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea18));
+						}else if(ui.values[0] == 19){
+							txtmin = formata_moeda(valorArea19) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea19));
+						}else if(ui.values[0] == 20){
+							txtmin = formata_moeda(valorArea20) + ",00";
+							$("#txtAreaMinimo").val(formata_moeda(valorArea20));
+						}
+					}
+					
+					if(ui.values[1] == valmax) {
+						txtmax = ">";
+						$("#txtAreaMaximo").val("selecione");
+					} else {
+						if(ui.values[1] == 0){
+							txtmax = formata_moeda(valIni) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valIni));
+						}else if(ui.values[1] == 1){
+							txtmax = formata_moeda(valorArea1) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea1));
+						}else if(ui.values[1] == 2){
+							txtmax = formata_moeda(valorArea2) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea2));
+						}else if(ui.values[1] == 3){
+							txtmax = formata_moeda(valorArea3) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea3));
+						}else if(ui.values[1] == 4){
+							txtmax = formata_moeda(valorArea4) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea4));
+						}else if(ui.values[1] == 5){
+							txtmax = formata_moeda(valorArea5) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea5));
+						}else if(ui.values[1] == 6){
+							txtmax = formata_moeda(valorArea6) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea6));
+						}else if(ui.values[1] == 7){
+							txtmax = formata_moeda(valorArea7) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea7));
+						}else if(ui.values[1] == 8){
+							txtmax = formata_moeda(valorArea8) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea8));
+						}else if(ui.values[1] == 9){
+							txtmax = formata_moeda(valorArea9) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea9));
+						}else if(ui.values[1] == 10){
+							txtmax = formata_moeda(valorArea10) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea10));
+						}else if(ui.values[1] == 11){
+							txtmax = formata_moeda(valorArea11) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea11));
+						}else if(ui.values[1] == 12){
+							txtmax = formata_moeda(valorArea12) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea12));
+						}else if(ui.values[1] == 13){
+							txtmax = formata_moeda(valorArea13) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea13));
+						}else if(ui.values[1] == 14){
+							txtmax = formata_moeda(valorArea14) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea14));
+						}else if(ui.values[1] == 15){
+							txtmax = formata_moeda(valorArea15) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea15));
+						}else if(ui.values[1] == 16){
+							txtmax = formata_moeda(valorArea16) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea16));
+						}else if(ui.values[1] == 17){
+							txtmax = formata_moeda(valorArea17) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea17));
+						}else if(ui.values[1] == 18){
+							txtmax = formata_moeda(valorArea18) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea18));
+						}else if(ui.values[1] == 19){
+							txtmax = formata_moeda(valorArea19) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea19));
+						}else if(ui.values[1] == 20){
+							txtmax = formata_moeda(valorArea20) + ",00";
+							$("#txtAreaMaximo").val(formata_moeda(valorArea20));
+						}
+					}
+					$("#amount7").html(txtmin);
+					$("#amount8").html(txtmax);
+				}
+			});
+			$("#amount7").html("<");
+			$("#amount8").html(">");
+		});
+
+	 
+		$(function() { 
+			$("#slider-quarto").slider({
+				range: true,
+				min: 0,
+				max: 6,
+				values: [0, 6],
+				slide: function(event, ui) {		
+					if(ui.values[0] == 0) {
+						txtmin = "<";
+						$("#txtQuaMinimo").val("selecione");
+					} else {
+						txtmin = ui.values[0];
+						$("#txtQuaMinimo").val(txtmin);
+					}
+					
+					if(ui.values[1] == 6) {
+						txtmax = ">";
+						$("#txtQuaMaximo").val("selecione");
+					} else {
+						txtmax = ui.values[1];
+						$("#txtQuaMaximo").val(txtmax);
+					}
+					$("#amount3").html(txtmin);
+					$("#amount4").html(txtmax);
+				}
+			});
+			$("#amount3").html("<");
+			$("#amount4").html(">");
+		});
+
+		$(function() { 
+			$("#slider-vaga").slider({
+				range: true,
+				min: 0,
+				max: 6,
+				values:  [0, 6],
+				slide: function(event, ui) {		
+					if(ui.values[0] == 0) {
+						txtmin = "<";
+						$("#txtVagaMinimo").val("selecione");
+					} else {
+						txtmin = ui.values[0];
+						$("#txtVagaMinimo").val(txtmin);
+					}
+					
+					if(ui.values[1] == 6) {
+						txtmax = ">";
+						$("#txtVagaMaximo").val("selecione");
+					} else {
+						txtmax = ui.values[1];
+						$("#txtVagaMaximo").val(txtmax);
+					}
+					$("#amount9").html(txtmin);
+					$("#amount10").html(txtmax);
+				}
+			
+			});
+
+				
+		});
+	}
+
+
+	function changeValue() {
+		var pretensao = multiplosValoresRadio('pretensaoCK');		
+		var tipo = document.resultadoBuscaExpo.tipoImovel.value;
+		
+		if (pretensao == '1;4' || pretensao == '1;4;0' || pretensao == '4') {
+			if (tipo == 1) {mult = 20000;  valIni =  35000; valor1 = 50000; valor2 = 70000; valor3 = 90000; valor4 = 120000; valor5 = 150000;
+			valor6 = 180000; valor7 = 220000;valor8 = 260000;valor9 = 300000; valor10 = 350000; valor11 = 40000; valor12 = 460000; valor13 = 520000; 
+			valor14 = 580000; valor15 = 640000; valor16 = 800000; var valor17 = 1000000; var valor18 = 2000000; var valor19 = 3500000; var valor20 = 5000000; }
+			 
+			else if (tipo == 2) { mult = 40000;  valIni =  45000; valor1 = 50000; valor2 = 70000; valor3 = 90000; valor4 = 120000; valor5 = 150000;
+			valor6 = 180000; valor7 = 220000;valor8 = 260000;valor9 = 300000; valor10 = 350000; valor11 = 400000; valor12 = 460000; valor13 = 520000; 
+			valor14 = 580000; valor15 = 640000; valor16 = 800000; var valor17 = 1000000; var valor18 = 2000000; var valor19 = 3500000; var valor20 = 5000000; }
+			
+			else if (tipo == 3) { mult = 10000;  valIni =  5000;   valor1 = 15000; valor2 = 25000; valor3 = 35000; valor4 = 45000; valor5 = 55000;
+			valor6 = 65000; valor7 = 75000;valor8 = 85000;valor9 = 95000; valor10 = 105000; valor11 = 115000; valor12 = 125000; valor13 = 135000; 
+			valor14 = 145000; valor15 = 155000; valor16 = 165000; valor17 = 175000; valor18 = 185000; valor19 = 195000; valor20 = 205000; } 
+			 
+			else if (tipo == 4) { mult = 45000;  valIni =  10000;  valor1 = 55000; valor2 = 100000; valor3 = 145000; valor4 = 190000; valor5 = 235000;
+			valor6 = 280000; valor7 = 325000; valor8 = 370000; valor9 = 415000; valor10 = 460000; valor11 = 505000; valor12 = 550000; valor13 = 595000; 
+			valor14 = 640000; valor15 = 685000; valor16 = 730000; valor17 = 775000; valor18 = 820000; valor19 = 865000; valor20 = 910000; }
+			 
+			else if (tipo == 5) { mult = 50000;  valIni =  120000; valor1 = 170000; valor2 = 220000; valor3 = 270000; valor4 = 320000; valor5 = 370000;
+			valor6 = 420000; valor7 = 470000;valor8 = 520000;valor9 = 570000; valor10 = 620000; valor11 = 670000; valor12 = 720000; valor13 = 770000; 
+			valor14 = 820000; valor15 = 870000; valor16 = 920000; valor17 = 970000; valor18 = 1020000; valor19 = 1070000; valor20 = 1120000; }
+			 
+			else if (tipo == 6) { mult = 30000;  valIni =  30000;  valor1 = 60000; valor2 = 90000; valor3 = 120000; valor4 = 150000; valor5 = 180000;
+			valor6 = 210000; valor7 = 240000;valor8 = 270000;valor9 = 300000; valor10 = 330000; valor11 = 360000; valor12 = 390000; valor13 = 420000; 
+			valor14 = 450000; valor15 = 480000; valor16 = 510000; valor17 = 540000; valor18 = 570000; valor19 = 600000; valor20 = 630000; }
+			 
+			else if (tipo == 7) { mult = 100000; valIni =  90000;  valor1 = 190000; valor2 = 290000; valor3 = 390000; valor4 = 490000; valor5 = 590000;
+			valor6 = 690000; valor7 = 790000;valor8 = 890000;valor9 = 990000; valor10 = 1090000; valor11 = 1190000; valor12 = 1290000; valor13 = 1390000; 
+			valor14 = 1490000; valor15 = 1590000; valor16 = 1690000; valor17 = 1790000; valor18 = 1890000; valor19 = 1990000; valor20 = 2090000; }
+			
+			else if (tipo == 8) { mult = 10000;  valIni =  30000;  valor1 = 50000; valor2 = 65000; valor3 = 80000; valor4 = 95000; valor5 = 110000;
+			valor6 = 130000; valor7 = 150000;valor8 = 170000;valor9 = 190000; valor10 = 210000; valor11 = 240000; valor12 = 270000; valor13 = 300000; 
+			valor14 = 330000; valor15 = 360000; valor16 = 390000; valor17 = 420000; valor18 = 450000; valor19 = 500000; valor20 = 600000; }
+			 
+			else if (tipo == 9) { mult = 150000; valIni =  500000; valor1 = 650000; valor2 = 800000; valor3 = 950000; valor4 = 1100000; valor5 = 1250000;
+			valor6 = 1400000; valor7 = 1550000;valor8 = 1700000;valor9 = 1850000; valor10 = 2000000; valor11 = 2150000; valor12 = 2300000; valor13 = 2450000; 
+			valor14 = 2600000; valor15 = 2750000; valor16 = 2900000; valor17 = 3050000; valor18 = 3200000; valor19 = 3350000; valor20 = 3500000; }
+			 
+			else { 				  mult = 50000;  valIni =  200000; valor1 = 250000; valor2 = 300000; valor3 = 350000; valor4 = 400000; valor5 = 450000;
+			valor6 = 500000; valor7 = 550000;valor8 = 600000;valor9 = 650000; valor10 = 700000; valor11 = 750000; valor12 = 800000; valor13 = 850000; 
+			valor14 = 900000; valor15 = 950000; valor16 = 1000000; valor17 = 1050000; valor18 = 1100000; valor19 = 1150000; valor20 = 1200000; }
+					
+		} else {
+			if (tipo == 1) { 	  mult = 150;  valIni =  150;  valor1 = 400; valor2 = 600; valor3 = 800; valor4 = 1000; valor5 = 1200;
+			valor6 = 1500; valor7 = 1800; valor8 = 2100; valor9 = 2400; valor10 = 2700; valor11 = 3000; valor12 = 3500; valor13 = 4000; 
+			valor14 = 4500; valor15 = 5000; valor16 = 6000; valor17 = 7000; valor18 = 8000; valor19 = 9000; valor20 = 10000; }
+			 
+			else if (tipo == 2) { mult = 250;  valIni =  215;  valor1 = 400; valor2 = 600; valor3 = 800; valor4 = 1000; valor5 = 1200;
+			valor6 = 1500; valor7 = 1800; valor8 = 2100; valor9 = 2400; valor10 = 2700; valor11 = 3000; valor12 = 3500; valor13 = 4000; 
+			valor14 = 4500; valor15 = 5000; valor16 = 6000; valor17 = 7000; valor18 = 8000; valor19 = 9000; valor20 = 10000; }
+			
+			else if (tipo == 3) { mult = 200;  valIni =  150;  valor1 = 350; valor2 = 550; valor3 = 750; valor4 = 950; valor5 = 1150;
+			valor6 = 1350; valor7 = 1550; valor8 = 1750; valor9 = 1950; valor10 = 2150; valor11 = 2350; valor12 = 2550; valor13 = 2750; 
+			valor14 = 2950; valor15 = 3150; valor16 = 3350; valor17 = 3550; valor18 = 3750; valor19 = 3950; valor20 = 4150; } 
+			
+			else if (tipo == 4) { mult = 200;  valIni =  150;  valor1 = 350; valor2 = 550; valor3 = 750; valor4 = 950; valor5 = 1150;
+			valor6 = 1350; valor7 = 1550; valor8 = 1750; valor9 = 1950; valor10 = 2150; valor11 = 2350; valor12 = 2550; valor13 = 2750; 
+			valor14 = 2950; valor15 = 3150; valor16 = 3350; valor17 = 3550; valor18 = 3750; valor19 = 3950; valor20 = 4150; }
+			
+			else if (tipo == 5) { mult = 500;  valIni =  1500; valor1 = 2000; valor2 = 2500; valor3 = 3000; valor4 = 3500; valor5 = 4000;
+			valor6 = 4500; valor7 = 5000; valor8 = 5500; valor9 = 6000; valor10 = 6500; valor11 = 7000; valor12 = 7500; valor13 = 8000; 
+			valor14 = 8500; valor15 = 9000; valor16 = 9500; valor17 = 10000; valor18 = 10500; valor19 = 11000; valor20 = 11500; } 
+			
+			else if (tipo == 6) { mult = 200;  valIni =  400;  valor1 = 600; valor2 = 800; valor3 = 1000; valor4 = 1200; valor5 = 1400;
+			valor6 = 1600; valor7 = 1800; valor8 = 2000; valor9 = 2200; valor10 = 2400; valor11 = 2600; valor12 = 2800; valor13 = 3000; 
+			valor14 = 3200; valor15 = 3400; valor16 = 3600; valor17 = 3800; valor18 = 4000; valor19 = 4200; valor20 = 4400; } 
+			
+			else if (tipo == 7) { mult = 500;  valIni =  1500; valor1 = 2000; valor2 = 2500; valor3 = 3000; valor4 = 3500; valor5 = 4000;
+			valor6 = 4500; valor7 = 5000; valor8 = 5500; valor9 = 6000; valor10 = 6500; valor11 = 7000; valor12 = 7500; valor13 = 8000; 
+			valor14 = 8500; valor15 = 9000; valor16 = 9500; valor17 = 10000; valor18 = 10500; valor19 = 11000; valor20 = 11500; }
+			
+			else if (tipo == 8) { mult = 500;  valIni =  1500; valor1 = 2000; valor2 = 2500; valor3 = 3000; valor4 = 3500; valor5 = 4000;
+			valor6 = 4500; valor7 = 5000; valor8 = 5500; valor9 = 6000; valor10 = 6500; valor11 = 7000; valor12 = 7500; valor13 = 8000; 
+			valor14 = 8500; valor15 = 9000; valor16 = 9500; valor17 = 10000; valor18 = 10500; valor19 = 11000; valor20 = 11500; }
+			
+			else if (tipo == 9) { mult = 500;  valIni =  1500; valor1 = 2000; valor2 = 2500; valor3 = 3000; valor4 = 3500; valor5 = 4000;
+			valor6 = 4500; valor7 = 5000; valor8 = 5500; valor9 = 6000; valor10 = 6500; valor11 = 7000; valor12 = 7500; valor13 = 8000; 
+			valor14 = 8500; valor15 = 9000; valor16 = 9500; valor17 = 10000; valor18 = 10500; valor19 = 11000; valor20 = 11500; }
+			
+			else { 				  mult = 500;  valIni =  1500; valor1 = 2000; valor2 = 2500; valor3 = 3000; valor4 = 3500; valor5 = 4000;
+			valor6 = 4500; valor7 = 5000; valor8 = 5500; valor9 = 6000; valor10 = 6500; valor11 = 7000; valor12 = 7500; valor13 = 8000; 
+			valor14 = 8500; valor15 = 9000; valor16 = 9500; valor17 = 10000; valor18 = 10500; valor19 = 11000; valor20 = 11500; }
+			
+		}
+		$("#slider-preco").slider("option", "values", [-1,21]);
+		$("#slider-preco").slider("values" , 0 , [-1]);
+
+		$("#amount1").html("<");
+		$("#amount2").html(">");		
+	} 
+	
+	
+	function formata_moeda(valor){
+			preco = valor + "";
+			tam = preco.length;
+			if(tam == 4)
+				preco = preco.substr(0, 1) + '.' + preco.substr(1, 3); 
+			else if(tam == 5)
+				preco = preco.substr(0, 2) + '.' + preco.substr(2, 3);
+			else if(tam == 6)
+				preco = preco.substr(0, 3) + '.' + preco.substr(3, 3);
+			else if(tam > 6)
+				preco = preco.substr(0, 1) + '.' + preco.substr(1, 3) + '.' + preco.substr(4, 3);
+			return preco;
+	}
+	
+    function resetarSliders(){
+        mult = 20000;  valIni =  35000; valor1 = 50000; valor2 = 70000; valor3 = 90000; valor4 = 120000; valor5 = 150000;
+        valor6 = 180000; valor7 = 220000;valor8 = 260000;valor9 = 300000; valor10 = 350000; valor11 = 40000; valor12 = 460000; valor13 = 520000;
+        valor14 = 580000; valor15 = 640000; valor16 = 800000; var valor17 = 1000000; var valor18 = 2000000; var valor19 = 3500000; var valor20 = 5000000;
+                                                             
+				$("#slider-preco").slider("option", "values", [-1,21]);
+				$("#slider-preco").slider("values" , 0 , [-1]);
+              $("#amount1").html("<");
+              $("#amount2").html(">");
+
+			$("#slider-quarto").slider("option", "values", [0,6]);
+			$("#slider-quarto").slider("values" , 0 , [0]);
+              $("#amount3").html("<");
+              $("#amount4").html(">");
+}
+
+	

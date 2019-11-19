@@ -1,0 +1,132 @@
+
+<!-- saved from url=(0195)https://www.expoimovel.com/servlet/br.com.expoimovel.servlet.EnviaAnuncioImovelAmigoServlet?operacao=escreverEmail&codigoAnuncioImovel=5071_TIPO1_x252727749033994861551211969586&origem=expoimovel -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ENVIAR DADOS DO IMÓVEL POR E-MAIL</title>
+
+<link rel="stylesheet" href="./estilo_neutro.css">
+<script language="javascript" src="./util.js(1).download"></script><script language="javascript">
+	function enviar() {
+		if (document.form.nome.value.length < 1) {
+			window.alert("Digite o seu Nome para o envio da mensagem!");
+		} else if (document.form.email.value.length < 1) {
+			window.alert("Digite o seu Email para o envio da mensagem!");
+		} else if (document.form.nomeAmigo.value.length < 1) {
+			window
+					.alert("Digite o Nome do seu Amigo para o envio da mensagem!");
+		} else if (document.form.emailAmigo.value.length < 1) {
+			window
+					.alert("Digite o Email do seu Amigo para o envio da mensagem!");
+		} else if (validateEmail(form.email, "Seu E-mail")) {
+			if (validateEmail(form.emailAmigo, "E-mail do seu Amigo")) {
+				document.form.submit();
+			}
+		}
+	}
+
+	function limpar() {
+		document.form.reset();
+	}
+</script></head>
+
+
+
+
+<body bgcolor="#ffffff" marginwidth="0" marginheight="0">
+	
+	
+
+	
+
+<table width="385" border="0" align="center" cellpadding="0" cellspacing="0">
+
+<form method="POST" name="form" action="https://www.expoimovel.com/servlet/br.com.expoimovel.servlet.EnviaAnuncioImovelAmigoServlet?codigoAnuncioImovel=5071_TIPO1_x252727749033994861551211969586&amp;redeImobiliaria=&amp;operacao=enviarMensagem&amp;anunciante="></form>
+  <input type="hidden" name="botao" value="bot_fechar.jpg">
+  <input type="hidden" name="acao" value="javascript:window.close();">
+  <input type="hidden" name="origem" value="expoimovel">
+
+  <tbody><tr>
+    <td><table width="450" border="0" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+          <td background="./topo_envia_amigo_neutro.gif" width="385" height="40">
+          <table><tbody><tr><td width="65"></td><td class="titulo13b">ENVIAR DADOS DO IMÓVEL POR E-MAIL</td></tr></tbody></table>
+          </td>
+        </tr>
+        <tr>
+          <td><table cellspacing="2" cellpadding="3" width="100%" border="0">
+              <tbody>
+                <tr>
+                  <td align="right" colspan="2">
+                  <table align="center" cellpadding="0" cellspacing="0" border="1" bordercolor="#CCCCCC" bgcolor="#FFFFFF">
+                  <tbody><tr>
+                  <td align="center">
+                    <table align="center" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                    <td align="center">
+                    <img src="./mrv.png" border="0">
+                    </td>
+                    <td width="10">
+                    </td>
+                    <td align="left">
+                    <font size="2" face="Verdana, Arial, Helvetica, sans-serif">Preencha o formulário para enviar os dados deste Imóvel.</font>
+                    </td>
+                    </tr>
+                    </tbody></table>
+                  </td>
+                  </tr>
+                  </tbody></table>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="600">
+                  <input type="text" name="nome" size="35" placeholder="Seu Nome">
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" name="email" size="35" placeholder="Seu E-mail">
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                   <input type="text" name="nomeAmigo" size="35" placeholder="Nome do Amigo">
+                   </td>
+                </tr>
+                <tr>
+                  <td>
+                  <input type="text" name="emailAmigo" size="35" placeholder="E-mail do Amigo">
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top">
+            <textarea name="comentario" cols="34" wrap="VIRTUAL" rows="3" placeholder="Comentário"></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right" colspan="2" height="20"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                      <tbody><tr>
+                        <td align="center">
+            			<table border="0" cellspacing="1" cellpadding="1" align="center">
+          				<tbody><tr>
+          				<td align="center" width="80">
+                        <a href="javascript:enviar();"><img style="max-width: 150px;" src="./enviar-lead.jpg" border="0"></a>
+                        </td>
+                        </tr>
+                        </tbody></table>
+                        </td>
+
+                        <td width="20">&nbsp;</td>
+
+                      </tr>
+                    </tbody></table></td>
+                </tr>
+              </tbody>
+            </table> </td>
+        </tr>
+      </tbody></table></td>
+  </tr>
+
+
+</tbody></table>
+
+
+</body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://s0.2mdn.net/dfp/560590/4793585477/1568917395809/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script type="text/javascript">
+    
+      (function() {
+        var relegateNavigation = '';
+        var handleClickTagMessage = function(e) {
+          try {
+            var eventData = JSON.parse(e.data);
+          } catch (err) {
+            return;
+          }
+          if (eventData.isInitClickTag) {
+            if (eventData.clickTags) {
+              for (var i = 0; i < eventData.clickTags.length; i++) {
+                var clkTag = eventData.clickTags[i];
+                window[clkTag.name] = clkTag.url;
+              }
+            } else if (eventData.clickTag) {
+              window.clickTag = eventData.clickTag;
+            }
+            relegateNavigation = eventData.relegateNavigation;
+          }
+        };
+
+        if (open.call) {
+          window.open = function(open) {
+            return function(url, name, features) {
+              if (relegateNavigation === 'parent') {
+                var message = {'clickTag': url, 'isPostClickTag': true};
+                parent.postMessage(JSON.stringify(message), '*');
+              } else {
+                var args = [url, name];
+                if (features) {
+                  args.push(features);
+                }
+                open.apply(window, args);
+              }
+            };
+          }(window.open);
+        }
+
+        if (window.addEventListener) {
+          window.addEventListener(
+              'message', handleClickTagMessage, false);
+        } else {
+          window.attachEvent('onmessage', handleClickTagMessage);
+        }
+      })();
+    
+  </script>
+	<title>Bairro VIP - GRUPO FAPAS - 728 x 90</title>
+	<meta name="ad.size" content="width=728,height=90">
+<script>
+
+	var clickTag = 'http://www.zapimoveis.com.br';
+
+	var sources = ['foto_0.jpg','foto_1.jpg','foto_2.jpg','foto_3.jpg',];
+
+</script><style>
+
+	#logo {
+
+		background-image: url('logo.png'); 
+
+	}
+
+	body, html {
+
+		padding: 0;
+		margin: 0;
+
+		background-color: #fff;
+
+	}
+
+	#banner {
+
+		display: block;
+
+		width: 728px;
+		height: 90px;
+
+	}
+
+
+	#logo, #fotos, #zap {
+
+		float: left;
+		height: 90px;
+
+		background-repeat: no-repeat;
+		background-position: center;
+
+	}
+
+	#logo {
+
+		width: 172px;
+		height: 70px;
+		margin: 10px;
+
+		background-size: contain;
+
+	}
+
+	#fotos {
+
+		width: 224px;
+
+		background-size: cover;
+
+	}
+
+	#zap {
+
+		width: 312px;
+
+		background-image: url('zap.gif'); 
+
+	}
+
+</style></head>
+
+
+
+
+
+<body>
+
+<a id="banner" href="javascript:window.open(window.clickTag);">
+
+	<div id="logo"></div>
+	<div id="fotos" style="background-image: url(&quot;foto_0.jpg&quot;);"></div>
+	<div id="zap"></div>
+
+</a>
+
+
+<script>
+
+	var image = new Image();
+	for (i = 0; i < sources.length; i++) { image.src = sources[i]; }
+
+	var fotos = document.getElementById('fotos');
+	fotos.style.backgroundImage = 'url(' + sources[0] + ')';
+
+	var index = 0;
+	setInterval( function() {
+
+		if (index >= sources.length) index = 0;
+		fotos.style.backgroundImage = 'url(' + sources[index] + ')';
+		index ++;
+
+	}, 2100);
+
+
+</script>
+
+
+</body></html>

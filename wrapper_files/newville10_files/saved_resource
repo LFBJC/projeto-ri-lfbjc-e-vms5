@@ -1,0 +1,1160 @@
+(function (window) {
+
+var objContako = {};
+objContako.CSSReset ='.resetcontako{animation:none;animation-delay:0;animation-direction:normal;animation-duration:0;animation-fill-mode:none;animation-iteration-count:1;animation-name:none;animation-play-state:running;animation-timing-function:ease;backface-visibility:visible;background:0;background-clip:border-box;background-origin:padding-box;background-position-x:0;background-position-y:0;background-size:auto auto;border:0;border-width:medium;border-color:inherit;border-bottom:0;border-bottom-color:inherit;border-collapse:separate;border-image:none;border-left:0;border-left-color:inherit;border-radius:0;border-right:0;border-right-color:inherit;border-spacing:0;border-top:0;border-top-color:inherit;bottom:auto;box-shadow:none;box-sizing:content-box;caption-side:top;clear:none;clip:auto;color:inherit;columns:auto;column-count:auto;column-fill:balance;column-gap:normal;column-rule:medium none currentColor;column-rule-color:currentColor;column-rule-style:none;column-rule-width:none;column-span:1;column-width:auto;content:normal;counter-increment:none;counter-reset:none;cursor:auto;direction:ltr;display:inline;empty-cells:show;float:none;font:400;font-family:inherit;font-size:medium;font-style:normal;font-variant:normal;font-weight:400;height:auto;hyphens:none;left:auto;letter-spacing:normal;line-height:normal;list-style:disc;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;opacity:1;orphans:0;outline:0;outline-width:medium;overflow:visible;overflow-x:visible;overflow-y:visible;padding:0;page-break-after:auto;page-break-before:auto;page-break-inside:auto;perspective:none;perspective-origin:50% 50%;position:static;right:auto;tab-size:8;table-layout:auto;text-align:inherit;text-align-last:auto;text-decoration:none;text-decoration-color:inherit;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-shadow:none;text-transform:none;top:auto;transform:none;transform-style:flat;transition:none;transition-delay:0s;transition-duration:0s;transition-property:none;transition-timing-function:ease;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;widows:0;width:auto;word-spacing:normal;z-index:auto}.divContakoWidgetJSIntegrado{position:fixed;height:27px;width:438px;right:30px;bottom:0;background-color:#3A3B3D;padding:6px 5px 4px 5px;border-radius:5px 5px 0 0;z-index:9999998;cursor:pointer;transition-property:bottom;transition-duration:0.4s;transition-timing-function:ease-out}.divContakoWidgetJSIntegrado img{max-height:25px;vertical-align:middle;margin-top:-3px;cursor:pointer}.divContakoWidgetJSIntegrado span{font-size:20px;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;margin-left:7.5px;cursor:pointer}#divContakoCorpoAnonimo{background-color:#fff !important;position:fixed;bottom:2px;right:30px;width:418px;padding:10px 15px 5px 15px !important;border-radius:0 0 5px 5px !important;transition-property:bottom;transition-duration:0.4s;transition-timing-function:ease-out;z-index:9999991;height:50px}#inputContakoMensagemAnonimo{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important;background-color:#fff !important;border:1px solid #ccc !important;border-radius:4px !important;box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset !important;color:#555 !important;display:block !important;line-height:1.42857 !important;padding:6px 12px !important;transition:border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s !important;vertical-align:middle !important;width:395px !important;border-radius:3px !important;font-size:12px !important;height:20px !important;line-height:1.5 !important;padding:5px 10px !important;margin:0 !important}#inputContakoMensagemAnonimo::-moz-placeholder{color:#999 !important}#inputContakoMensagemAnonimo:disabled{background-color:#eee !important}#linkContakoAnonimo{position:absolute;right:20px;bottom:5px;cursor:pointer}#linkContakoAnonimo img{max-width:38px;opacity:0.5 !important;cursor:pointer}#linkContakoAnonimo img:hover{opacity:0.7 !important}.divContakoWidgetJSIntegradoAnonimo{bottom:69px;cursor:default}.divContakoWidgetJSIntegradoAnonimoOffline{bottom:0}.divContakoWidgetJSIntegradoAnonimo img{cursor:default}.divContakoWidgetJSIntegradoAnonimo span{cursor:default}.divContakoMensagemSite{position:fixed;bottom:55px;right:30px;background-color:#fff !important;border:1px solid #DDDDDD !important;border-radius:5px !important;min-height:50px !important;padding:15px !important;margin:0 !important;z-index:9999991 !important;box-shadow:5px 5px 30px 0px #ccc !important;max-width:270px}.divContakoMensagemSite p{color:#333333 !important;padding:0 !important;margin:0 !important;font-size:16px !important;font-weight:normal !important;text-align:center !important;cursor:pointer;line-height:1.4 !important}.divContakoMensagemSite:before{content:"";position:fixed;width:0;height:0;bottom:45px;right:100px;border:5px solid !important;border-color:#DDDDDD transparent transparent #DDDDDD !important}.divContakoMensagemSite:after{content:"";position:fixed;width:0;height:0;bottom:48px;right:101px;border:4px solid !important;border-color:#fff transparent transparent #fff !important}.divContakoMensagemSiteAnonimo{bottom:125px}.divContakoMensagemSiteAnonimo:before{bottom:115px}.divContakoMensagemSiteAnonimo:after{bottom:118px}@media (max-width: 767px){.divContakoWidgetJSIntegrado{width:40px;height:40px;border-radius:40px;bottom:15px;right:15px}.contakoMobile{right:2px !important}.divContakoWidgetJSIntegrado img{max-height:35px;margin-left:2px;margin-top:2px}.divContakoWidgetJSIntegrado span{display:none}#divContakoCorpoAnonimo{display:none}.divContakoWidgetJSIntegradoAnonimo{bottom:15px;cursor:pointer}.divContakoWidgetJSIntegradoAnonimo img{cursor:pointer}#divContakoMensagemSite{right:35px;left:15px;bottom:35px;max-width:none}#divContakoMensagemSite:after{display:none}#divContakoMensagemSite:before{display:none}}';
+objContako.IdCadastro ='0D0F1C0C02';
+objContako.URLContato='';
+objContako.URLImagemPopUp='https://s3-sa-east-1.amazonaws.com/contako/ImagensClientes/e0e6a156766410e3889ee5013e7f66f0.gif';
+objContako.URLImgFecharPopUp='https://s3-sa-east-1.amazonaws.com/contako/Imagens/padroes/ImagemFecharPopUp.png';
+objContako.URLImagemAtencao='https://s3-sa-east-1.amazonaws.com/contako/Imagens/padroes/ImgAtencaoPadrao.png';
+objContako.URLSolicitacao='https://app.contako.com.br/Atendimento/?cadastro=';
+objContako.URLSocketVisitantes='wss://wsocket8.contako.com.br/WebSocketVisitantes.sikoni?cadastro=';
+objContako.Online=false;
+objContako.Nome='';
+objContako.Email='';
+objContako.CamposPersonalizados='';
+objContako.CkIntegradoSite=true;
+objContako.CorBarraOnLine='#f58634';
+objContako.CorBarraOffLine='#f58634';
+objContako.CorTextoOnLine='#F7F7F7';
+objContako.CorTextoOffLine='#F7F7F7';
+objContako.TextoOnLine='Fale conosco, estamos online!';
+objContako.TextoOffLine='Deixe sua Mensagem';
+objContako.CorBotaoOnline='#0A6D42';
+objContako.URLIconeOnline='https://s3-sa-east-1.amazonaws.com/contako/Imagens/padroes/IconeOnlineIntegrado.png';
+objContako.URLIconeOffline='https://s3-sa-east-1.amazonaws.com/contako/Imagens/padroes/IconeOnlineIntegrado.png';
+objContako.URLFrame='https://app.contako.com.br/AtendimentoFrame';
+objContako.URLFrameBase='https://app.contako.com.br/Base/WidgetNovo';
+objContako.TipoCarregamentoBase='N';
+objContako.AtendimentoAnonimoIdSetor=0;
+objContako.CkFormularioContato=true;
+objContako.URLFormularioContato='https://app.contako.com.br/FormularioContato/?cadastro=';
+objContako.NaoEditar='';
+objContako.Idioma='pt_BR';
+objContako.Grupo='0';
+objContako.CkIntegracaoRDStation=true;
+objContako.TokenRDStation='730cbf6d1ad1799204104dbe4a200a12';
+objContako.CkIntegracaoFacebookAds=false;
+objContako.FacebookAdsNomeEvento='';
+objContako.CkIntegracaoAnalytics=false;
+objContako.AnalyticsCategoriaEvento='Atendimento';
+objContako.AnalyticsNomeEvento='Solicitou Atendimento';
+objContako.AnalyticsLabelEvento='Solicitou Atendimento';
+objContako.ListaGatilhosMensagemAutomatica=[];
+objContako.Servidor=8;
+
+var Contako = {
+
+    abre: function () {
+        if (objContako.URLContato != "" && objContako.Online == false)
+            window.location = objContako.URLContato;
+        else
+            window.open(objContako.URLSolicitacao + objContako.IdCadastro + objContako.Nome + objContako.Email + objContako.IdVisitante + objContako.CamposPersonalizados + objContako.NaoEditar + objContako.Grupo, '_blank', 'width=900, height=640', false);
+    },
+
+    navega: function () {
+        if (objContako.URLContato != "")
+            window.location = objContako.URLContato;
+    },
+    TIPOCARREGAMENTOBASE: {
+        NUNCA: 'N',
+        APENASOFFLINE: 'O',
+        SEMPRE: 'S'
+    },
+    TIPOFRAME: {
+        ATENDIMENTO: 'FrameAtendimento',
+        BASE: 'FrameBase'
+    },
+    TIPOSOLICITACAOATENDIMENTO: {
+        CHAT: 'C',
+        FORMULARIO: 'F'
+    }
+}
+
+var ContakoPopUpIntegrado = {
+
+    fecha: function () {
+        var divContakoWidgetJSPopUpIntegrado = document.getElementById('divContakoWidgetJSPopUpIntegrado');
+
+        if (divContakoWidgetJSPopUpIntegrado != null) {
+            divContakoWidgetJSPopUpIntegrado.setAttribute('style', 'display: none;');
+            ContakoCookies.set('ContakoExibePopUpIntegrado', 0, null);
+        }
+    },
+
+    abre: function () {
+
+        if (window.innerWidth < 768) {
+            return;
+        }
+
+        if (document.getElementById("divContakoMensagemSite") != null) {
+            return;
+        }
+
+        var cookiePopUpIntegrado = ContakoCookies.get("ContakoExibePopUpIntegrado");
+        var divContakoWidgetJSPopUpIntegrado = document.getElementById('divContakoWidgetJSPopUpIntegrado');
+
+        if ((cookiePopUpIntegrado == null) && (divContakoWidgetJSPopUpIntegrado == null)) {
+
+            var imagemFechar = document.createElement('img');
+            imagemFechar.setAttribute('class', 'resetcontako');
+            imagemFechar.setAttribute('src', objContako.URLImgFecharPopUp);
+            imagemFechar.setAttribute('style', 'z-index: 9999995;cursor:pointer;margin-bottom:3px;');
+            imagemFechar.onclick = function () {
+                ContakoPopUpIntegrado.fecha();
+            }
+
+            var imagemPopUp = document.createElement('img');
+            imagemPopUp.setAttribute('class', 'resetcontako');
+            imagemPopUp.setAttribute('src', objContako.URLImagemPopUp);
+            imagemPopUp.setAttribute('border', '0');
+            imagemPopUp.setAttribute('style', 'z-index: 9999995;cursor:' + (objContako.AtendimentoAnonimoIdSetor > 0 ? 'default' : 'pointer') + ';');
+            imagemPopUp.onclick = function () {
+
+                ContakoPopUpIntegrado.fecha();
+
+                if (objContako.AtendimentoAnonimoIdSetor == 0) {
+                    document.getElementById('divContakoWidgetJSIntegrado').click();
+                }
+            }
+
+            divContakoWidgetJSPopUpIntegrado = document.createElement('div');
+            divContakoWidgetJSPopUpIntegrado.setAttribute('class', 'resetcontako');
+            divContakoWidgetJSPopUpIntegrado.setAttribute('id', 'divContakoWidgetJSPopUpIntegrado');
+            divContakoWidgetJSPopUpIntegrado.setAttribute('style', 'position: fixed; bottom:' + (objContako.AtendimentoAnonimoIdSetor > 0 ? '115' : '45') + 'px; right:35px; z-index: 9999991;text-align:right;margin-bottom:0;');
+
+            divContakoWidgetJSPopUpIntegrado.appendChild(imagemFechar);
+            divContakoWidgetJSPopUpIntegrado.appendChild(document.createElement('br'));
+            divContakoWidgetJSPopUpIntegrado.appendChild(imagemPopUp);
+
+            document.body.appendChild(divContakoWidgetJSPopUpIntegrado);
+        }
+    }
+};
+
+var ContakoCookies = {
+
+    set: function (c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value + ";path=/;";
+    },
+
+    get: function (c_name) {
+        var i, x, y, ARRcookies = document.cookie.split(";");
+        for (i = 0; i < ARRcookies.length; i++) {
+            x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+            y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+            x = x.replace(/^\s+|\s+$/g, "");
+            if (x == c_name) {
+                return unescape(y);
+            }
+        }
+    },
+
+    setComDomain: function (c_name, value, exdays, pDomain) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value + ";path=/;" + pDomain;
+    }
+}
+
+var ContakoIntegrado = {
+    
+    exibe: function (pURLFrame, pCadastro, pVisitante, pServidor, pURLOrigem, pClienteNome, pClienteEmail, pGrupo, pCkURLContato, pSessaoIntegrado, pCamposPersonalizados, pTipoCarregamentoBase, pURLFrameBase, pAtendimentoAnonimoIdSetor, pCkFormularioContato, pNaoEditar, pIdioma) {
+        
+        var cookieTemAtendimentoAberto = (ContakoCookies.get("ContakoAtendimentoAberto") == "true");
+
+        //Style Base
+        var styleResetContako = document.createElement("style");
+        styleResetContako.type = "text/css";
+
+        if (styleResetContako.styleSheet)
+            styleResetContako.styleSheet.cssText = objContako.CSSReset;
+        else
+            styleResetContako.appendChild(document.createTextNode(objContako.CSSReset));
+
+        document.head.appendChild(styleResetContako);
+        //**
+
+        var divContakoWidgetJSIntegrado = document.getElementById('divContakoWidgetJSIntegrado');
+        var divContakoCorpoAnonimo = document.getElementById('divContakoCorpoAnonimo');
+
+        if (divContakoWidgetJSIntegrado == null) {
+
+            var ckCelular = (window.innerWidth < 768);
+
+            divContakoWidgetJSIntegrado = document.createElement('div');
+            divContakoWidgetJSIntegrado.setAttribute('id', 'divContakoWidgetJSIntegrado');
+            divContakoWidgetJSIntegrado.setAttribute('class', 'resetcontako divContakoWidgetJSIntegrado ' + ((pAtendimentoAnonimoIdSetor > 0 && !cookieTemAtendimentoAberto) ? 'divContakoWidgetJSIntegradoAnonimo' + (objContako.Online ? '' : 'divContakoWidgetJSIntegradoAnonimoOffline') : ''));
+
+            var iconeFrame = document.createElement("img");
+            iconeFrame.setAttribute('id', 'divContakoWidgetJSIntegradoIcone');
+            iconeFrame.setAttribute('class', 'resetcontako');
+
+            var spanTituloFrame = document.createElement("span");
+            spanTituloFrame.setAttribute('id', 'divContakoWidgetJSIntegradoTitulo');
+            spanTituloFrame.setAttribute('class', 'resetcontako');
+            
+            //Anonimo            
+            
+            if (divContakoCorpoAnonimo == null && pAtendimentoAnonimoIdSetor > 0 && !cookieTemAtendimentoAberto && objContako.Online) {
+                
+                divContakoCorpoAnonimo = document.createElement('div');
+                divContakoCorpoAnonimo.setAttribute('id', 'divContakoCorpoAnonimo');
+                divContakoCorpoAnonimo.setAttribute('class', 'resetcontako');
+                divContakoCorpoAnonimo.setAttribute('style', 'border: solid 1px ' + objContako.CorBarraOnLine + ';color:' + objContako.CorTextoOnLine + ";");
+
+                var inputContakoMensagemAnonimo = document.createElement('input');
+                inputContakoMensagemAnonimo.setAttribute('id', 'inputContakoMensagemAnonimo');
+                inputContakoMensagemAnonimo.setAttribute('class', 'resetcontako');
+                inputContakoMensagemAnonimo.setAttribute('type', 'text');
+                inputContakoMensagemAnonimo.setAttribute('placeholder', 'Digite uma mensagem...');
+
+                var linkContakoAnonimo = document.createElement('a');
+                linkContakoAnonimo.setAttribute('class', 'resetcontako');
+                linkContakoAnonimo.setAttribute('id', 'linkContakoAnonimo');
+                linkContakoAnonimo.setAttribute('href', 'https://www.contako.com.br/?utm_source=contako%20app&utm_medium=contako%20app&utm_campaign=contako%20app%20anonimo');
+                linkContakoAnonimo.setAttribute('target', '_blank');
+
+                var linkContakoAnonimoImagem = document.createElement('img');
+                linkContakoAnonimoImagem.setAttribute('class', 'resetcontako');
+                linkContakoAnonimoImagem.setAttribute('id', 'linkContakoAnonimoImagem');
+                linkContakoAnonimoImagem.setAttribute('src', 'https://app.contako.com.br/Imagens/tipografia/64.png');
+
+                linkContakoAnonimo.appendChild(linkContakoAnonimoImagem);
+
+                divContakoCorpoAnonimo.appendChild(inputContakoMensagemAnonimo);
+                divContakoCorpoAnonimo.appendChild(linkContakoAnonimo);
+
+                //Evento para solicitar o atendimento
+                inputContakoMensagemAnonimo.onkeypress = function (e) {
+                    
+                    if (e.keyCode == 13) {
+
+                        ContakoPopUpIntegrado.fecha();
+                        ContakoIntegrado.fechaMensagemVisitante();
+
+                        objContako.TituloFrameOriginal = document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML;
+
+                        var frameContako = document.getElementById("frameContako");
+                        var frameContakoBase = document.getElementById("frameContakoBase");
+
+                        var textoInicialConversa = inputContakoMensagemAnonimo.value;
+
+                        if (!objContako.CarregandoFrame) { //Apenas pra evitar vários clicks
+
+                            //**
+                            document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML = "Enviando...";
+                            objContako.CarregandoFrame = true;
+                            //**
+
+                            if (frameContako == null) {
+                                if (pSessaoIntegrado == undefined)//Na segunda vez que chama ou em caso de refresh a sessaoIntegrada fica undefined
+                                    pSessaoIntegrado = ContakoCookies.get("ContakoSessaoIntegrado");
+
+                                ContakoIntegrado.criaFrame(pURLFrame, pCadastro, pVisitante, pServidor, pURLOrigem, pClienteNome, pClienteEmail, pGrupo, pCkURLContato, pSessaoIntegrado, pCamposPersonalizados, pCkFormularioContato, pNaoEditar, pAtendimentoAnonimoIdSetor, textoInicialConversa, cookieTemAtendimentoAberto, pIdioma); //Quando chama por aqui sempre é anonimo
+                            }
+                        }
+
+                        inputContakoMensagemAnonimo.setAttribute("disabled", "disabled");
+                    }
+
+                }
+                //**
+            }
+            //** Fim Anonimo
+
+            if (objContako.Online || ((pTipoCarregamentoBase == Contako.TIPOCARREGAMENTOBASE.APENASOFFLINE || pTipoCarregamentoBase == Contako.TIPOCARREGAMENTOBASE.SEMPRE) && (window.innerWidth > 769))) {
+
+                iconeFrame.setAttribute("src", objContako.URLIconeOnline);
+                divContakoWidgetJSIntegrado.setAttribute('style', 'background-color:' + objContako.CorBarraOnLine + '; border: solid 1px ' + objContako.CorBarraOnLine + ';color:' + objContako.CorTextoOnLine + ";");
+                spanTituloFrame.innerHTML = objContako.TextoOnLine;
+
+            }
+            else {
+                iconeFrame.setAttribute("src", objContako.URLIconeOffline);
+                divContakoWidgetJSIntegrado.setAttribute('style', 'background-color:' + objContako.CorBarraOffLine + '; border: solid 1px ' + objContako.CorBarraOffLine + ';color:' + objContako.CorTextoOffLine + ";");
+                spanTituloFrame.innerHTML = objContako.TextoOffLine;
+
+                if (objContako.URLContato == "") {
+                    divContakoWidgetJSIntegrado.setAttribute("style", divContakoWidgetJSIntegrado.getAttribute("style") + "cursor:default;");
+                    iconeFrame.setAttribute("style", "cursor:default;");
+                    spanTituloFrame.setAttribute("style", "cursor:default;");
+                }
+
+            }
+
+            divContakoWidgetJSIntegrado.appendChild(iconeFrame);
+            divContakoWidgetJSIntegrado.appendChild(spanTituloFrame);
+
+            divContakoWidgetJSIntegrado.onclick = function () {
+                
+                var cookieTipoSolicitouAtendimentoBase = ContakoCookies.get("ContakoTipoSolicitouAtendimentoBase");
+                ContakoCookies.set("ContakoTipoSolicitouAtendimentoBase", ""); //Este cookie é limpo para que o cliente não fique preso no formulário de atendimento (online ou offline), sem poder voltar pra base de conhecimentos
+                objContako.TituloFrameOriginal = document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML;
+
+                var frameContako = document.getElementById("frameContako");
+                var frameContakoBase = document.getElementById("frameContakoBase");
+
+                if (objContako.Online) {
+
+                    if (window.innerWidth < 768) {
+                        Contako.abre();
+                    }
+                    else {
+                        
+                        cookieTemAtendimentoAberto = (ContakoCookies.get("ContakoAtendimentoAberto") == "true");
+                        
+                        if (pAtendimentoAnonimoIdSetor > 0 && !cookieTemAtendimentoAberto) {
+                            return;
+                        }
+
+                        if (!objContako.CarregandoFrame) { //Apenas pra evitar vários clicks
+                            
+                            //**
+                            document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML = "Carregando...";
+                            objContako.CarregandoFrame = true;
+                            //**
+
+                            if (pTipoCarregamentoBase == Contako.TIPOCARREGAMENTOBASE.SEMPRE && (cookieTipoSolicitouAtendimentoBase != Contako.TIPOSOLICITACAOATENDIMENTO.CHAT) && !cookieTemAtendimentoAberto) { //Abre a Base
+
+                                if (frameContakoBase == null) {
+                                    ContakoIntegrado.criaFrameBase(pURLFrameBase, pCadastro, objContako.Online, pCkURLContato, pCkFormularioContato);
+                                }
+                                else {
+                                    window.postMessage(JSON.stringify({ nome: "ContakoAbreFrame", valor: Contako.TIPOFRAME.BASE }), "*");
+                                }
+                            }
+
+                            else {  //Abre o Atendimento
+                                if (frameContako == null) {
+                                    ContakoIntegrado.criaFrame(pURLFrame, pCadastro, pVisitante, pServidor, pURLOrigem, pClienteNome, pClienteEmail, pGrupo, pCkURLContato, pSessaoIntegrado, pCamposPersonalizados, pCkFormularioContato, pNaoEditar, pAtendimentoAnonimoIdSetor, "",0, "", cookieTemAtendimentoAberto, pIdioma); //Quando chama por aqui não é anonimo
+                                }
+                                else {
+                                    window.postMessage(JSON.stringify({ nome: "ContakoAbreFrame", valor: Contako.TIPOFRAME.ATENDIMENTO }), "*"); 
+                                }
+                            }
+                        }
+                    }
+                }
+                else { //Não está online
+
+                    if (window.innerWidth < 768) {
+                        Contako.abre();
+                    }
+                    else if ((pTipoCarregamentoBase == Contako.TIPOCARREGAMENTOBASE.SEMPRE || pTipoCarregamentoBase == Contako.TIPOCARREGAMENTOBASE.APENASOFFLINE) && (window.innerWidth > 769) && (cookieTipoSolicitouAtendimentoBase != Contako.TIPOSOLICITACAOATENDIMENTO.FORMULARIO)) { //Abre a Base
+
+                        if (!objContako.CarregandoFrame) { //Apenas pra evitar vários clicks
+
+                            //**
+                            document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML = "Carregando...";
+                            objContako.CarregandoFrame = true;
+                            //**
+
+                            if (frameContakoBase == null) {
+                                ContakoIntegrado.criaFrameBase(pURLFrameBase, pCadastro, objContako.Online, pCkURLContato, pCkFormularioContato);
+                            }
+                            else {
+                                window.postMessage(JSON.stringify({ nome: "ContakoAbreFrame", valor: Contako.TIPOFRAME.BASE }), "*");
+                            }
+                        }
+
+                    }
+
+                    else if (pCkFormularioContato && cookieTipoSolicitouAtendimentoBase != Contako.TIPOSOLICITACAOATENDIMENTO.CHAT) {
+
+                        if (!objContako.CarregandoFrame) { //Apenas pra evitar vários clicks
+
+                            //**
+                            document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML = "Carregando...";
+                            objContako.CarregandoFrame = true;
+                            //**
+
+                            if (frameContako == null) {
+                                ContakoIntegrado.criaFrame(pURLFrame, pCadastro, pVisitante, pServidor, pURLOrigem, pClienteNome, pClienteEmail, pGrupo, pCkURLContato, pSessaoIntegrado, pCamposPersonalizados, pCkFormularioContato, pNaoEditar, 0, "", cookieTemAtendimentoAberto, pIdioma); //Quando chama por aqui não é anonimo
+                            }
+                            else {
+                                window.postMessage(JSON.stringify({ nome: "ContakoAbreFrame", valor: Contako.TIPOFRAME.ATENDIMENTO }), "*");
+                            }
+                        }
+
+                    }
+
+                    else if (objContako.URLContato != "") {
+                        Contako.navega();
+                    }
+                }
+            }
+
+            //Insere efetivamente na tela
+            document.body.appendChild(divContakoWidgetJSIntegrado);
+            
+            if (pAtendimentoAnonimoIdSetor > 0 && !cookieTemAtendimentoAberto && divContakoCorpoAnonimo != null) {
+                document.body.appendChild(divContakoCorpoAnonimo);
+            }
+            //**
+
+            //Verifica se existe um atendimento aberto
+            if (cookieTemAtendimentoAberto && objContako.Online) {
+                
+                setTimeout(function () {
+                    divContakoWidgetJSIntegrado.click();
+                }, 1000);
+
+            }
+            //**
+        }
+
+    },
+
+    criaFrame:  function (pURLFrame, pCadastro, pVisitante, pServidor, pURLOrigem, pClienteNome, pClienteEmail, pGrupo, pCkURLContato, pSessaoIntegrado, pCamposPersonalizados, pCkFormularioContato, pNaoEditar, pAtendimentoAnonimoIdSetor, pAtendimentoAnonimoMensagem, pCookieTemAtendimentoAberto, pIdioma) {
+        
+        if (true) {
+            var urlFrame = pURLFrame;
+            urlFrame += "?cadastro=" + pCadastro;
+            urlFrame += "&visitante=" + pVisitante;
+            urlFrame += "&servidor=" + pServidor;
+            urlFrame += "&urlorigem=" + pURLOrigem;
+            urlFrame += "&clientenome=" + pClienteNome;
+            urlFrame += "&clienteemail=" + pClienteEmail;
+            urlFrame += (pGrupo == "0" ? "&grupo=0" : pGrupo);
+            urlFrame += "&ckurlcontato=" + pCkURLContato;
+            urlFrame += "&sessaointegrado=" + pSessaoIntegrado;
+            urlFrame += "&fc=" + pCkFormularioContato;
+            urlFrame += "&atendimentoanonimoidsetor=" + pAtendimentoAnonimoIdSetor;
+            urlFrame += "&atendimentoanonimomensagem=" + pAtendimentoAnonimoMensagem;
+            urlFrame += "&cookietematendimentoaberto=" + pCookieTemAtendimentoAberto;
+            urlFrame += pNaoEditar;
+            urlFrame += pCamposPersonalizados;
+            urlFrame += "&idioma=" + pIdioma;
+
+        } else {
+
+            var urlFrame = pURLFrame;
+            urlFrame += "?cadastro=" + pCadastro;
+            urlFrame += "&idioma=" + pIdioma;
+        }
+
+        var iFrame = document.createElement("iframe");  
+        iFrame.setAttribute("id", "frameContako");
+        iFrame.setAttribute("src", urlFrame);
+        iFrame.setAttribute("style", "display:none;");
+        iFrame.setAttribute("class", "resetcontako");
+
+        document.body.appendChild(iFrame);
+
+        ContakoPopUpIntegrado.fecha();
+        ContakoIntegrado.fechaMensagemVisitante();
+    },
+
+    criaFrameBase: function (pURLFrame, pCadastro, pOnline, pCkURLContato, pCkFormularioContato) {
+
+        var urlFrame = pURLFrame;
+        urlFrame += "?cadastro=" + pCadastro;
+        urlFrame += "&online=" + pOnline;
+        urlFrame += "&ckurlcontato=" + pCkURLContato;
+        urlFrame += "&fc=" + pCkFormularioContato;
+
+        var iFrame = document.createElement("iframe");
+        iFrame.setAttribute("id", "frameContakoBase");
+        iFrame.setAttribute("src", urlFrame);
+        iFrame.setAttribute("style", "display:none;");
+        iFrame.setAttribute("class", "resetcontako");
+
+        document.body.appendChild(iFrame);
+
+        ContakoPopUpIntegrado.fecha();
+        ContakoIntegrado.fechaMensagemVisitante();
+    },
+
+    exibeMensagemVisitante: function (pMensagem) {
+        
+        //Já abriu o frame de atendimento ou frame da base de conhecimentos
+        if (document.getElementById("frameContako") != null || document.getElementById("frameContakoBase") != null) {
+            return;
+        }
+        //**
+
+        ContakoIntegrado.fechaMensagemVisitante();
+        ContakoPopUpIntegrado.fecha();
+
+        var ckCelular = (window.innerWidth < 768);
+
+        var divMensagemSite = document.createElement("div");
+        divMensagemSite.setAttribute("id", "divContakoMensagemSite");
+        divMensagemSite.setAttribute("class", "resetcontako divContakoMensagemSite " + (objContako.AtendimentoAnonimoIdSetor > 0 ? "divContakoMensagemSiteAnonimo" : ""));
+
+        var pMensagemSite = document.createElement("p");
+        pMensagemSite.setAttribute("class", "resetcontako");
+        pMensagemSite.innerHTML = pMensagem;
+
+        var imgFecharMensagemSite = document.createElement('img');
+        imgFecharMensagemSite.setAttribute('class', 'resetcontako');
+        imgFecharMensagemSite.setAttribute('src', objContako.URLImgFecharPopUp);
+        imgFecharMensagemSite.setAttribute('style', 'position:absolute;right:-5px;top:-5px;cursor:pointer;');
+
+        imgFecharMensagemSite.onclick = function () {
+            ContakoIntegrado.fechaMensagemVisitante();
+        }
+
+        pMensagemSite.onclick = function () {
+
+            if (objContako.AtendimentoAnonimoIdSetor == 0 || ckCelular) {
+                document.getElementById('divContakoWidgetJSIntegrado').click();
+            }
+            else {
+
+                var inputContakoMensagemAnonimo = document.getElementById("inputContakoMensagemAnonimo");
+
+                if (inputContakoMensagemAnonimo != null)
+                    inputContakoMensagemAnonimo.focus();
+                
+            }
+
+            ContakoIntegrado.fechaMensagemVisitante();
+        }
+
+        divMensagemSite.appendChild(imgFecharMensagemSite);
+        divMensagemSite.appendChild(pMensagemSite);
+
+        document.body.appendChild(divMensagemSite);
+    },
+
+    fechaMensagemVisitante: function () {
+        var divContakoMensagemSite = document.getElementById("divContakoMensagemSite");
+
+        if (divContakoMensagemSite != null) {
+            document.body.removeChild(divContakoMensagemSite);
+        }
+    },
+
+    notificaMensagensInterval: null,
+    tituloJanelaOriginal: window.document.title
+}
+
+var ContakoIntegracoes = {
+
+    capturaLeadRDStation: function (pTokenRD, pNomeCliente, pEmailCliente, pNomeEvento, pCamposPersonalizados) {
+
+        if (window.RdIntegration != undefined) {
+
+            var data_array = [
+                { name: "email", value: pEmailCliente },
+                { name: "identificador", value: pNomeEvento },
+                { name: "nome", value: pNomeCliente },
+                { name: "token_rdstation", value: pTokenRD }
+            ];
+
+            if (pCamposPersonalizados) {
+                for (cp = 0; cp < pCamposPersonalizados.length; cp++) {
+                    data_array.push({
+                        name: pCamposPersonalizados[cp].nomeCampo,
+                        value: pCamposPersonalizados[cp].valorCampo
+                    });
+                }
+            }
+
+            try {
+                RdIntegration.post(data_array);
+            }
+            catch (ex) {
+                console.warn("[CONTAKO] Erro ao tentar enviar o lead para o RDStation: " + ex.message);
+            }
+
+        }
+        else {
+            console.warn("[CONTAKO] O script do RDStation (RdIntegration) não foi encontrado em seu site.");
+        }
+
+    },
+
+    capturaLeadAnalytics: function (pCategoriaEvento, pNomeEvento, pLabelEvento) {
+
+        if (window.ga != undefined) {
+
+            try {
+                ga("send", {
+                    hitType: "event",
+                    eventCategory: pCategoriaEvento,
+                    eventAction: pNomeEvento,
+                    eventLabel: pLabelEvento
+                });
+            }
+
+            catch (ex) {
+                console.warn("[CONTAKO] Erro ao tentar enviar o evento para o Analytics: " + ex.message);
+            }
+        }
+        else {
+            console.warn("[CONTAKO] O script do Google Analytics não foi encontrado em seu site.");
+        }
+    },
+
+    capturaLeadFacebookAds: function (pNomeEvento) {
+
+        if (window.fbq != undefined) {
+
+            try {
+                fbq("trackCustom", pNomeEvento);
+            }
+
+            catch (ex) {
+                console.warn("[CONTAKO] Erro ao tentar enviar o evento [" + pNomeEvento + "] para o Facebook Ads: " + ex.message);
+            }
+        }
+        else {
+            console.warn("[CONTAKO] O pixel do Facebook Ads não foi encontrado em seu site.");
+        }
+
+    }
+};
+
+var ContakoGatilhos = {
+
+    inicia: function () {
+
+        setTimeout(function () {
+
+            ContakoGatilhos.executaMensagemAutomatica();
+
+        }, 4000);
+
+    },
+
+    executaMensagemAutomatica: function () {
+
+        //Apenas se estiver online e apenas se tiver lista de gatilhos
+        if (objContako.Online && objContako.ListaGatilhosMensagemAutomatica != undefined) {
+
+            //Apenas se a lsita for maior que 0 e a URL dor definida
+            if (objContako.ListaGatilhosMensagemAutomatica.length > 0 && location.href != undefined) {
+
+                var enviouMensagem = false;
+                var urlPagina = location.href.toUpperCase();
+
+                for (g = 0; g < objContako.ListaGatilhosMensagemAutomatica.length; g++) {
+
+                    var gatilhoMensagemAutomatica = objContako.ListaGatilhosMensagemAutomatica[g];
+
+                    // Valida se os dados estão preenchidos
+                    if (gatilhoMensagemAutomatica == undefined || gatilhoMensagemAutomatica == null)
+                        break;
+
+                    if (gatilhoMensagemAutomatica.Operador == undefined || gatilhoMensagemAutomatica.ValorCondicao == undefined || gatilhoMensagemAutomatica.ValorAcao == undefined)
+                        break;
+
+                    if (gatilhoMensagemAutomatica.Operador.length == 0 || gatilhoMensagemAutomatica.ValorCondicao.length == 0 || gatilhoMensagemAutomatica.ValorAcao.length == 0)
+                        break;
+                    //**
+
+                    gatilhoMensagemAutomatica.ValorCondicao = gatilhoMensagemAutomatica.ValorCondicao.toUpperCase();
+
+                    switch (gatilhoMensagemAutomatica.Operador) {
+
+                        case "TEM":
+
+                            if (urlPagina.indexOf(gatilhoMensagemAutomatica.ValorCondicao) >= 0) {
+                                ContakoIntegrado.exibeMensagemVisitante(gatilhoMensagemAutomatica.ValorAcao);
+                                enviouMensagem = true;
+                            }
+                            break;
+
+                        case "!TEM":
+
+                            if (urlPagina.indexOf(gatilhoMensagemAutomatica.ValorCondicao) < 0) {
+                                ContakoIntegrado.exibeMensagemVisitante(gatilhoMensagemAutomatica.ValorAcao);
+                                enviouMensagem = true;
+                            }
+                            break;
+
+                        case "==":
+
+                            if (urlPagina == gatilhoMensagemAutomatica.ValorCondicao) {
+                                ContakoIntegrado.exibeMensagemVisitante(gatilhoMensagemAutomatica.ValorAcao);
+                                enviouMensagem = true;
+                            }
+                            break;
+
+                    }
+
+                    if (enviouMensagem == true)
+                        break; //pra sair do FOR
+                }
+            }
+        }
+    }
+};
+
+window.contakoEventos = {
+    atendimentoSolicitado: "contakoEventos.atendimentoSolicitado",
+    atendimentoIniciado: "contakoEventos.atendimentoIniciado",
+    atendimentoFinalizado: "contakoEventos.atendimentoFinalizado",
+    atendimentoAbandonado: "contakoEventos.atendimentoAbandonado",
+    formularioContatoEnviado: "contakoEventos.formularioContatoEnviado"
+};
+
+window.document.addEventListener("click", function () {
+    if (ContakoIntegrado.notificaMensagensInterval) {
+        window.document.title = ContakoIntegrado.tituloJanelaOriginal;
+        clearInterval(ContakoIntegrado.notificaMensagensInterval);
+
+        ContakoIntegrado.notificaMensagensInterval = null;
+    }
+});
+
+//Para uso do anonimo 
+var divContakoCorpoAnonimoClone = "";
+
+window.addEventListener("message", function (e) {
+
+    var evento = {
+        nome: "",
+        valor: ""
+    };
+
+    try {
+        evento = JSON.parse(e.data);
+    }
+    catch (err) {
+
+    }
+
+    var alturaFrameContako = 473;
+    var alturaFrameContakoBase = 517;
+
+    var styleFrameContakoBase = "position:fixed;right:30px;bottom:-4px;border:0;border-radius:5px 5px 0 0;max-width:450px;width:99%;transition-property: height;transition-duration: 0.4s;transition-timing-function: ease-out;z-index: 9999998;";
+    var styleFrameContakoBaseBase = "position:fixed;right:15px;bottom:-4px;border:0;border-radius:5px 5px 0 0;width:750px;transition-property: height;transition-duration: 0.4s;transition-timing-function: ease-out;z-index: 9999998;";
+
+    //var styleFrameContakoFechado = styleFrameContakoBase + "height:43px;";
+
+    var frameContako = document.getElementById("frameContako");
+    var frameContakoBase = document.getElementById("frameContakoBase");
+
+    var divContakoWidgetJSIntegrado = document.getElementById('divContakoWidgetJSIntegrado');
+    var divContakoCorpoAnonimo = document.getElementById("divContakoCorpoAnonimo");
+
+    switch (evento.nome) {
+        case "ContakoAbreFrame":
+            divContakoWidgetJSIntegrado.style.bottom = "-50px";
+
+            if (divContakoCorpoAnonimo != null) {
+                divContakoCorpoAnonimo.style.bottom = "-100px";
+            }
+
+            if (evento.valor == Contako.TIPOFRAME.ATENDIMENTO) {
+                frameContako.setAttribute("style", styleFrameContakoBase + "height:0px;");
+            }
+            else if (evento.valor == Contako.TIPOFRAME.BASE) {
+                frameContakoBase.setAttribute("style", styleFrameContakoBaseBase + "height:0px;");
+            }
+
+            setTimeout(function () {
+                
+                if (evento.valor == Contako.TIPOFRAME.ATENDIMENTO) {
+                    frameContako.style.height = alturaFrameContako + "px";
+                }
+                else if (evento.valor == Contako.TIPOFRAME.BASE) {
+                    frameContakoBase.style.height = alturaFrameContakoBase + "px";
+                }
+
+                objContako.CarregandoFrame = false;
+                document.getElementById("divContakoWidgetJSIntegradoTitulo").innerHTML = objContako.TituloFrameOriginal;
+                
+                if (divContakoCorpoAnonimo != null && divContakoCorpoAnonimo.parentNode != null) 
+                    divContakoCorpoAnonimoClone = divContakoCorpoAnonimo.parentNode.removeChild(divContakoCorpoAnonimo);
+
+            }, 500);
+
+            break;
+
+        case "ContakoFechaFrame":
+            
+            
+            if (evento.valor == Contako.TIPOFRAME.ATENDIMENTO) {
+
+                frameContako.style.height = "0px";
+
+            }
+
+            else if (evento.valor == Contako.TIPOFRAME.BASE) {
+
+                frameContakoBase.style.height = "0px";
+                frameContakoBase.style.bottom = "-50px";
+
+            }
+            
+            if ((ContakoCookies.get("ContakoAtendimentoAberto") != "true") && divContakoCorpoAnonimoClone != null && divContakoCorpoAnonimoClone != "") {//Se o atendimento foi encerrado e é anonimo, anexa novamente o corpo anonimo
+                document.body.appendChild(divContakoCorpoAnonimoClone);
+                document.getElementById("inputContakoMensagemAnonimo").removeAttribute("disabled");
+                document.getElementById("inputContakoMensagemAnonimo").value = "";
+                divContakoCorpoAnonimo = divContakoCorpoAnonimoClone;
+            } 
+
+            setTimeout(function () {
+                
+                if (objContako.AtendimentoAnonimoIdSetor > 0 && ContakoCookies.get("ContakoAtendimentoAberto") != "true") {//Caso o anonimo esteja ativo
+                    divContakoWidgetJSIntegrado.style.bottom = "69px";
+                    (divContakoCorpoAnonimo != null ? document.body.removeChild(divContakoCorpoAnonimo) : divContakoCorpoAnonimo);//Destroi o widget para que a exibe funcione corretamente
+                    (divContakoWidgetJSIntegrado != null ? document.body.removeChild(divContakoWidgetJSIntegrado) : divContakoWidgetJSIntegrado);
+                    frameContako.parentNode.removeChild(frameContako);//Destroi o frame e cria novamente mais tarde para manter o processo padrão o widget
+                    ContakoIntegrado.exibe(objContako.URLFrame, objContako.IdCadastro, objContako.IdVisitanteFrame, objContako.Servidor, "", objContako.ClienteNome, objContako.ClienteEmail, objContako.Grupo, objContako.CkURLContato, objContako.SessaoIntegrado, objContako.CamposPersonalizados, "", "", objContako.AtendimentoAnonimoIdSetor, objContako.CkFormularioContato, objContako.NaoEditar, objContako.Idioma);
+                } else 
+                    divContakoWidgetJSIntegrado.style.bottom = "0px";
+
+            }, 500);
+
+            break;
+
+        case "ContakoSolicitaAtendimentoBase":
+
+            frameContakoBase.style.height = "0px";
+            frameContakoBase.style.bottom = "-50px";
+
+            ContakoCookies.set("ContakoTipoSolicitouAtendimentoBase", evento.valor);
+
+            document.getElementById('divContakoWidgetJSIntegrado').click();
+            break;
+
+        case "ContakoNotificaMensagem":
+
+            if (ContakoIntegrado.notificaMensagensInterval == null) {
+                ContakoIntegrado.notificaMensagensInterval = setInterval(function () {
+                    if (window.document.title == ContakoIntegrado.tituloJanelaOriginal)
+                        window.document.title = "Nova Mensagem (" + ContakoIntegrado.tituloJanelaOriginal + ")";
+                    else
+                        window.document.title = ContakoIntegrado.tituloJanelaOriginal;
+                }, 1000);
+            }
+
+            break;
+
+        case "ContakoLimpaNotificacao":
+            if (ContakoIntegrado.notificaMensagensInterval) {
+                window.document.title = ContakoIntegrado.tituloJanelaOriginal;
+                clearInterval(ContakoIntegrado.notificaMensagensInterval);
+
+                ContakoIntegrado.notificaMensagensInterval = null;
+            }
+            break;
+
+        case "ContakoNavega":
+            Contako.navega();
+            break;
+
+        case "ContakoClienteEntrou":
+
+            if (evento.valor != null && CustomEvent) {
+
+                if (evento.valor.evento != null) {
+
+                    var eventoContako = new CustomEvent(window.contakoEventos.formularioContatoEnviado, {
+                        detail: {
+                            cliente: {
+                                nome: evento.valor.nomeCliente,
+                                email: evento.valor.emailCliente,
+                                mensagem: evento.valor.mensagemCliente
+                            }
+                        }
+                    });
+
+                } else {
+
+                    var eventoContako = new CustomEvent(window.contakoEventos.atendimentoSolicitado, {
+                        detail: {
+                            setor: {
+                                idSetor: evento.valor.idSetor,
+                                nome: evento.valor.nomeSetor
+                            },
+                            cliente: {
+                                nome: evento.valor.nomeCliente,
+                                email: evento.valor.emailCliente
+                            },
+                            camposPersonalizados: evento.valor.camposPersonalizados
+                        }
+                    });
+
+                }
+                
+                window.dispatchEvent(eventoContako);
+
+                //if CkIntegracaoRdStation
+                if (objContako.CkIntegracaoRDStation) {
+                    ContakoIntegracoes.capturaLeadRDStation(objContako.TokenRDStation, evento.valor.nomeCliente, evento.valor.emailCliente, "Solicitou Atendimento Contako", evento.valor.camposPersonalizados);
+                }
+
+                //if CkIntegracaoFacebookAds
+                if (objContako.CkIntegracaoFacebookAds) {
+                    ContakoIntegracoes.capturaLeadFacebookAds(objContako.FacebookAdsNomeEvento, "Solicitou Atendimento Contako");
+                }
+
+                //if CkIntegracaoAnalytics
+                if (objContako.CkIntegracaAnalytics) {
+                    ContakoIntegracoes.capturaLeadAnalytics(objContako.AnalyticsCategoriaEvento, objContako.AnalyticsNomeEvento, objContako.AnalyticsLabelEvento, "Solicitou Atendimento Contako");
+                }
+
+                ContakoCookies.set("ContakoAtendimentoAberto", true);
+            }
+
+            break;
+
+        case "ContakoClienteEntrouAnonimo":
+            ContakoCookies.set("ContakoAtendimentoAberto", true);
+
+            var divContakoWidgetJSIntegrado = document.getElementById("divContakoWidgetJSIntegrado");
+
+            if (divContakoWidgetJSIntegrado != null) {
+                divContakoWidgetJSIntegrado.classList.remove("divContakoWidgetJSIntegradoAnonimo");
+            }
+
+            break;
+
+        case "ContakoClienteCancelou":
+
+            if (evento.valor != null && CustomEvent) {
+
+                var eventoContako = new CustomEvent(window.contakoEventos.atendimentoAbandonado, {
+                    detail: {
+                        cliente: {
+                            nome: evento.valor.nomeCliente,
+                            email: evento.valor.emailCliente
+                        }
+                    }
+                });
+
+                window.dispatchEvent(eventoContako);
+
+                ContakoCookies.set("ContakoAtendimentoAberto", false);
+            }
+
+            break;
+
+        case "ContakoIniciou":
+
+            if (evento.valor != null && CustomEvent) {
+
+                var eventoContako = new CustomEvent(window.contakoEventos.atendimentoIniciado, {
+                    detail: {
+                        cliente: {
+                            nome: evento.valor.nomeCliente,
+                            email: evento.valor.emailCliente
+                        }
+                    }
+                });
+
+                window.dispatchEvent(eventoContako);
+
+                ContakoCookies.set("ContakoAtendimentoAberto", true);
+            }
+            break;
+
+        case "ContakoFinalizou":
+
+            if (evento.valor != null && CustomEvent) {
+
+                var eventoContako = new CustomEvent(window.contakoEventos.atendimentoFinalizado, {
+                    detail: {
+                        cliente: {
+                            nome: evento.valor.nomeCliente,
+                            email: evento.valor.emailCliente
+                        }
+                    }
+                });
+
+                window.dispatchEvent(eventoContako);
+
+                ContakoCookies.set("ContakoAtendimentoAberto", false);
+            }
+
+            break;
+
+        case "ContakoFormularioContato":
+            
+            var eventoContako = new CustomEvent(window.contakoEventos.formularioContatoEnviado, {
+                detail: {
+                    cliente: {
+                        nome: evento.valor.nomeCliente,
+                        email: evento.valor.emailCliente,
+                        camposPersonalizados: evento.valor.listaCamposPersonalizados,
+                    },
+                    mensagem: evento.valor.mensagemCliente
+                }
+            });
+            
+            window.dispatchEvent(eventoContako);
+
+            break;
+    }
+
+});
+
+
+
+
+var idVisitanteTemp = '497000267970';
+var idVisitanteCookie = ContakoCookies.get('ContakoVisitante');
+if ((idVisitanteCookie == undefined) || (idVisitanteCookie == ''))
+{
+     ContakoCookies.set('ContakoVisitante', idVisitanteTemp);
+     objContako.IdVisitante = '&visitante='+idVisitanteTemp;
+     objContako.IdVisitanteFrame = idVisitanteTemp;
+}
+else
+{
+     objContako.IdVisitante = '&visitante='+idVisitanteCookie;
+     objContako.IdVisitanteFrame = idVisitanteCookie;
+}
+
+
+var idSessaoIntegradoTemp = '65D649C1B7A99283F179E755C6';
+var idSessaoIntegradoCookie = ContakoCookies.get('ContakoSessaoIntegrado');
+if ((idSessaoIntegradoCookie == undefined) || (idSessaoIntegradoCookie == ''))
+{
+     ContakoCookies.set('ContakoSessaoIntegrado', idSessaoIntegradoTemp);
+     ContakoCookies.setComDomain('ContakoSessaoIntegradoDomain3618', idSessaoIntegradoTemp, null, 'domain=app.contako.com.br;');
+     objContako.IdSessaoIntegrado = '&sessaointegrado='+idSessaoIntegradoTemp;
+     objContako.IdSessaoIntegradoFrame = idSessaoIntegradoTemp;
+}
+else
+{
+     objContako.IdSessaoIntegrado = '&sessaointegrado='+idSessaoIntegradoCookie;
+     objContako.IdSessaoIntegradoFrame = idSessaoIntegradoCookie;
+}
+
+ContakoGatilhos.inicia();
+
+
+var tituloJanela = window.document.title;
+var intervaloNotificacao;
+
+var ContakoVisitantes = {
+
+    chamaAtencao: function () {
+
+        if (document.getElementById("divContakoModalFundo") == null) {
+
+            var divModalFundo = document.createElement('div');
+            divModalFundo.setAttribute('id', 'divContakoModalFundo');
+            divModalFundo.setAttribute('style', 'position: fixed; z-index: 9999990; left:0; bottom:0; top:0; right:0; background-color: rgba(0,0,0,0.8);');
+
+            if (!objContako.CkIntegradoSite || (window.innerWidth < 768)) { //Se não for integrado, exibe a imagem
+
+                var divModalConteudo = document.createElement('div');
+                divModalConteudo.setAttribute('id', 'divContakoModalConteudo');
+                divModalConteudo.setAttribute('style', 'z-index: 9999991;position: fixed;left: 50%;top: 50%;transform: translate(-50%, -50%);');
+
+                var imgModalConteudo = document.createElement('img');
+                imgModalConteudo.setAttribute('src', objContako.URLImagemAtencao);
+                imgModalConteudo.setAttribute('border', '0');
+                imgModalConteudo.setAttribute('style', 'z-index: 9999992;cursor:pointer;display: block;');
+
+                divModalConteudo.appendChild(imgModalConteudo);
+                divModalFundo.appendChild(divModalConteudo);
+
+                divModalConteudo.onclick = function (evt) {
+                    Contako.abre();
+                }
+            }
+            else { //Se for integrado, apenas oculta o fundo
+
+                var frameContako = document.getElementById("frameContako");
+
+                if (frameContako == null) {
+
+                    if (objContako.AtendimentoAnonimoIdSetor > 0) {
+                        var inputContakoMensagemAnonimo = document.getElementById("inputContakoMensagemAnonimo");
+
+                        if (inputContakoMensagemAnonimo != null)
+                            inputContakoMensagemAnonimo.focus();
+                    }
+                    else {
+                        var divContakoWidgetJSIntegradoTitulo = document.getElementById("divContakoWidgetJSIntegradoTitulo");
+
+                        if (divContakoWidgetJSIntegradoTitulo != null)
+                            document.getElementById("divContakoWidgetJSIntegradoTitulo").click();                        
+                    }
+                }
+                else {
+                    window.postMessage(JSON.stringify({ nome: "ContakoAbreFrame", valor: "FrameAtendimento" }), "*");
+                }
+
+            }
+
+            divModalFundo.onclick = function (evt) {
+                var divModalFundoRemover = document.getElementById("divContakoModalFundo");
+                divModalFundoRemover.parentElement.removeChild(divModalFundoRemover);
+
+                window.document.title = tituloJanela;
+                clearInterval(intervaloNotificacao);
+            }
+
+            document.body.appendChild(divModalFundo);
+
+            intervaloNotificacao = setInterval(function () {
+
+                if (tituloJanela == window.document.title)
+                    window.document.title = "Fale conosco agora!"
+                else
+                    window.document.title = tituloJanela;
+
+            }, 1000);
+        }
+    },
+
+    inicia: function () {
+
+        if (WebSocket) {
+
+            if (!window.wsContakoVisitantes) {
+
+                window.wsContakoVisitantes = new WebSocket(objContako.URLSocketVisitantes + objContako.IdCadastro + "&urlorigem=" + encodeURIComponent(window.document.location) + objContako.IdVisitante + "&pagina=" + encodeURIComponent(window.document.title) + "&urlorigemsite=" + encodeURIComponent(window.document.referrer));
+
+                window.wsContakoVisitantes.onopen = function () {
+
+                }
+
+                window.wsContakoVisitantes.onmessage = function (e) {
+
+                    var evento = JSON.parse(e.data);
+
+                    switch (evento.Tipo) {
+                        case 68: //chamarAtencao
+                            ContakoVisitantes.chamaAtencao();
+                            break;
+                        case 131: //enviaMensagem
+                            if (ContakoIntegrado) {
+                                ContakoIntegrado.exibeMensagemVisitante(evento.Valor);
+                            }
+                            break;
+                    }
+                }
+
+                window.wsContakoVisitantes.onerror = function () {
+
+                }
+
+                window.wsContakoVisitantes.onclose = function () {
+
+                }
+
+                window.addEventListener("beforeunload", function () {
+                    if (window.wsContakoVisitantes != undefined) {
+                        if (window.wsContakoVisitantes.readyState == WebSocket.OPEN) {
+                            window.wsContakoVisitantes.close();
+                        }
+                    }
+                });
+
+            }
+        }
+
+    }
+}
+
+ContakoVisitantes.inicia();
+
+ContakoIntegrado.exibe(objContako.URLFrame, objContako.IdCadastro, objContako.IdVisitanteFrame, objContako.Servidor, '', '', '', objContako.Grupo, objContako.URLContato, objContako.IdSessaoIntegradoFrame, objContako.CamposPersonalizados, objContako.TipoCarregamentoBase, objContako.URLFrameBase, objContako.AtendimentoAnonimoIdSetor, objContako.CkFormularioContato, objContako.NaoEditar, objContako.Idioma);
+})(window);

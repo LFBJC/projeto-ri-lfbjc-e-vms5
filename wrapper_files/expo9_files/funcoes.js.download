@@ -1,0 +1,184 @@
+//Função plugin visitados
+
+//Lista de visitados
+var listaImoveis = new Array();
+//Quantidade de visitados a exibir
+var quantidadeMaxima = 5;
+	
+//Objeto imovel
+function Imovel(codigo, nome, preco, logradouro, pathImagem, linkDetalhes){
+	this.codigo;
+	this.preco;
+	this.pathImagem;
+	this.logradouro;      
+	this.nome;
+	this.linkDetalhes; 
+}
+	
+//Função adicionar imovel a visitados
+function addImovelLista(divNav, codigoImovel, nomeImovel, precoImovel, logradouroImovel, pathImagemImovel, urlBase, urlDetalhes){
+	
+	document.getElementById('containerImoveisVisitados').style.display = 'block';	
+
+	var existe = false;
+	
+	for(var i=0; i < listaImoveis.length; i++){
+		if(codigoImovel == listaImoveis[i].codigo){
+			existe = true;
+		}
+	}
+	
+	if(!existe){
+		var imovel = new Imovel();
+		imovel.codigo = codigoImovel;
+		imovel.nome = nomeImovel;
+		imovel.preco = precoImovel;
+		imovel.logradouro = logradouroImovel;
+		imovel.pathImagem = pathImagemImovel;
+		imovel.linkDetalhes = urlDetalhes;
+		
+		listaImoveis.unshift(imovel);
+		
+		addListaImoveis(divNav);
+		
+  	}
+}
+
+function addListaImoveis(divNav) {
+	var conteudoDiv = "";
+	for(var i=0; i < listaImoveis.length; i++){
+		if(i != quantidadeMaxima){
+			
+			var detalheImovel = '<table width="215" border="1" cellspacing="0" cellpadding="0" style="padding:2px; border:#999999; border:thin; margin-left:2px;">' +
+								  '<tr>' +
+									'<td>' +
+										'<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#E9E9E9;">' +
+										  '<tr>' +
+										  '<!--Fotos-->' +
+											'<td rowspan="3" width="62"><a href="javascript:abrirPopups(\'' + listaImoveis[i].linkDetalhes + '\');"><img alt="imagem" src="' + listaImoveis[i].pathImagem + '" width="58" height="70"  border="2" style="border-color:#999999; margin-top:2px; margin-left:2px; margin-right:2px; margin-bottom:2px;"></a></td>' +
+											'<!--Nome empreendimento-->' +
+											'<td style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; color:#666666; font-weight:bold; ">' + listaImoveis[i].nome + '</td>' +
+											'</tr>' +
+										  '<tr>' +
+										  '<!--Nome Bairro-->' +
+											'<td style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; color:#666666;">' + listaImoveis[i].logradouro + '</td>' +
+											'</tr>' +
+										  '<tr>' +
+										  '<!-- Preço -->' +
+											'<td   height="15" style=" background-color:#E1E1E1; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; color:#666666;"><strong>Pre&ccedil;o:</strong> R$ ' + listaImoveis[i].preco + '</td>' +
+											'</tr>' + 
+										'</table>' +
+									'</td>' +
+								  '</tr>' +
+								'</table>';
+			
+			conteudoDiv += detalheImovel;
+		}else{
+			listaImoveis.pop();
+		}
+	} 
+	document.getElementById(divNav).innerHTML = conteudoDiv;
+
+}
+
+function formata_moeda(valor){
+		preco = valor + "";
+		tam = preco.length;
+		if(tam == 4)
+			preco = preco.substr(0, 1) + '.' + preco.substr(1, 3); 
+		else if(tam == 5)
+			preco = preco.substr(0, 2) + '.' + preco.substr(2, 3);
+		else if(tam == 6)
+			preco = preco.substr(0, 3) + '.' + preco.substr(3, 3);
+		else if(tam > 6)
+			preco = preco.substr(0, 1) + '.' + preco.substr(1, 3) + '.' + preco.substr(4, 3);
+		return preco;
+}
+
+function abrirPopupDetalhes(url){
+	window.open(url, '', 'width=400,height=200');
+}
+
+// Função para Acesso ao Sistema
+
+function abreJanelaPopup(wName, wWidth, wHeight, wResize) {
+	if (document.form.login.value == "") {
+		window.alert("Por favor, digite o nome de usuário!");
+		document.form.login.focus();
+		return false;
+	} else if(document.form.senha.value == "") {
+		window.alert("Por favor, digite sua senha!");
+		document.form.senha.focus();
+		return false;
+	} else {
+		document.form.acao.value = "javascript:window.close();";
+		document.form.botao.value = "fechar_gr.jpg";
+   	features = 'scrollbars=1,status=1,resizable=' + ((wResize) ? 1 : 0) + ((wWidth) ? ',width=' + wWidth : '') + ((wHeight) ? ',height=' + wHeight : '');
+   	popWin = window.open('', wName, features);
+		if(popWin.focus) {
+    		popWin.focus();
+   	}
+	}
+	return true;
+}
+
+function logar(wName, wWidth, wHeight, wResize) {
+	if (form.login.value == "") {
+		window.alert("Digite seu login.");
+		form.login.focus();
+	} else if (form.senha.value == "") {
+		window.alert("Digite sua senha.");
+		form.senha.focus();
+	} else {
+		document.form.acao.value = "javascript:history.back();";
+		document.form.botao.value = "voltar_gr.jpg";
+    document.form.operacao.value="logar";
+   	features = 'top=10,left=10, scrollbars=1,status=1,resizable=' + ((wResize) ? 1 : 0) + ((wWidth) ? ',width=' + wWidth : '') + ((wHeight) ? ',height=' + wHeight : '');
+   	popWin = window.open('', wName, features);
+		if(popWin.focus) {
+    		popWin.focus();
+   	}
+	}
+}
+
+function lembrarSenha() {
+	if (form.login.value == "") {
+		window.alert("Digite seu login.");
+		form.login.focus();
+	} else {
+	    document.form.operacao.value="lembrarSenha";
+	    document.form.target="";
+	    document.form.acao.value = "javascript:history.back();";
+            document.form.botao.value = "voltar_gr.jpg";
+	    document.form.action="http://www.expoimovel.com/servlet/br.com.expoimovel.servlet.GerenciadorLoginExpoimovelServlet?origem=expoimovel";
+            form.submit();
+	}
+}
+
+function validarEmail(){
+
+}
+
+
+
+function abrirListaInteresse(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=650,height=200,top=100,left=150')
+}
+
+function abrirImagemImovel(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=400,height=600,top=10,left=10')
+}   
+
+function abrirVideoImovel(url){
+	window.open(url,'','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=720,height=550,top=100,left=150')
+}
+
+function abrirPlanosPrecosImovel(url){
+	window.document.location.href = url;
+}
+
+function listaInteresse(url) {
+	var lista;
+	lista = window.open(url,'listaInteresse','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,width=700,height=400,top=100,left=50');
+	lista.focus();
+}

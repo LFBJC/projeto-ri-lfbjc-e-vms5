@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 TODO
 rankear usando modelo de espaço de vetores com e sem tf idf

@@ -12,7 +12,8 @@ with open('index.json') as json_file:
     data = json.load(json_file)
 docs = []
 for t in query_terms:
-	docs.append(data[t])
+	if(t in data):
+		docs.append(data[t])
 with open('ordem de documentos.txt') as docs_file:
     files = docs_file.read().replace('\n', '').replace(' ','').replace('[', '').replace(']','').split(',')
 filenames = []

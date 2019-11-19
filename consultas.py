@@ -31,12 +31,13 @@ if (tipo_de_busca == 'a'):
 	banheiros_ate = input('digite o número máximo de banheiros: ')
 	preco_de = input('digite o preço mínimo: ')
 	preco_ate = input('digite o preço máximo: ')
-elements =[]
+elements =dict()
 for name in filenames:
-	with open('.\\info_pages\\'+name+'.json') as element:
-		elem_features = json.load(element);
-		if((elem_features['Quartos']>qtos_de)&(elem_features['Quartos']<qtos_ate)&(elem_features['Banheiros']>banheiros_de)&(elem_features['Banheiros']<banheiros_ate)&(elem_features['Preco']>preco_de)&(elem_features['Preco']<preco_ate)):
-			elements.append(elem_features)
+	with open('.\\info_pages\\'+name+'.json') as element_json:
+		with open('.\\wrapper_files\\'+name+'.html') as document:
+			elem_features = json.load(element_json);
+			if((elem_features['Quartos']>qtos_de)&(elem_features['Quartos']<qtos_ate)&(elem_features['Banheiros']>banheiros_de)&(elem_features['Banheiros']<banheiros_ate)&(elem_features['Preco']>preco_de)&(elem_features['Preco']<preco_ate)):
+				elements[name]=(elem_features,document)
 #rankeamento
 
 #exibição da busca

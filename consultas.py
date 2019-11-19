@@ -4,6 +4,7 @@ rankear usando modelo de espaço de vetores com e sem tf idf
 calc correlação dos ranks
 """
 import json
+import vector_space_model
 query = raw_input('digite aqui os termos da consulta: ')
 query_terms = query.split()
 with open('index.json') as json_file:
@@ -37,7 +38,7 @@ for name in filenames:
 		with open('.\\wrapper_files\\'+name+'.html') as document:
 			elem_features = json.load(element_json);
 			if((elem_features['Quartos']>qtos_de)&(elem_features['Quartos']<qtos_ate)&(elem_features['Banheiros']>banheiros_de)&(elem_features['Banheiros']<banheiros_ate)&(elem_features['Preco']>preco_de)&(elem_features['Preco']<preco_ate)):
-				elements[name]=(elem_features,document)
+				elements[document]=(elem_features)
 #rankeamento
 
 #exibição da busca

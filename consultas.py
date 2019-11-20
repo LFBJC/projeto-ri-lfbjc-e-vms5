@@ -18,7 +18,10 @@ with open('ordem de documentos.txt') as docs_file:
     files = docs_file.read().replace('\n', '').replace(' ','').replace('[', '').replace(']','').split(',')
 filenames = []
 for d in docs:
-	filenames.append(files[d[0]])
+	d_ = [i[0] for i in d]
+	print(d_)
+	print(files)
+	filenames.extend([files[i] for i in d_])
 #tratamento da busca avançada
 tipo_de_busca = raw_input('digite \'a\' para busca avançada ou \'c\' para busca comum: ')
 qtos_de = 0

@@ -6,7 +6,7 @@ calc correlação dos ranks
 """
 import os
 import json
-import vector_space_model
+import vector_space_model as vectspmod
 print(os.getcwd())
 query = raw_input('digite aqui os termos da consulta: ')
 query_terms = query.split()
@@ -48,6 +48,6 @@ for name in filenames:
 			if((elem_features['Quartos']>qtos_de)&(elem_features['Quartos']<qtos_ate)&(elem_features['Banheiros']>banheiros_de)&(elem_features['Banheiros']<banheiros_ate)&(elem_features['Preco']>preco_de)&(elem_features['Preco']<preco_ate)):
 				elements[document]=(elem_features)
 #rankeamento
-vsm = vector_space_model(elements.keys())
+vsm = vectspmod.vector_space_model(elements.keys())
 rank1 = vsm.search([query])
 #exibição da busca

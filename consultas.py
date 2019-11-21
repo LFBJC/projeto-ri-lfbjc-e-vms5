@@ -41,7 +41,7 @@ if (tipo_de_busca == 'a'):
 	preco_ate = input('digite o preço máximo: ')
 elements =dict()
 for name in filenames:
-	name = name.replace('\'','')
+	name = name.replace('\'','').replace('\r','')
 	with open('info_pages/'+name+'.json') as element_json:
 		with open('wrapper_files/'+name+'.html') as document:
 			elem_features = json.load(element_json);
